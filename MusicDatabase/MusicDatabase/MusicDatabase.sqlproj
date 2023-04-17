@@ -59,9 +59,11 @@
     <Folder Include="SQL" />
     <Folder Include="SQL\Schemas" />
     <Folder Include="SQL\Tables" />
+    <Folder Include="Datasets" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SQL\Schemas\Music.sql" />
     <None Include="SQL\Tables\DropTables.sql" />
+    <None Include="Datasets\charts.csv" />
   </ItemGroup>
 </Project>
