@@ -57,5 +57,11 @@
   <ItemGroup>
     <Folder Include="Properties" />
     <Folder Include="SQL" />
+    <Folder Include="SQL\Schemas" />
+    <Folder Include="SQL\Tables" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SQL\Schemas\Music.sql" />
+    <None Include="SQL\Tables\DropTables.sql" />
   </ItemGroup>
 </Project>
