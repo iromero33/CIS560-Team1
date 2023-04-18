@@ -60,10 +60,21 @@
     <Folder Include="SQL\Schemas" />
     <Folder Include="SQL\Tables" />
     <Folder Include="Datasets" />
+    <Folder Include="Models" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SQL\Schemas\Music.sql" />
     <None Include="SQL\Tables\DropTables.sql" />
     <None Include="Datasets\charts.csv" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\Artist.cs" />
+    <Compile Include="Models\Song.cs" />
+    <Compile Include="Models\Album.cs" />
+    <Compile Include="Models\Genre.cs" />
+    <Compile Include="Models\SpotifyListens.cs" />
+    <Compile Include="Models\Billboard.cs" />
+    <Compile Include="Models\RecordLabel.cs" />
+    <Compile Include="Models\SongArtist.cs" />
   </ItemGroup>
 </Project>
