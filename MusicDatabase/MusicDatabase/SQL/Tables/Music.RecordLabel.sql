@@ -1,0 +1,10 @@
+﻿IF OBJECT_ID(N'Music.RecordLabel') IS NULL
+BEGIN
+   CREATE TABLE Music.RecordLabel
+   (
+      LabelID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
+      [Name] NVARCHAR(64) NOT NULL UNIQUE,
+      City NVARCHAR(64) NOT NULL,
+      Country NVARCHAR(64) NOT NULL,
+   );
+END;
