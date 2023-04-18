@@ -1,0 +1,8 @@
+﻿IF OBJECT_ID(N'Music.Genre') IS NULL
+BEGIN
+   CREATE TABLE Music.Genre
+   (
+      GenreID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
+      [Name] NVARCHAR(64) NOT NULL UNIQUE,
+   );
+END;

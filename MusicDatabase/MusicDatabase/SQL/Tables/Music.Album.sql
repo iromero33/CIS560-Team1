@@ -1,0 +1,10 @@
+﻿IF OBJECT_ID(N'Music.Album') IS NULL
+BEGIN
+   CREATE TABLE Music.Album
+   (
+      AlbumID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
+      LabelID INT NOT NULL,
+      [Name] NVARCHAR(64) NOT NULL,
+      ReleaseDate DATETIMEOFFSET NOT NULL
+   );
+END;

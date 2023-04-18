@@ -1,0 +1,10 @@
+﻿IF OBJECT_ID(N'Music.Billboard') IS NULL
+BEGIN
+   CREATE TABLE Music.Billboard
+   (
+      BillboardID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
+      AlbumID INT NOT NULL,
+      StartDate DATETIMEOFFSET NOT NULL,
+      EndDate DATETIMEOFFSET NOT NULL
+   );
+END;
