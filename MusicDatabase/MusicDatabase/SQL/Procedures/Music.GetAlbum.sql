@@ -1,8 +1,8 @@
 ﻿CREATE OR ALTER PROCEDURE Music.GetAlbum
-	@AlbumID INT
+	@Name NVARCHAR(64)
 AS
 
-SELECT A.[Name], A.ReleaseDate
+SELECT A.AlbumID, A.ReleaseDate
 FROM Music.Album A
-WHERE A.AlbumID = @AlbumID;
+WHERE A.[Name] = @Name;
 GO
