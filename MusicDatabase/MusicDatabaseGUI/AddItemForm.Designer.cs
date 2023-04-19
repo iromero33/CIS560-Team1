@@ -45,6 +45,7 @@
             // 
             // uxAlbumMenu
             // 
+            this.uxAlbumMenu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.uxAlbumMenu.FormattingEnabled = true;
             this.uxAlbumMenu.Location = new System.Drawing.Point(228, 97);
             this.uxAlbumMenu.Name = "uxAlbumMenu";
@@ -97,6 +98,7 @@
             // 
             // uxArtistMenu
             // 
+            this.uxArtistMenu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.uxArtistMenu.FormattingEnabled = true;
             this.uxArtistMenu.Location = new System.Drawing.Point(12, 97);
             this.uxArtistMenu.Name = "uxArtistMenu";
@@ -124,6 +126,7 @@
             // 
             // uxGenreMenu
             // 
+            this.uxGenreMenu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.uxGenreMenu.FormattingEnabled = true;
             this.uxGenreMenu.Location = new System.Drawing.Point(12, 167);
             this.uxGenreMenu.Name = "uxGenreMenu";
@@ -148,10 +151,12 @@
             // 
             // uxReleaseDateInput
             // 
+            this.uxReleaseDateInput.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.uxReleaseDateInput.Location = new System.Drawing.Point(228, 28);
             this.uxReleaseDateInput.Name = "uxReleaseDateInput";
             this.uxReleaseDateInput.Size = new System.Drawing.Size(170, 22);
             this.uxReleaseDateInput.TabIndex = 12;
+            this.uxReleaseDateInput.Value = new System.DateTime(2023, 4, 18, 20, 41, 1, 0);
             // 
             // AddItemForm
             // 

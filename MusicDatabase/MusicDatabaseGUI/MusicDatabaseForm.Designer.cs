@@ -138,6 +138,7 @@
             // 
             // uxAlbumList
             // 
+            this.uxAlbumList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.uxAlbumList.FormattingEnabled = true;
             this.uxAlbumList.Location = new System.Drawing.Point(225, 28);
             this.uxAlbumList.Name = "uxAlbumList";
@@ -146,6 +147,7 @@
             // 
             // uxArtistList
             // 
+            this.uxArtistList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.uxArtistList.FormattingEnabled = true;
             this.uxArtistList.Location = new System.Drawing.Point(225, 85);
             this.uxArtistList.Name = "uxArtistList";
@@ -154,6 +156,7 @@
             // 
             // uxGenreList
             // 
+            this.uxGenreList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.uxGenreList.FormattingEnabled = true;
             this.uxGenreList.Location = new System.Drawing.Point(225, 148);
             this.uxGenreList.Name = "uxGenreList";
