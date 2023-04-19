@@ -10,14 +10,11 @@ namespace MusicDatabase.Models
 
         public string Name { get; }
 
-        public string StreamingService { get; }
-
-        internal Artist(int artistId, int songId, string name, string streamingService)
+        internal Artist(int artistId, int songId, string name)
         {
             ArtistID = artistId;
             SongID = songId;
             Name = name;
-            StreamingService = streamingService;
         }
     }
 }
