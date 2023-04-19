@@ -70,7 +70,6 @@
     <None Include="SQL\Tables\DropTables.sql" />
     <None Include="SQL\Tables\Music.Artist.sql" />
     <None Include="SQL\Tables\Music.Song.sql" />
-    <None Include="SQL\Tables\Music.SpotifyListens.sql" />
     <None Include="SQL\Tables\Music.Genre.sql" />
     <None Include="SQL\Tables\Music.Album.sql" />
     <None Include="SQL\Tables\Music.Billboard.sql" />
@@ -105,6 +104,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="SQL\Procedures\Music.GetBillboard.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ISongRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Artist.cs" />
