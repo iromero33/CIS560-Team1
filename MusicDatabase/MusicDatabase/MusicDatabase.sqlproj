@@ -61,6 +61,7 @@
     <Folder Include="SQL\Schemas" />
     <Folder Include="SQL\Tables" />
     <Folder Include="Datasets" />
+    <Folder Include="SQL\Procedures" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SQL\Schemas\Music.sql" />
@@ -73,6 +74,7 @@
     <None Include="SQL\Tables\Music.RecordLabel.sql" />
     <None Include="SQL\Tables\Music.Album.sql" />
     <None Include="SQL\Tables\Music.Billboard.sql" />
+    <None Include="SQL\Procedures\Music.CreateArtist.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SQL\Tables\Music.SongArtist.sql" />
