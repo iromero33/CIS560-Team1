@@ -71,7 +71,6 @@
     <None Include="SQL\Tables\Music.Song.sql" />
     <None Include="SQL\Tables\Music.SpotifyListens.sql" />
     <None Include="SQL\Tables\Music.Genre.sql" />
-    <None Include="SQL\Tables\Music.RecordLabel.sql" />
     <None Include="SQL\Tables\Music.Album.sql" />
     <None Include="SQL\Tables\Music.Billboard.sql" />
   </ItemGroup>
@@ -85,7 +84,6 @@
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\SpotifyListens.cs" />
     <Compile Include="Models\Billboard.cs" />
-    <Compile Include="Models\RecordLabel.cs" />
     <Compile Include="Models\SongArtist.cs" />
   </ItemGroup>
 </Project>
