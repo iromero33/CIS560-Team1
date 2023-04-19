@@ -64,6 +64,7 @@
     <Folder Include="SQL\Procedures" />
     <Folder Include="Models" />
     <Folder Include="DataDelegates" />
+    <Folder Include="SQL\Data" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SQL\Schemas\Music.sql" />
@@ -79,7 +80,8 @@
     <None Include="SQL\Procedures\Music.CreateSong.sql" />
     <None Include="SQL\Procedures\Music.GetGenre.sql" />
     <None Include="SQL\Procedures\Music.FetchGenre.sql" />
-    <None Include="Datasets\spotify-top-200-dataset.csv" />
+    <None Include="SQL\Data\Music.SpotifyTop200.sql" />
+    <None Include="Datasets\spotify_dataset.csv" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SQL\Tables\Music.SongArtist.sql" />
