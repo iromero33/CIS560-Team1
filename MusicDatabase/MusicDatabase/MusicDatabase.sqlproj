@@ -104,4 +104,7 @@
   <ItemGroup>
     <None Include="SQL\Procedures\Music.GetBillboard.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ISongRepository.cs" />
+  </ItemGroup>
 </Project>

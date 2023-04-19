@@ -4,7 +4,7 @@
    @ArtistID INT OUTPUT
 AS
 
-INSERT Person.Person([Name], SongID)
+INSERT Music.Artist([Name], SongID)
 VALUES(@Name, @SongID);
 
 SET @ArtistID = SCOPE_IDENTITY();
