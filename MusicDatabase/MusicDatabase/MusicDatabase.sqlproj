@@ -69,7 +69,6 @@
     <None Include="Datasets\charts.csv" />
     <None Include="SQL\Tables\Music.Artist.sql" />
     <None Include="SQL\Tables\Music.Song.sql" />
-    <None Include="SQL\Tables\Music.SpotifyListens.sql" />
     <None Include="SQL\Tables\Music.Genre.sql" />
     <None Include="SQL\Tables\Music.RecordLabel.sql" />
     <None Include="SQL\Tables\Music.Album.sql" />
