@@ -63,6 +63,7 @@
     <Folder Include="Datasets" />
     <Folder Include="SQL\Procedures" />
     <Folder Include="Models" />
+    <Folder Include="DataDelegates" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SQL\Schemas\Music.sql" />
@@ -113,5 +114,20 @@
     <Compile Include="Models\SpotifyListens.cs" />
     <Compile Include="Models\Billboard.cs" />
     <Compile Include="Models\SongArtist.cs" />
+    <Compile Include="DataDelegates\FetchSongDataDelegate.cs" />
+    <Compile Include="DataDelegates\CreateSongDataDelegate.cs" />
+    <Compile Include="DataDelegates\GetSongDataDelegate.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Name>DataAccess</Name>
+      <Project>{a5ac459d-6c0a-4d6e-ad65-ecb3e0fec3a7}</Project>
+      <Private>True</Private>
+      <IsModelAware>True</IsModelAware>
+      <GenerateSqlClrDdl>True</GenerateSqlClrDdl>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Data" />
   </ItemGroup>
 </Project>
