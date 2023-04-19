@@ -18,6 +18,8 @@ namespace MusicDatabaseGUI
         public MusicDatabaseForm()
         {
             InitializeComponent();
+
+            uxReleaseDateInput.CustomFormat = "MMMM yyyy";
         }
 
         public void SetAddItemDel(AddItemDel del)
@@ -51,6 +53,38 @@ namespace MusicDatabaseGUI
         {
             string term = uxSongTextBox.Text;
             //Should query the songs by name based on search term
+        }
+
+        private void uxAlbumList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uxArtistList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uxGenreList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uxSearchByButton_Click(object sender, EventArgs e)
+        {
+            int numSpotifyListens = (int)uxSpotifyListensInput.Value;
+            
+        }
+
+        private void uxSearchWeeksButton_Click(object sender, EventArgs e)
+        {
+            int numWeeks = (int)uxBillboardWeeksInput.Value;
+        }
+
+        private void uxSearchDateButton_Click(object sender, EventArgs e)
+        {
+            DateTime searchDate = uxReleaseDateInput.Value;
+
         }
     }
 }

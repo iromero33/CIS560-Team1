@@ -13,6 +13,8 @@ namespace MusicDatabaseGUI
     public partial class AddItemForm : Form
     {
         private bool IsNewItem;
+
+        private ItemType CurrItemType;
         
         public AddItemForm()
         {
@@ -23,6 +25,8 @@ namespace MusicDatabaseGUI
         {
             HideAllOptions();
             IsNewItem = false;
+            CurrItemType = type;
+
             switch (type)
             {
                 case ItemType.Album:
@@ -37,9 +41,6 @@ namespace MusicDatabaseGUI
                 case ItemType.Artist:
                     Text = "Add Artist";
                     uxNameLabel.Text = "Artist Name";
-
-                    uxOtherLabel.Text = "Streaming Service";
-                    uxOtherInput.Visible = true;
                     break;
                 case ItemType.Song:
                     Text = "Add Song";
@@ -73,6 +74,23 @@ namespace MusicDatabaseGUI
             if (IsNewItem)
             {
                 //Add new item to database
+
+                string name = uxItemNameInput.Text;
+
+                switch(CurrItemType)
+                {
+                    case ItemType.Album:
+                        //Add album to database
+                        break;
+                    case ItemType.Artist:
+                        //Add artist to database
+                        break;
+                    case ItemType.Song:
+                        //Add song to database
+                        break;
+                    default:
+                        break;
+                }
             }
             this.Close();
         }
