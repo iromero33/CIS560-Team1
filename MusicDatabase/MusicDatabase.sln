@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31702.278
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "MusicDatabase", "MusicDatabase\MusicDatabase.sqlproj", "{2E06C33E-DCCE-4422-AF6B-67E8F92AFEBD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicDatabaseGUI", "MusicDatabaseGUI\MusicDatabaseGUI.csproj", "{DE8D5F36-C417-4978-8B78-2EEE2AB7BA05}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,6 +19,10 @@ Global
 		{2E06C33E-DCCE-4422-AF6B-67E8F92AFEBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E06C33E-DCCE-4422-AF6B-67E8F92AFEBD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2E06C33E-DCCE-4422-AF6B-67E8F92AFEBD}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{DE8D5F36-C417-4978-8B78-2EEE2AB7BA05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE8D5F36-C417-4978-8B78-2EEE2AB7BA05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE8D5F36-C417-4978-8B78-2EEE2AB7BA05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE8D5F36-C417-4978-8B78-2EEE2AB7BA05}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
