@@ -79,4 +79,25 @@
   <ItemGroup>
     <None Include="SQL\Tables\Music.SongArtist.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="SQL\Procedures\Music.GetSong.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SQL\Procedures\Music.FetchSong.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SQL\Procedures\Music.GetAlbum.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SQL\Procedures\Music.CreateAlbum.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SQL\Procedures\Music.CreateBillboard.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SQL\Procedures\Music.FetchBillboard.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SQL\Procedures\Music.GetBillboard.sql" />
+  </ItemGroup>
 </Project>
