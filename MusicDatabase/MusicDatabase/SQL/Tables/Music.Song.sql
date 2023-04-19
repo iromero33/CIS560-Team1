@@ -7,7 +7,7 @@ BEGIN
       ArtistID INT NOT NULL,
       AlbumID INT NOT NULL,
       GenreID INT NOT NULL,
-      SpotifyID INT NOT NULL
+      SpotifyListens INT NOT NULL
 
        CONSTRAINT PK_Music_Song_SongID PRIMARY KEY CLUSTERED
       (
