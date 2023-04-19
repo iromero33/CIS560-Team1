@@ -75,6 +75,11 @@
     <None Include="SQL\Tables\Music.Album.sql" />
     <None Include="SQL\Tables\Music.Billboard.sql" />
     <None Include="SQL\Procedures\Music.CreateArtist.sql" />
+    <None Include="SQL\Procedures\Music.FetchArtist.sql" />
+    <None Include="SQL\Procedures\Music.GetArtist.sql" />
+    <None Include="SQL\Procedures\Music.CreateSong.sql" />
+    <None Include="SQL\Procedures\Music.GetGenre.sql" />
+    <None Include="SQL\Procedures\Music.FetchGenre.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SQL\Tables\Music.SongArtist.sql" />
