@@ -52,7 +52,6 @@
     <Compile Include="Models\Artist.cs" />
     <Compile Include="Models\Billboard.cs" />
     <Compile Include="Models\Genre.cs" />
-    <Compile Include="Models\RecordLabel.cs" />
     <Compile Include="Models\Song.cs" />
     <Compile Include="Models\SongArtist.cs" />
     <Compile Include="Models\SpotifyListens.cs" />
