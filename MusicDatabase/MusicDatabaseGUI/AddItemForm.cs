@@ -65,13 +65,14 @@ namespace MusicDatabaseGUI
         {
             InitializeForm(ItemType.Artist);
             IsNewItem = true;
+            //Should eventually hook up to edit artist button in main form using delegates
         }
 
         private void uxOkButton_Click(object sender, EventArgs e)
         {
             if (IsNewItem)
             {
-
+                //Add new item to database
             }
             this.Close();
         }

@@ -10,6 +10,8 @@ namespace MusicDatabaseGUI
     {
         private AddItemDel AddNewItem;
 
+        //Should eventually store BindingLists of songs, albums, etc.
+
         public void SetAddNewItemDel(AddItemDel del)
         {
             AddNewItem = del;

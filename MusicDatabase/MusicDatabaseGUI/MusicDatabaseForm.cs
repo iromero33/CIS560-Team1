@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace MusicDatabaseGUI
 {
+    //Eventually add different searches of songs based on queries we decide on implementing
     public partial class MusicDatabaseForm : Form
     {
         private AddItemDel AddItemOfType;
@@ -49,6 +50,7 @@ namespace MusicDatabaseGUI
         private void uxSearchSongButton_Click(object sender, EventArgs e)
         {
             string term = uxSongTextBox.Text;
+            //Should query the songs by name based on search term
         }
     }
 }

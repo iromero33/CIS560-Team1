@@ -6,7 +6,9 @@ using System.Windows.Forms;
 
 namespace MusicDatabaseGUI
 {
+    //Also need a delegate for editing an item (Need types for this)
     public delegate void AddItemDel(ItemType addItemType);
+
     internal static class Program
     {
         /// <summary>
@@ -21,6 +23,8 @@ namespace MusicDatabaseGUI
             Controller controller = new Controller();
             MusicDatabaseForm form = new MusicDatabaseForm();
             AddItemForm addForm = new AddItemForm();
+
+            //Should eventually populate lists in forms using BindingLists of songs, albums, etc. stored in Controller
 
             form.SetAddItemDel(controller.AddItemOfType);
             controller.SetAddNewItemDel(addForm.InitializeForm);
