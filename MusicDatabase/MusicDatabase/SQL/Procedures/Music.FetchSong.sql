@@ -2,7 +2,7 @@
 	@SongID INT
 AS
 
-SELECT S.Title, S.ArtistID, S.AlbumID, S.GenreID, S.SpotifyID
+SELECT S.Title, S.ArtistID, S.AlbumID, S.GenreID, S.SpotifyListens
 FROM Music.Song S
 WHERE S.SongID = @SongID;
 GO

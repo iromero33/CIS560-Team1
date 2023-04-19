@@ -14,16 +14,16 @@ namespace MusicDatabase
         public readonly int artistID;
         private readonly int albumID;
         private readonly int genreID;
-        private readonly int spotifyID;
+        private readonly int spotifyListens;
 
-        public CreateSongDataDelegate(string title, int artistID, int albumID, int genreID, int spotifyID)
+        public CreateSongDataDelegate(string title, int artistID, int albumID, int genreID, int spotifyListens)
            : base("Music.CreateSong")
         {
             this.title = title;
             this.artistID = artistID;
             this.albumID = albumID;
             this.genreID = genreID;
-            this.spotifyID = spotifyID;
+            this.spotifyListens = spotifyListens;
     }
 
         public override void PrepareCommand(SqlCommand command)
@@ -34,7 +34,7 @@ namespace MusicDatabase
             command.Parameters.AddWithValue("ArtistID", artistID);
             command.Parameters.AddWithValue("AlbumID", albumID);
             command.Parameters.AddWithValue("GenreID", genreID);
-            command.Parameters.AddWithValue("SpotifyID", spotifyID);
+            command.Parameters.AddWithValue("SpotifyListens", spotifyListens);
 
             var p = command.Parameters.Add("SongID", SqlDbType.Int);
             p.Direction = ParameterDirection.Output;
@@ -42,7 +42,7 @@ namespace MusicDatabase
 
         public override Song Translate(SqlCommand command)
         {
-            return new Song((int)command.Parameters["SongID"].Value, title, artistID, albumID, genreID, spotifyID);
+            return new Song((int)command.Parameters["SongID"].Value, title, artistID, albumID, genreID, spotifyListens);
         }
     }
 }

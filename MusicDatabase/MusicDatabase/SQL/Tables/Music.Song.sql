@@ -14,7 +14,7 @@ BEGIN
          SongID ASC
       )
 
-      CONSTRAINT FK_Music_Song_Music_Artist FOREIGN KEY(ArtsitID)
+      CONSTRAINT FK_Music_Song_Music_Artist FOREIGN KEY(ArtistID)
       REFERENCES Music.Artsit(ArtistID)
 
       CONSTRAINT FK_Music_Song_Music_Album FOREIGN KEY(AlbumID)

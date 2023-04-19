@@ -2,7 +2,7 @@
    @Name NVARCHAR(64)
 AS
 
-SELECT G.Name
+SELECT G.GenreID
 FROM Music.Genre G
 WHERE G.Name = @Name;
 GO

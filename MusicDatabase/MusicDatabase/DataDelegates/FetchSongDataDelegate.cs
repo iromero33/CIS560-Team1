@@ -34,7 +34,7 @@ namespace MusicDatabase
                reader.GetInt32("ArtistID"),
                reader.GetInt32("AlbumID"),
                reader.GetInt32("GenreID"),
-               reader.GetInt32("SpotifyID"));
+               reader.GetInt32("SpotifyListens"));
         }
     }
 }

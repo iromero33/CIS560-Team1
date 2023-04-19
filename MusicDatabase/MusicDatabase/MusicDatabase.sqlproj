@@ -109,6 +109,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ISongRepository.cs" />
+    <Compile Include="DataDelegates\GetGenreDataDelegate.cs" />
+    <Compile Include="DataDelegates\FetchGenreDataDelegate.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Artist.cs" />
