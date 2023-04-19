@@ -1,0 +1,3 @@
+﻿IF SCHEMA_ID(N'Music') IS NULL
+   EXEC(N'CREATE SCHEMA [Music];');
+GO

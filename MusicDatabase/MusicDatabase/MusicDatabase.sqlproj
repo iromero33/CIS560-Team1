@@ -16,12 +16,13 @@
     <ModelCollation>1033, CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <TargetLanguage>CS</TargetLanguage>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -57,5 +58,34 @@
   <ItemGroup>
     <Folder Include="Properties" />
     <Folder Include="SQL" />
+    <Folder Include="SQL\Schemas" />
+    <Folder Include="SQL\Tables" />
+    <Folder Include="Datasets" />
+    <Folder Include="Models" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SQL\Schemas\Music.sql" />
+    <None Include="SQL\Tables\DropTables.sql" />
+    <None Include="Datasets\charts.csv" />
+    <None Include="SQL\Tables\Music.Artist.sql" />
+    <None Include="SQL\Tables\Music.Song.sql" />
+    <None Include="SQL\Tables\Music.SpotifyListens.sql" />
+    <None Include="SQL\Tables\Music.Genre.sql" />
+    <None Include="SQL\Tables\Music.RecordLabel.sql" />
+    <None Include="SQL\Tables\Music.Album.sql" />
+    <None Include="SQL\Tables\Music.Billboard.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SQL\Tables\Music.SongArtist.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\Artist.cs" />
+    <Compile Include="Models\Song.cs" />
+    <Compile Include="Models\Album.cs" />
+    <Compile Include="Models\Genre.cs" />
+    <Compile Include="Models\SpotifyListens.cs" />
+    <Compile Include="Models\Billboard.cs" />
+    <Compile Include="Models\RecordLabel.cs" />
+    <Compile Include="Models\SongArtist.cs" />
   </ItemGroup>
 </Project>
