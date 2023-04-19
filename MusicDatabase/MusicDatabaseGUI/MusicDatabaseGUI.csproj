@@ -90,5 +90,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MusicDatabase\MusicDatabase.sqlproj">
+      <Project>{2e06c33e-dcce-4422-af6b-67e8f92afebd}</Project>
+      <Name>MusicDatabase</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

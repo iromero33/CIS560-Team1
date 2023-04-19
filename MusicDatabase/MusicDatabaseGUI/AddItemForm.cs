@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MusicDatabase.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,10 @@ namespace MusicDatabaseGUI
         private bool IsNewItem;
 
         private ItemType CurrItemType;
+
+        //private Song song;
+        //private Album album;
+        //private Artist artist;
         
         public AddItemForm()
         {
@@ -40,6 +45,7 @@ namespace MusicDatabaseGUI
                     break;
                 case ItemType.Artist:
                     Text = "Add Artist";
+                    uxOtherLabel.Text = "";
                     uxNameLabel.Text = "Artist Name";
                     break;
                 case ItemType.Song:
@@ -62,6 +68,9 @@ namespace MusicDatabaseGUI
             ShowDialog();
         }
 
+        /// <summary>
+        /// Not necessary anymore?
+        /// </summary>
         public void EditArtist()
         {
             InitializeForm(ItemType.Artist);
@@ -80,13 +89,21 @@ namespace MusicDatabaseGUI
                 switch(CurrItemType)
                 {
                     case ItemType.Album:
-                        //Add album to database
+                        
+                        int artistID = ((Artist)uxArtistMenu.SelectedValue).ArtistID;
+                        DateTime releaseDate = uxReleaseDateInput.Value;
+
+                        //Create Album
                         break;
                     case ItemType.Artist:
-                        //Add artist to database
+                        //Create Artist
                         break;
                     case ItemType.Song:
-                        //Add song to database
+                        artistID = ((Artist)uxArtistMenu.SelectedValue).ArtistID;
+                        int albumID = ((Album)uxAlbumMenu.SelectedValue).AlbumID;
+                        int genreID = ((Genre)uxGenreMenu.SelectedValue).GenreID;
+
+                        //Create Song
                         break;
                     default:
                         break;

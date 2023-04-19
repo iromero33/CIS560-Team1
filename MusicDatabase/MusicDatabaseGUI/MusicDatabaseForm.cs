@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MusicDatabase.Models;
 
 namespace MusicDatabaseGUI
 {
@@ -14,12 +15,21 @@ namespace MusicDatabaseGUI
     public partial class MusicDatabaseForm : Form
     {
         private AddItemDel AddItemOfType;
+
+        private BindingList<Song> Songs;
         
         public MusicDatabaseForm()
         {
             InitializeComponent();
 
             uxReleaseDateInput.CustomFormat = "MMMM yyyy";
+
+            Songs = new BindingList<Song>();
+
+            uxSongsList.DataSource = Songs;
+            //uxAlbumList.DataSource;
+            //uxArtistList.DataSource;
+            //uxGenreList.DataSource;
         }
 
         public void SetAddItemDel(AddItemDel del)
