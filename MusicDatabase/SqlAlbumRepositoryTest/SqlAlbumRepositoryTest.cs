@@ -15,15 +15,14 @@ namespace MusicDatabase.Tests
         private static string GetTestString() => Guid.NewGuid().ToString("N");
 
         private SqlAlbumRepository albumRepo;
-        //private SqlAddressRepository addressRepo;
+        
         private TransactionScope transaction;
 
         [TestInitialize]
         public void InitializeTest()
         {
-            personRepo = new SqlPersonRepository(connectionString);
-            addressRepo = new SqlAddressRepository(connectionString);
-
+            repo = new SqlAlbumRepository(connectionString);
+          
             transaction = new TransactionScope();
         }
 
@@ -34,8 +33,18 @@ namespace MusicDatabase.Tests
         }
 
         [TestMethod]
-        public void TestMethod1()
+        public void CreateAlbumShouldWork()
         {
+            var title = GetTestString();
+            var release = GetTestString();
+            
+
+            var actual = repo.CreatePerson(firstName, lastName, email);
+
+            Assert.IsNotNull(actual);
+            Assert.AreEqual(firstName, actual.FirstName);
+            Assert.AreEqual(lastName, actual.LastName);
+            Assert.AreEqual(email, actual.Email);
         }
     }
 }
