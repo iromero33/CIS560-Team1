@@ -1,38 +1,40 @@
 using System;
-using System.Data.SqlClient;
+using System.Collections.Generic;
+using System.Text;
 using DataAccess;
 using MusicDatabase.Models;
+using System.Data.SqlClient;
 
-namespace MusicDatabase.DataDelegates
+namespace MusicDatabase
 {
-    internal class FetchSongDataDelegates
+    internal class FetchSongDataDelegate : DataReaderDelegate<Song>
     {
+        private readonly int songId;
 
-        private readonly int personId;
-
-        public FetchSongDataDelegates(int personId)
-           : base("Person.FetchPerson")
+        public FetchSongDataDelegate(int songId)
+           : base("Music.FetchSong")
         {
-            this.personId = personId;
+            this.songId = songId;
         }
 
         public override void PrepareCommand(SqlCommand command)
         {
             base.PrepareCommand(command);
 
-            command.Parameters.AddWithValue("PersonId", personId);
+            command.Parameters.AddWithValue("SongID", songId);
         }
 
-        public override Person Translate(SqlCommand command, IDataRowReader reader)
+        public override Song Translate(SqlCommand command, IDataRowReader reader)
         {
             if (!reader.Read())
-                throw new RecordNotFoundException(personId.ToString());
+                throw new RecordNotFoundException(songId.ToString());
 
-            return new Person(personId,
-               reader.GetString("FirstName"),
-               reader.GetString("LastName"),
-               reader.GetString("Email"));
+            return new Song(songId,
+               reader.GetString("Title"),
+               reader.GetInt32("ArtistID"),
+               reader.GetInt32("AlbumID"),
+               reader.GetInt32("GenreID"),
+               reader.GetInt32("SpotifyListens"));
         }
-
     }
 }

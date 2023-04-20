@@ -8,9 +8,9 @@ namespace MusicDatabase.Models
 
         public string Name { get; }
 
-        public DateTime ReleaseDate { get; }
+        public DateTimeOffset ReleaseDate { get; }
 
-        internal Album(int albumId, string name, DateTime releaseDate)
+        internal Album(int albumId, string name, DateTimeOffset releaseDate)
         {
             AlbumID = albumId;
             Name = name;

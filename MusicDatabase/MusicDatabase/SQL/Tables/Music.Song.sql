@@ -7,12 +7,23 @@ BEGIN
       ArtistID INT NOT NULL,
       AlbumID INT NOT NULL,
       GenreID INT NOT NULL,
-      SpotifyID INT NOT NULL
+      SpotifyListens INT NOT NULL
 
-       CONSTRAINT PK_Music_Song_SongID PRIMARY KEY CLUSTERED
+      CONSTRAINT PK_Music_Song_SongID PRIMARY KEY CLUSTERED
       (
          SongID ASC
       )
+
+      CONSTRAINT FK_Music_Song_Music_Artist FOREIGN KEY(ArtistID)
+      REFERENCES Music.Artsit(ArtistID)
+
+      CONSTRAINT FK_Music_Song_Music_Album FOREIGN KEY(AlbumID)
+      REFERENCES Music.Album(AlbumID)
+
+      CONSTRAINT FK_Music_Song_Music_Genre FOREIGN KEY(GenreID)
+      REFERENCES Music.Genre(GenreID)
+
+     
    );
 END;
 
@@ -25,15 +36,14 @@ IF NOT EXISTS
       SELECT *
       FROM sys.key_constraints kc
       WHERE kc.parent_object_id = OBJECT_ID(N'Music.Song')
-         AND kc.[name] = N'UK_Music_Song_Title_AlbumID'
+         AND kc.[name] = N'UK_Music_Song_Title'
 
    )
 BEGIN
    ALTER TABLE Music.Song
-   ADD CONSTRAINT [UK_Music_Song_Title_AlbumID] UNIQUE NONCLUSTERED
+   ADD CONSTRAINT [UK_Music_Song_Title] UNIQUE NONCLUSTERED
    (
-      Title ASC,
-      AlbumID ASC
+      Title ASC
    )
 END;
 
@@ -45,19 +55,19 @@ IF NOT EXISTS
    (
       SELECT *
       FROM sys.foreign_keys fk
-      WHERE fk.parent_object_id = OBJECT_ID(N'Person.PersonAddress')
-         AND fk.referenced_object_id = OBJECT_ID(N'Person.Person')
-         AND fk.[name] = N'FK_Person_PersonAddress_Person_Person'
+      WHERE fk.parent_object_id = OBJECT_ID(N'Music.Song')
+         AND fk.referenced_object_id = OBJECT_ID(N'Music.Album')
+         AND fk.[name] = N'FK_Music_Song_Music_Album'
    )
 BEGIN
-   ALTER TABLE Person.PersonAddress
-   ADD CONSTRAINT [FK_Person_PersonAddress_Person_Person] FOREIGN KEY
+   ALTER TABLE Music.Song
+   ADD CONSTRAINT [FK_Music_Song_Music_Album] FOREIGN KEY
    (
-      PersonId
+      AlbumID
    )
-   REFERENCES Person.Person
+   REFERENCES Music.Album
    (
-      PersonId
+      AlbumID
    );
 END;
 
@@ -65,18 +75,18 @@ IF NOT EXISTS
    (
       SELECT *
       FROM sys.foreign_keys fk
-      WHERE fk.parent_object_id = OBJECT_ID(N'Person.PersonAddress')
-         AND fk.referenced_object_id = OBJECT_ID(N'Person.AddressType')
-         AND fk.[name] = N'FK_Person_PersonAddress_Person_AddressType'
+      WHERE fk.parent_object_id = OBJECT_ID(N'Music.Song')
+         AND fk.referenced_object_id = OBJECT_ID(N'Music.Genre')
+         AND fk.[name] = N'FK_Music_Song_Music_Genre'
    )
 BEGIN
-   ALTER TABLE Person.PersonAddress
-   ADD CONSTRAINT [FK_Person_PersonAddress_Person_AddressType] FOREIGN KEY
+   ALTER TABLE Music.Song
+   ADD CONSTRAINT [FK_Music_Song_Music_Genre] FOREIGN KEY
    (
-      AddressTypeId
+      GenreID
    )
-   REFERENCES Person.AddressType
+   REFERENCES Music.Artist
    (
-      AddressTypeId
+      GenreID
    );
 END;
