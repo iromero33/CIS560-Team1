@@ -7,7 +7,7 @@ using System.Text;
 
 namespace MusicDatabase
 {
-    class SqlAlbumRepository : IAlbumRepository
+    public class SqlAlbumRepository : IAlbumRepository
     {
         private readonly SqlCommandExecutor executor;
 

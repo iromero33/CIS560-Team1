@@ -13,8 +13,10 @@ namespace MusicDatabase.Tests
         const string connectionString = @"Server=(localdb)\MSSQLLocalDb;Database=   ;Integrated Security=SSPI;";
 
         private static string GetTestString() => Guid.NewGuid().ToString("N");
+        //private static string GetTestDateTime() => Guid.NewGuid();
 
-        private SqlAlbumRepository albumRepo;
+
+        private SqlAlbumRepository repo;
         
         private TransactionScope transaction;
 
@@ -35,16 +37,15 @@ namespace MusicDatabase.Tests
         [TestMethod]
         public void CreateAlbumShouldWork()
         {
-            var title = GetTestString();
-            var release = GetTestString();
+            var name = GetTestString();
+            var release = DateTime.Now;
             
 
-            var actual = repo.CreatePerson(firstName, lastName, email);
+            var actual = repo.CreateAlbum(name, release);
 
             Assert.IsNotNull(actual);
-            Assert.AreEqual(firstName, actual.FirstName);
-            Assert.AreEqual(lastName, actual.LastName);
-            Assert.AreEqual(email, actual.Email);
+            Assert.AreEqual(name, actual.Name);
+            Assert.AreEqual(release, actual.ReleaseDate);
         }
     }
 }
