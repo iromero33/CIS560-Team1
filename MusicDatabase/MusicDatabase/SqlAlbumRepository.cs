@@ -7,7 +7,7 @@ using System.Text;
 
 namespace MusicDatabase
 {
-    class SqlAlbumRepository : IAlbumRepository
+    public class SqlAlbumRepository : IAlbumRepository
     {
         private readonly SqlCommandExecutor executor;
 
@@ -16,7 +16,7 @@ namespace MusicDatabase
             executor = new SqlCommandExecutor(connectionString);
         }
 
-        public Album CreateAlbum(string name, DateTime releaseDate)
+        public Album CreateAlbum(string name, DateTimeOffset releaseDate)
         {
             if (string.IsNullOrWhiteSpace(name))
                 throw new ArgumentException("The parameter cannot be null or empty.", nameof(name));

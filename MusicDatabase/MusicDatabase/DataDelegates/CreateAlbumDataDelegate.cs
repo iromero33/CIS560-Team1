@@ -9,9 +9,9 @@ namespace MusicDatabase.DataDelegates
     internal class CreateAlbumDataDelegate : NonQueryDataDelegate<Album>
     {
         public readonly string name;
-        public readonly DateTime releaseDate;
+        public readonly DateTimeOffset releaseDate;
 
-        public CreateAlbumDataDelegate(string name, DateTime release)
+        public CreateAlbumDataDelegate(string name, DateTimeOffset release)
            : base("Music.CreateAlbum")
         {
             this.name = name;

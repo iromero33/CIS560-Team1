@@ -17,13 +17,36 @@ namespace MusicDatabaseGUI
 
         private ItemType CurrItemType;
 
-        //private Song song;
-        //private Album album;
-        //private Artist artist;
-        
-        public AddItemForm()
+        private GetAlbumsDel GetAlbums;
+
+        private GetArtistsDel GetArtists;
+
+        private GetGenresDel GetGenres;
+
+        private CreateAlbumDel CreateAlbum;
+
+        private CreateSongDel CreateSong;
+
+        private CreateArtistDel CreateArtist;
+
+        public AddItemForm(GetAlbumsDel albumsDel, GetArtistsDel artistsDel, GetGenresDel genresDel)
         {
             InitializeComponent();
+
+            GetAlbums = albumsDel;
+            GetArtists = artistsDel;
+            GetGenres = genresDel;
+
+            uxAlbumMenu.DataSource = GetAlbums();
+            uxArtistMenu.DataSource = GetArtists();
+            uxGenreMenu.DataSource = GetGenres();
+        }
+
+        public void SetCreateItemDels(CreateAlbumDel createAlbum, CreateSongDel createSong, CreateArtistDel createArtist)
+        {
+            CreateAlbum = createAlbum;
+            CreateSong = createSong;
+            CreateArtist = createArtist;
         }
 
         public void InitializeForm (ItemType type)
@@ -37,9 +60,6 @@ namespace MusicDatabaseGUI
                 case ItemType.Album:
                     Text = "Add Album";
                     uxNameLabel.Text = "Album Name";
-
-                    uxArtistLabel.Visible = true;
-                    uxArtistMenu.Visible = true;
                     uxOtherLabel.Text = "Release Date";
                     uxReleaseDateInput.Visible = true;
                     break;
@@ -89,19 +109,20 @@ namespace MusicDatabaseGUI
                 switch(CurrItemType)
                 {
                     case ItemType.Album:
-                        
-                        int artistID = ((Artist)uxArtistMenu.SelectedValue).ArtistID;
                         DateTime releaseDate = uxReleaseDateInput.Value;
-
-                        //Create Album
+                        CreateAlbum(name, releaseDate);
                         break;
                     case ItemType.Artist:
-                        //Create Artist
+                        //REMEMBER TO ASK: WHAT TO DO ABOUT SONGARTIST RELATIONSHIP?
+                        CreateArtist(name, 1);
                         break;
                     case ItemType.Song:
-                        artistID = ((Artist)uxArtistMenu.SelectedValue).ArtistID;
+                        int artistID = ((Artist)uxArtistMenu.SelectedValue).ArtistID;
                         int albumID = ((Album)uxAlbumMenu.SelectedValue).AlbumID;
                         int genreID = ((Genre)uxGenreMenu.SelectedValue).GenreID;
+                        int spotifyListens = Convert.ToInt32(uxOtherInput.Text);
+
+                        CreateSong(name, artistID, albumID, genreID, spotifyListens);
 
                         //Create Song
                         break;
