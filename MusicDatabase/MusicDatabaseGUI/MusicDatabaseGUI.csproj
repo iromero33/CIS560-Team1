@@ -91,8 +91,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MusicDatabase\MusicDatabase.sqlproj">
-      <Project>{2e06c33e-dcce-4422-af6b-67e8f92afebd}</Project>
+    <ProjectReference Include="..\MusicDatabaseNEW\MusicDatabase.csproj">
+      <Project>{26a2b163-3efc-483d-ac93-2b915f74ccf8}</Project>
       <Name>MusicDatabase</Name>
     </ProjectReference>
   </ItemGroup>

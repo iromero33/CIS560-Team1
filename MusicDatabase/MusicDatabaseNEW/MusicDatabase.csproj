@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{26A2B163-3EFC-483D-AC93-2B915F74CCF8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MusicDatabase</RootNamespace>
+    <AssemblyName>MusicDatabase</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataDelegates\CreateAlbumDataDelegate.cs" />
+    <Compile Include="DataDelegates\CreateArtistDataDelegate.cs" />
+    <Compile Include="DataDelegates\CreateBillboardDataDelegate.cs" />
+    <Compile Include="DataDelegates\CreateGenreDataDelegate.cs" />
+    <Compile Include="DataDelegates\CreateSongDataDelegate.cs" />
+    <Compile Include="DataDelegates\FetchAlbumDataDelegate.cs" />
+    <Compile Include="DataDelegates\FetchArtistDataDelegate.cs" />
+    <Compile Include="DataDelegates\FetchBillboardDataDelegate.cs" />
+    <Compile Include="DataDelegates\FetchGenreDataDelegate.cs" />
+    <Compile Include="DataDelegates\FetchSongDataDelegate.cs" />
+    <Compile Include="DataDelegates\GetAlbumDataDelegate.cs" />
+    <Compile Include="DataDelegates\GetArtistDataDelegate.cs" />
+    <Compile Include="DataDelegates\GetBillboardDataDelegate.cs" />
+    <Compile Include="DataDelegates\GetGenreDataDelegate.cs" />
+    <Compile Include="DataDelegates\GetSongDataDelegate.cs" />
+    <Compile Include="DataDelegates\RetrieveAlbumDataDelegate.cs" />
+    <Compile Include="DataDelegates\RetrieveArtistDataDelegate.cs" />
+    <Compile Include="DataDelegates\RetrieveBillboardDataDelegate.cs" />
+    <Compile Include="DataDelegates\RetrieveGenreDataDelegate.cs" />
+    <Compile Include="DataDelegates\RetrieveSongDataDelegate.cs" />
+    <Compile Include="IAlbumRepository.cs" />
+    <Compile Include="IArtistRepository.cs" />
+    <Compile Include="IBillboardRepository.cs" />
+    <Compile Include="IGenreRepository.cs" />
+    <Compile Include="ISongRepository.cs" />
+    <Compile Include="Models\Album.cs" />
+    <Compile Include="Models\Artist.cs" />
+    <Compile Include="Models\Billboard.cs" />
+    <Compile Include="Models\Genre.cs" />
+    <Compile Include="Models\Song.cs" />
+    <Compile Include="Models\SongArtist.cs" />
+    <Compile Include="Models\SpotifyListens.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlAlbumRepository.cs" />
+    <Compile Include="SqlArtistRepository.cs" />
+    <Compile Include="SqlBillboardRepository.cs" />
+    <Compile Include="SqlGenreRepository.cs" />
+    <Compile Include="SqlSongRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Datasets\billboard\billboard_script.py" />
+    <Content Include="Sql\Data\Music.SpotifyTop200.sql" />
+    <Content Include="Sql\Procedures\Music.CreateAlbum.sql" />
+    <Content Include="Sql\Procedures\Music.CreateArtist.sql" />
+    <Content Include="Sql\Procedures\Music.CreateBillboard.sql" />
+    <Content Include="Sql\Procedures\Music.CreateGenre.sql" />
+    <Content Include="Sql\Procedures\Music.CreateSong.sql" />
+    <Content Include="Sql\Procedures\Music.FetchArtist.sql" />
+    <Content Include="Sql\Procedures\Music.FetchBillboard.sql" />
+    <Content Include="Sql\Procedures\Music.FetchGenre.sql" />
+    <Content Include="Sql\Procedures\Music.FetchSong.sql" />
+    <Content Include="Sql\Procedures\Music.GetAlbum.sql" />
+    <Content Include="Sql\Procedures\Music.GetArtist.sql" />
+    <Content Include="Sql\Procedures\Music.GetBillboard.sql" />
+    <Content Include="Sql\Procedures\Music.GetGenre.sql" />
+    <Content Include="Sql\Procedures\Music.GetSong.sql" />
+    <Content Include="Sql\Procedures\Music.RetrieveAlbum.sql" />
+    <Content Include="Sql\Procedures\Music.RetrieveArtist.sql" />
+    <Content Include="Sql\Procedures\Music.RetrieveBillboard.sql" />
+    <Content Include="Sql\Procedures\Music.RetrieveGenre.sql" />
+    <Content Include="Sql\Procedures\Music.RetrieveSong.sql" />
+    <Content Include="Sql\Schemas\Music.sql" />
+    <Content Include="Sql\Tables\DropTables.sql" />
+    <Content Include="Sql\Tables\Music.Album.sql" />
+    <Content Include="Sql\Tables\Music.Artist.sql" />
+    <Content Include="Sql\Tables\Music.Billboard.sql" />
+    <Content Include="Sql\Tables\Music.Genre.sql" />
+    <Content Include="Sql\Tables\Music.Song.sql" />
+    <Content Include="Sql\Tables\Music.SongArtist.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Datasets\billboard_dataset.csv" />
+    <None Include="Datasets\spotify_dataset.csv" />
+    <None Include="Sql\Data\Artist.csv.xlsx" />
+    <None Include="Sql\Data\Genre.csv.xlsx" />
+    <None Include="Sql\Data\Song.csv.xlsx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{a5ac459d-6c0a-4d6e-ad65-ecb3e0fec3a7}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
