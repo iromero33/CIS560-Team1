@@ -2,7 +2,7 @@
    @ArtistID INT
 AS
 
-SELECT A.Name
+SELECT A.SongID, A.[Name]
 FROM Music.Arist A
 WHERE A.ArtistID = @ArtistID;
 GO
