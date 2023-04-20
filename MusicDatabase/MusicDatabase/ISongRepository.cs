@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using MusicDatabase.Models;
 
 
 namespace MusicDatabase
@@ -25,7 +26,7 @@ namespace MusicDatabase
         /// <exception cref="DataAccess.RecordNotFoundException">
         /// Thrown if <paramref name="SongID"/> does not exist.
         /// </exception>
-        Song FetchSong(int SongID);
+        Song FetchSong(int songID);
 
         /// <summary>
         /// Gets the song with the given <paramref name="SongID"/> if it exists.
@@ -36,6 +37,8 @@ namespace MusicDatabase
         /// if one exists with with the provided <paramref name="email"/>.
         /// If one is not found, <c>null</c> is returned.
         /// </returns>
-        Person GetPerson(string email);
+        Song GetSong(string title, int albumID);
+
+        Song CreateSong(string title, int artistID, int albumID, int genreID, int spotifyListens);
     }
 }

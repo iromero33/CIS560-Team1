@@ -30,7 +30,7 @@ namespace MusicDatabase.DataDelegates
 
         public override Artist Translate(SqlCommand command)
         {
-            return new Artist((int)command.Parameters["ArtistID"].Value, name, songId);
+            return new Artist((int)command.Parameters["ArtistID"].Value, songId, name);
         }
     }
 }

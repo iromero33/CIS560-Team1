@@ -9,10 +9,10 @@ namespace MusicDatabase.DataDelegates
     internal class CreateBillboardDataDelegate : NonQueryDataDelegate<Billboard>
     {
         public readonly int albumId;
-        public readonly DateTime start;
-        public readonly DateTime end;
+        public readonly DateTimeOffset start;
+        public readonly DateTimeOffset end;
 
-        public CreateBillboardDataDelegate(int albumId, DateTime start, DateTime end)
+        public CreateBillboardDataDelegate(int albumId, DateTimeOffset start, DateTimeOffset end)
            : base("Music.CreateBillboard")
         {
             this.albumId = albumId;

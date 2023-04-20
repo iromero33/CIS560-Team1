@@ -123,6 +123,15 @@
     <Compile Include="DataDelegates\RetrieveAlbumDataDelegate.cs" />
     <Compile Include="DataDelegates\RetrieveGenreDataDelegate.cs" />
     <Compile Include="DataDelegates\RetrieveBillboardDataDelegate.cs" />
+    <Compile Include="SqlSongRepository.cs" />
+    <Compile Include="IAlbumRepository.cs" />
+    <Compile Include="SqlAlbumRepository.cs" />
+    <Compile Include="IArtistRepository.cs" />
+    <Compile Include="SqlArtistRepository.cs" />
+    <Compile Include="IGenreRepository.cs" />
+    <Compile Include="SqlGenreRepository.cs" />
+    <Compile Include="IBillboardRepository.cs" />
+    <Compile Include="SqlBillboardRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Artist.cs" />
