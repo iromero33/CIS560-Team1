@@ -14,15 +14,15 @@ namespace MusicDatabase.Models
 
         public int GenreID { get; }
 
-        public int SpotifyID { get; }
+        public int SpotifyListens { get; }
 
-        internal Song(int songId, string title, int artistId, int albumId, int genreId, int spotifyId)
+        internal Song(int songId, string title, int artistId, int albumId, int genreId, int spotifyListens)
         {
             SongID = songId;
             Title = title;
             ArtistID = artistId;
             GenreID = genreId;
-            SpotifyID = spotifyId;
+            SpotifyListens = spotifyListens;
         }
     }
 }

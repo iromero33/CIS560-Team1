@@ -118,6 +118,11 @@
     <Compile Include="DataDelegates\CreateGenreDataDelegate.cs" />
     <Compile Include="DataDelegates\FetchBillboardDataDelegate.cs" />
     <Compile Include="DataDelegates\GetBillboardDataDelegate.cs" />
+    <Compile Include="DataDelegates\RetrieveArtistDataDelegate.cs" />
+    <Compile Include="DataDelegates\RetrieveSongDataDelegate.cs" />
+    <Compile Include="DataDelegates\RetrieveAlbumDataDelegate.cs" />
+    <Compile Include="DataDelegates\RetrieveGenreDataDelegate.cs" />
+    <Compile Include="DataDelegates\RetrieveBillboardDataDelegate.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Artist.cs" />
@@ -172,5 +177,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="SQL\Procedures\Music.CreateGenre.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SQL\Procedures\Music.RetrieveGenre.sql" />
   </ItemGroup>
 </Project>
