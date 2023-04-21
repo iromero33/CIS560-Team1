@@ -41,5 +41,15 @@ namespace MusicDatabase
         {
             return executor.ExecuteReader(new RetrieveSongDataDelegate());
         }
+
+        public IReadOnlyList<Song> GetSongsByTitle(string title)
+        {
+            return executor.ExecuteReader(new GetSongsByTitleDataDelegate(title));
+        }
+
+        public IReadOnlyList<Song> GetSongsByAlbum(int albumID)
+        {
+            return executor.ExecuteReader(new GetSongsByAlbumDataDelegate(albumID));
+        }
     }
 }

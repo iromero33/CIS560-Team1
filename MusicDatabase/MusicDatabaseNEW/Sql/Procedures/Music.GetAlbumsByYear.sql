@@ -4,5 +4,5 @@ AS
 
 SELECT A.AlbumID, A.[Name], A.ReleaseDate
 FROM Music.Album A
-WHERE YEAR(Album.ReleaseDate) = YEAR(@Year);
+WHERE YEAR(A.ReleaseDate) = YEAR(@Year);
 GO

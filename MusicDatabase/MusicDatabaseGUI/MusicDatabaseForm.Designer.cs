@@ -35,7 +35,7 @@
             this.uxArtistsLabel = new System.Windows.Forms.Label();
             this.uxAlbumsLabel = new System.Windows.Forms.Label();
             this.uxGenreLabel = new System.Windows.Forms.Label();
-            this.uxSearchSongButton = new System.Windows.Forms.Button();
+            this.uxClearSearchSongButton = new System.Windows.Forms.Button();
             this.uxAddAlbumButton = new System.Windows.Forms.Button();
             this.uxAlbumList = new System.Windows.Forms.ComboBox();
             this.uxArtistList = new System.Windows.Forms.ComboBox();
@@ -64,6 +64,10 @@
             this.uxSongArtistLabel = new System.Windows.Forms.Label();
             this.uxSongArtistOutput = new System.Windows.Forms.TextBox();
             this.uxSpotifyListensLabel = new System.Windows.Forms.Label();
+            this.uxAlbumYearInput = new System.Windows.Forms.DateTimePicker();
+            this.uxSearchByItems = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.uxUseDateCheckBox = new System.Windows.Forms.CheckBox();
             this.uxDisplayOptions.SuspendLayout();
             this.uxAddEditButtons.SuspendLayout();
             this.uxSearchOptions.SuspendLayout();
@@ -107,43 +111,44 @@
             this.uxSongTextBox.Name = "uxSongTextBox";
             this.uxSongTextBox.Size = new System.Drawing.Size(200, 22);
             this.uxSongTextBox.TabIndex = 7;
+            this.uxSongTextBox.TextChanged += new System.EventHandler(this.uxSongTextBox_TextChanged);
             // 
             // uxArtistsLabel
             // 
             this.uxArtistsLabel.AutoSize = true;
             this.uxArtistsLabel.Location = new System.Drawing.Point(6, 73);
             this.uxArtistsLabel.Name = "uxArtistsLabel";
-            this.uxArtistsLabel.Size = new System.Drawing.Size(36, 16);
+            this.uxArtistsLabel.Size = new System.Drawing.Size(55, 16);
             this.uxArtistsLabel.TabIndex = 8;
-            this.uxArtistsLabel.Text = "Artist";
+            this.uxArtistsLabel.Text = "By Artist";
             // 
             // uxAlbumsLabel
             // 
             this.uxAlbumsLabel.AutoSize = true;
             this.uxAlbumsLabel.Location = new System.Drawing.Point(6, 22);
             this.uxAlbumsLabel.Name = "uxAlbumsLabel";
-            this.uxAlbumsLabel.Size = new System.Drawing.Size(45, 16);
+            this.uxAlbumsLabel.Size = new System.Drawing.Size(64, 16);
             this.uxAlbumsLabel.TabIndex = 9;
-            this.uxAlbumsLabel.Text = "Album";
+            this.uxAlbumsLabel.Text = "By Album";
             // 
             // uxGenreLabel
             // 
             this.uxGenreLabel.AutoSize = true;
             this.uxGenreLabel.Location = new System.Drawing.Point(6, 124);
             this.uxGenreLabel.Name = "uxGenreLabel";
-            this.uxGenreLabel.Size = new System.Drawing.Size(44, 16);
+            this.uxGenreLabel.Size = new System.Drawing.Size(63, 16);
             this.uxGenreLabel.TabIndex = 10;
-            this.uxGenreLabel.Text = "Genre";
+            this.uxGenreLabel.Text = "By Genre";
             // 
-            // uxSearchSongButton
+            // uxClearSearchSongButton
             // 
-            this.uxSearchSongButton.Location = new System.Drawing.Point(11, 53);
-            this.uxSearchSongButton.Name = "uxSearchSongButton";
-            this.uxSearchSongButton.Size = new System.Drawing.Size(95, 29);
-            this.uxSearchSongButton.TabIndex = 16;
-            this.uxSearchSongButton.Text = "Search";
-            this.uxSearchSongButton.UseVisualStyleBackColor = true;
-            this.uxSearchSongButton.Click += new System.EventHandler(this.uxSearchSongButton_Click);
+            this.uxClearSearchSongButton.Location = new System.Drawing.Point(11, 53);
+            this.uxClearSearchSongButton.Name = "uxClearSearchSongButton";
+            this.uxClearSearchSongButton.Size = new System.Drawing.Size(95, 29);
+            this.uxClearSearchSongButton.TabIndex = 16;
+            this.uxClearSearchSongButton.Text = "Clear Search";
+            this.uxClearSearchSongButton.UseVisualStyleBackColor = true;
+            this.uxClearSearchSongButton.Click += new System.EventHandler(this.uxClearSearchButton_Click);
             // 
             // uxAddAlbumButton
             // 
@@ -164,27 +169,26 @@
             this.uxAlbumList.Name = "uxAlbumList";
             this.uxAlbumList.Size = new System.Drawing.Size(121, 24);
             this.uxAlbumList.TabIndex = 22;
-            this.uxAlbumList.SelectedIndexChanged += new System.EventHandler(this.uxAlbumList_SelectedIndexChanged);
             // 
             // uxArtistList
             // 
             this.uxArtistList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.uxArtistList.Enabled = false;
             this.uxArtistList.FormattingEnabled = true;
             this.uxArtistList.Location = new System.Drawing.Point(6, 92);
             this.uxArtistList.Name = "uxArtistList";
             this.uxArtistList.Size = new System.Drawing.Size(121, 24);
             this.uxArtistList.TabIndex = 23;
-            this.uxArtistList.SelectedIndexChanged += new System.EventHandler(this.uxArtistList_SelectedIndexChanged);
             // 
             // uxGenreList
             // 
             this.uxGenreList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.uxGenreList.Enabled = false;
             this.uxGenreList.FormattingEnabled = true;
             this.uxGenreList.Location = new System.Drawing.Point(6, 143);
             this.uxGenreList.Name = "uxGenreList";
             this.uxGenreList.Size = new System.Drawing.Size(121, 24);
             this.uxGenreList.TabIndex = 24;
-            this.uxGenreList.SelectedIndexChanged += new System.EventHandler(this.uxGenreList_SelectedIndexChanged);
             // 
             // uxAddArtistButton
             // 
@@ -198,6 +202,10 @@
             // 
             // uxDisplayOptions
             // 
+            this.uxDisplayOptions.Controls.Add(this.uxUseDateCheckBox);
+            this.uxDisplayOptions.Controls.Add(this.label1);
+            this.uxDisplayOptions.Controls.Add(this.uxSearchByItems);
+            this.uxDisplayOptions.Controls.Add(this.uxAlbumYearInput);
             this.uxDisplayOptions.Controls.Add(this.uxAlbumList);
             this.uxDisplayOptions.Controls.Add(this.uxAlbumsLabel);
             this.uxDisplayOptions.Controls.Add(this.uxGenreList);
@@ -242,6 +250,7 @@
             // 
             // uxSearchDateButton
             // 
+            this.uxSearchDateButton.Enabled = false;
             this.uxSearchDateButton.Location = new System.Drawing.Point(9, 199);
             this.uxSearchDateButton.Name = "uxSearchDateButton";
             this.uxSearchDateButton.Size = new System.Drawing.Size(191, 23);
@@ -252,6 +261,7 @@
             // 
             // uxSearchWeeksButton
             // 
+            this.uxSearchWeeksButton.Enabled = false;
             this.uxSearchWeeksButton.Location = new System.Drawing.Point(135, 86);
             this.uxSearchWeeksButton.Name = "uxSearchWeeksButton";
             this.uxSearchWeeksButton.Size = new System.Drawing.Size(67, 23);
@@ -286,6 +296,7 @@
             // 
             // uxSearchListensButton
             // 
+            this.uxSearchListensButton.Enabled = false;
             this.uxSearchListensButton.Location = new System.Drawing.Point(135, 40);
             this.uxSearchListensButton.Name = "uxSearchListensButton";
             this.uxSearchListensButton.Size = new System.Drawing.Size(67, 23);
@@ -331,9 +342,9 @@
             // 
             // uxSpotifyListensOutput
             // 
-            this.uxSpotifyListensOutput.Enabled = false;
             this.uxSpotifyListensOutput.Location = new System.Drawing.Point(9, 41);
             this.uxSpotifyListensOutput.Name = "uxSpotifyListensOutput";
+            this.uxSpotifyListensOutput.ReadOnly = true;
             this.uxSpotifyListensOutput.Size = new System.Drawing.Size(208, 22);
             this.uxSpotifyListensOutput.TabIndex = 29;
             // 
@@ -368,9 +379,9 @@
             // 
             // textBox1
             // 
-            this.textBox1.Enabled = false;
             this.textBox1.Location = new System.Drawing.Point(9, 222);
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(208, 22);
             this.textBox1.TabIndex = 37;
             // 
@@ -385,9 +396,9 @@
             // 
             // uxSongGenreOutput
             // 
-            this.uxSongGenreOutput.Enabled = false;
             this.uxSongGenreOutput.Location = new System.Drawing.Point(9, 176);
             this.uxSongGenreOutput.Name = "uxSongGenreOutput";
+            this.uxSongGenreOutput.ReadOnly = true;
             this.uxSongGenreOutput.Size = new System.Drawing.Size(208, 22);
             this.uxSongGenreOutput.TabIndex = 35;
             // 
@@ -402,9 +413,9 @@
             // 
             // uxSongAlbumOutput
             // 
-            this.uxSongAlbumOutput.Enabled = false;
             this.uxSongAlbumOutput.Location = new System.Drawing.Point(9, 131);
             this.uxSongAlbumOutput.Name = "uxSongAlbumOutput";
+            this.uxSongAlbumOutput.ReadOnly = true;
             this.uxSongAlbumOutput.Size = new System.Drawing.Size(208, 22);
             this.uxSongAlbumOutput.TabIndex = 33;
             // 
@@ -419,9 +430,9 @@
             // 
             // uxSongArtistOutput
             // 
-            this.uxSongArtistOutput.Enabled = false;
             this.uxSongArtistOutput.Location = new System.Drawing.Point(9, 84);
             this.uxSongArtistOutput.Name = "uxSongArtistOutput";
+            this.uxSongArtistOutput.ReadOnly = true;
             this.uxSongArtistOutput.Size = new System.Drawing.Size(208, 22);
             this.uxSongArtistOutput.TabIndex = 31;
             // 
@@ -434,6 +445,46 @@
             this.uxSpotifyListensLabel.TabIndex = 30;
             this.uxSpotifyListensLabel.Text = "Spotify Listens";
             // 
+            // uxAlbumYearInput
+            // 
+            this.uxAlbumYearInput.Enabled = false;
+            this.uxAlbumYearInput.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.uxAlbumYearInput.Location = new System.Drawing.Point(133, 42);
+            this.uxAlbumYearInput.Name = "uxAlbumYearInput";
+            this.uxAlbumYearInput.Size = new System.Drawing.Size(98, 22);
+            this.uxAlbumYearInput.TabIndex = 11;
+            this.uxAlbumYearInput.ValueChanged += new System.EventHandler(this.uxAlbumYearInput_ValueChanged);
+            // 
+            // uxSearchByItems
+            // 
+            this.uxSearchByItems.Location = new System.Drawing.Point(133, 142);
+            this.uxSearchByItems.Name = "uxSearchByItems";
+            this.uxSearchByItems.Size = new System.Drawing.Size(98, 26);
+            this.uxSearchByItems.TabIndex = 31;
+            this.uxSearchByItems.Text = "Search";
+            this.uxSearchByItems.UseVisualStyleBackColor = true;
+            this.uxSearchByItems.Click += new System.EventHandler(this.uxSearchByItems_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(133, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(77, 16);
+            this.label1.TabIndex = 32;
+            this.label1.Text = "Album Date";
+            // 
+            // uxUseDateCheckBox
+            // 
+            this.uxUseDateCheckBox.AutoSize = true;
+            this.uxUseDateCheckBox.Location = new System.Drawing.Point(133, 73);
+            this.uxUseDateCheckBox.Name = "uxUseDateCheckBox";
+            this.uxUseDateCheckBox.Size = new System.Drawing.Size(77, 20);
+            this.uxUseDateCheckBox.TabIndex = 33;
+            this.uxUseDateCheckBox.Text = "By Year";
+            this.uxUseDateCheckBox.UseVisualStyleBackColor = true;
+            this.uxUseDateCheckBox.CheckedChanged += new System.EventHandler(this.uxUseDateCheckBox_CheckedChanged);
+            // 
             // MusicDatabaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -443,7 +494,7 @@
             this.Controls.Add(this.uxSearchOptions);
             this.Controls.Add(this.uxAddEditButtons);
             this.Controls.Add(this.uxDisplayOptions);
-            this.Controls.Add(this.uxSearchSongButton);
+            this.Controls.Add(this.uxClearSearchSongButton);
             this.Controls.Add(this.uxSongTextBox);
             this.Controls.Add(this.uxSongsLabel);
             this.Controls.Add(this.uxAddSongButton);
@@ -473,7 +524,7 @@
         private System.Windows.Forms.Label uxArtistsLabel;
         private System.Windows.Forms.Label uxAlbumsLabel;
         private System.Windows.Forms.Label uxGenreLabel;
-        private System.Windows.Forms.Button uxSearchSongButton;
+        private System.Windows.Forms.Button uxClearSearchSongButton;
         private System.Windows.Forms.Button uxAddAlbumButton;
         private System.Windows.Forms.ComboBox uxAlbumList;
         private System.Windows.Forms.ComboBox uxArtistList;
@@ -502,6 +553,10 @@
         private System.Windows.Forms.NumericUpDown uxBillboardWeeksInput;
         private System.Windows.Forms.Button uxSearchWeeksButton;
         private System.Windows.Forms.Button uxSearchDateButton;
+        private System.Windows.Forms.DateTimePicker uxAlbumYearInput;
+        private System.Windows.Forms.CheckBox uxUseDateCheckBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button uxSearchByItems;
     }
 }
 

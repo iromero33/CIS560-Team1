@@ -25,7 +25,12 @@ namespace MusicDatabaseGUI
 
         public Controller ()
         {
-            //genreRepository.CreateGenre("Test Genre");
+            /*
+            genreRepository.CreateGenre("Test Genre");
+            albumRepository.CreateAlbum("Test Album", DateTimeOffset.Now);
+            albumRepository.CreateAlbum("Test Album 2022", new DateTimeOffset(2022, 1, 1, 1, 1, 1, TimeSpan.Zero));
+            artistRepository.CreateArtist("Test Artist");
+            */
         }
 
 
@@ -93,6 +98,21 @@ namespace MusicDatabaseGUI
         public Genre FetchGenre(int genreID)
         {
             return genreRepository.FetchGenre(genreID);
+        }
+
+        public IReadOnlyList<Song> GetSongsByTitle(string title)
+        {
+            return songRepository.GetSongsByTitle(title);
+        }
+
+        public IReadOnlyList<Song> GetSongsByAlbum(int albumID)
+        {
+            return songRepository.GetSongsByAlbum(albumID);
+        }
+
+        public IReadOnlyList<Album> GetAlbumsByYear(DateTimeOffset year)
+        {
+            return albumRepository.GetAlbumsByYear(year);
         }
     }
 }
