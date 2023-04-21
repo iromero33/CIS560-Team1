@@ -12,7 +12,7 @@ namespace MusicDatabase
         private readonly int genreID;
 
         public FetchGenreDataDelegate(int genreID)
-           : base("Music.FetchSong")
+           : base("Music.FetchGenre")
         {
             this.genreID = genreID;
         }

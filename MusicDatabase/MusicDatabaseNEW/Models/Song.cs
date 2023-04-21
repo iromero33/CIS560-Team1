@@ -22,6 +22,7 @@ namespace MusicDatabase.Models
             SongID = songId;
             Title = title;
             ArtistID = artistId;
+            AlbumID = albumId;
             GenreID = genreId;
             SpotifyListens = spotifyListens;
         }

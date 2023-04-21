@@ -144,7 +144,7 @@ namespace MusicDatabaseGUI
 
         private void uxSongsList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (uxSongsList.SelectedItem is Song song)
+            if (FetchSong != null && uxSongsList.SelectedIndex >= 0 && uxSongsList.SelectedItem is Song song)
             {
                 SelectedSong = FetchSong(song.SongID);
 
@@ -153,6 +153,10 @@ namespace MusicDatabaseGUI
                 uxSongArtistOutput.Text = FetchArtist(SelectedSong.ArtistID).Name;
                 uxSongAlbumOutput.Text = FetchAlbum(SelectedSong.AlbumID).Name;
                 uxSongGenreOutput.Text = FetchGenre(SelectedSong.GenreID).Name;
+            } 
+            else
+            {
+                uxSongsList.SelectedIndex = -1;
             }
             
         }

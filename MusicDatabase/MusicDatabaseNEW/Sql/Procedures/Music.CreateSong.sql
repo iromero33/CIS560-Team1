@@ -7,8 +7,8 @@
    @SongID INT OUTPUT
 AS
 
-INSERT Music.Song(Title, ArtistID, AlbumID, GenreID, SpotifyListens, SongID)
-VALUES(@Title, @ArtistID, @AlbumID, @GenreID, @SpotifyListens, @SongID);
+INSERT Music.Song(Title, ArtistID, AlbumID, GenreID, SpotifyListens)
+VALUES(@Title, @ArtistID, @AlbumID, @GenreID, @SpotifyListens);
 
 SET @SongID = SCOPE_IDENTITY();
 GO

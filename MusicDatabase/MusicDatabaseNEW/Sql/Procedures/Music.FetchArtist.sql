@@ -3,7 +3,7 @@
 AS
 
 SELECT A.[Name]
-FROM Music.Arist A
+FROM Music.Artist A
 WHERE A.ArtistID = @ArtistID;
 GO
 

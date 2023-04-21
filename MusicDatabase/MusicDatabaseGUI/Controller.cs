@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using MusicDatabase;
 using MusicDatabase.Models;
 
@@ -23,7 +23,12 @@ namespace MusicDatabaseGUI
         private IArtistRepository artistRepository = new SqlArtistRepository(connectionString);
         private IGenreRepository genreRepository = new SqlGenreRepository(connectionString);
 
-        //Should eventually store BindingLists of songs, albums, etc.
+        public Controller ()
+        {
+            //genreRepository.CreateGenre("Test Genre");
+        }
+
+
 
         public void SetAddNewItemDel(AddItemDel del)
         {

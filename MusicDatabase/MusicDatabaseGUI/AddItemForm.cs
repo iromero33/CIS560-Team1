@@ -124,8 +124,7 @@ namespace MusicDatabaseGUI
                     case ItemType.Song:
                         int artistID = ((Artist)uxArtistMenu.SelectedValue).ArtistID;
                         int albumID = ((Album)uxAlbumMenu.SelectedValue).AlbumID;
-                        int genreID = 0;
-                        if (uxGenreMenu.SelectedValue != null) genreID = ((Genre)uxGenreMenu.SelectedValue).GenreID;
+                        int genreID = ((Genre)uxGenreMenu.SelectedValue).GenreID;
                         int spotifyListens = Convert.ToInt32(uxOtherInput.Text);
 
                         CreateSong(name, artistID, albumID, genreID, spotifyListens);
