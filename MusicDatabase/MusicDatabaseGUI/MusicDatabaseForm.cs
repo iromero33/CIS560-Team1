@@ -48,8 +48,6 @@ namespace MusicDatabaseGUI
 
             uxSongsList.DataSource = GetSongs();
             uxAlbumList.DataSource = GetAlbums();
-            uxArtistList.DataSource = GetArtists();
-            uxGenreList.DataSource = GetGenres();
         }
 
         public void SetAddItemDel(AddItemDel del)
@@ -73,7 +71,6 @@ namespace MusicDatabaseGUI
                 {
                     case "uxAddArtistButton":
                         AddItemOfType(ItemType.Artist);
-                        updateListsOfType(ItemType.Artist);
                         break;
                     case "uxAddAlbumButton":
                         AddItemOfType(ItemType.Album);
@@ -114,14 +111,8 @@ namespace MusicDatabaseGUI
                 case ItemType.Album:
                     uxAlbumList.DataSource = GetAlbums();
                     break;
-                case ItemType.Artist:
-                    uxArtistList.DataSource = GetArtists();
-                    break;
                 case ItemType.Song:
                     uxSongsList.DataSource = GetSongs();
-                    break;
-                case ItemType.Genre:
-                    uxGenreList.DataSource = GetGenres();
                     break;
                 default:
                     break;
@@ -134,6 +125,7 @@ namespace MusicDatabaseGUI
             {
                 SelectedSong = FetchSong(song.SongID);
 
+                uxSongTitleOutput.Text = SelectedSong.Title;
                 uxSpotifyListensOutput.Text = SelectedSong.SpotifyListens.ToString();
                 uxSongArtistOutput.Text = FetchArtist(SelectedSong.ArtistID).Name;
                 uxSongAlbumOutput.Text = FetchAlbum(SelectedSong.AlbumID).Name;
@@ -143,6 +135,7 @@ namespace MusicDatabaseGUI
             {
                 uxSongsList.SelectedIndex = -1;
 
+                uxSongTitleOutput.Text = "";
                 uxSpotifyListensOutput.Text = "";
                 uxSongArtistOutput.Text = "";
                 uxSongAlbumOutput.Text = "";
