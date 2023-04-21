@@ -16,6 +16,11 @@ namespace MusicDatabase.Models
             //SongID = songId;
             Name = name;
         }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }
 

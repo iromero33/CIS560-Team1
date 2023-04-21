@@ -13,6 +13,11 @@ namespace MusicDatabase.Models
             GenreID = genreId;
             Name = name;
         }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }
 

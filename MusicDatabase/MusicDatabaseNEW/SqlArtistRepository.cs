@@ -16,12 +16,12 @@ namespace MusicDatabase
             executor = new SqlCommandExecutor(connectionString);
         }
 
-        public Artist CreateArtist(string name, int songId)
+        public Artist CreateArtist(string name)
         {
             if (string.IsNullOrWhiteSpace(name))
                 throw new ArgumentException("The parameter cannot be null or empty.", nameof(name));
 
-            var d = new CreateArtistDataDelegate(name, songId);
+            var d = new CreateArtistDataDelegate(name);
             return executor.ExecuteNonQuery(d);
         }
 

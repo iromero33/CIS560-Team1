@@ -1,4 +1,5 @@
 using System;
+using System.Xml.Linq;
 
 namespace MusicDatabase.Models
 {
@@ -23,6 +24,11 @@ namespace MusicDatabase.Models
             ArtistID = artistId;
             GenreID = genreId;
             SpotifyListens = spotifyListens;
+        }
+
+        public override string ToString()
+        {
+            return Title;
         }
     }
 }

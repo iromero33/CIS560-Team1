@@ -16,6 +16,11 @@ namespace MusicDatabase.Models
             Name = name;
             ReleaseDate = releaseDate;
         }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }
 

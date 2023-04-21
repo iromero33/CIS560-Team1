@@ -14,6 +14,6 @@ namespace MusicDatabase
 
         Artist GetArtist(string name);
 
-        Artist CreateArtist(string name, int songId);
+        Artist CreateArtist(string name);
     }
 }

@@ -8,13 +8,11 @@ namespace MusicDatabase.DataDelegates
     internal class CreateArtistDataDelegate : NonQueryDataDelegate<Artist>
     {
         public readonly string name;
-        public readonly int songId;
 
-        public CreateArtistDataDelegate(string name, int songId)
+        public CreateArtistDataDelegate(string name)
            : base("Music.CreateArtist")
         {
             this.name = name;
-            this.songId = songId;
         }
 
         public override void PrepareCommand(SqlCommand command)

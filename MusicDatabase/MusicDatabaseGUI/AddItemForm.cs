@@ -52,8 +52,13 @@ namespace MusicDatabaseGUI
         public void InitializeForm (ItemType type)
         {
             HideAllOptions();
-            IsNewItem = false;
+            IsNewItem = true;
             CurrItemType = type;
+            uxItemNameInput.Text = "";
+
+            uxAlbumMenu.DataSource = GetAlbums();
+            uxArtistMenu.DataSource = GetArtists();
+            uxGenreMenu.DataSource = GetGenres();
 
             switch (type)
             {
@@ -94,7 +99,7 @@ namespace MusicDatabaseGUI
         public void EditArtist()
         {
             InitializeForm(ItemType.Artist);
-            IsNewItem = true;
+            IsNewItem = false;
             //Should eventually hook up to edit artist button in main form using delegates
         }
 
@@ -114,17 +119,16 @@ namespace MusicDatabaseGUI
                         break;
                     case ItemType.Artist:
                         //REMEMBER TO ASK: WHAT TO DO ABOUT SONGARTIST RELATIONSHIP?
-                        CreateArtist(name, 1);
+                        CreateArtist(name);
                         break;
                     case ItemType.Song:
                         int artistID = ((Artist)uxArtistMenu.SelectedValue).ArtistID;
                         int albumID = ((Album)uxAlbumMenu.SelectedValue).AlbumID;
-                        int genreID = ((Genre)uxGenreMenu.SelectedValue).GenreID;
+                        int genreID = 0;
+                        if (uxGenreMenu.SelectedValue != null) genreID = ((Genre)uxGenreMenu.SelectedValue).GenreID;
                         int spotifyListens = Convert.ToInt32(uxOtherInput.Text);
 
                         CreateSong(name, artistID, albumID, genreID, spotifyListens);
-
-                        //Create Song
                         break;
                     default:
                         break;
@@ -144,6 +148,7 @@ namespace MusicDatabaseGUI
             uxGenreMenu.Visible = false;
 
             uxOtherInput.Visible = false;
+            uxOtherInput.Text = "";
             uxReleaseDateInput.Visible = false;
         }
 

@@ -65,9 +65,9 @@ namespace MusicDatabaseGUI
             songRepository.CreateSong(title, artistID, albumID, genreID, spotifyListens);
         }
 
-        public void CreateArtist(string name, int songID)
+        public void CreateArtist(string name)
         {
-            artistRepository.CreateArtist(name, songID);
+            artistRepository.CreateArtist(name);
         }
 
         public Song FetchSong(int songID)

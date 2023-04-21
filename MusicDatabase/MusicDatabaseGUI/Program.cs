@@ -16,7 +16,7 @@ namespace MusicDatabaseGUI
 
     public delegate void CreateAlbumDel(string name, DateTimeOffset releaseDate);
     public delegate void CreateSongDel(string title, int artistID, int albumID, int genreID, int spotifyListens);
-    public delegate void CreateArtistDel(string name, int songID);
+    public delegate void CreateArtistDel(string name);
 
     public delegate Song FetchSongDel(int songID);
     public delegate Album FetchAlbumDel(int albumID);
