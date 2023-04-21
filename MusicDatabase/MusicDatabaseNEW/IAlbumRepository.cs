@@ -15,5 +15,7 @@ namespace MusicDatabase
         Album GetAlbum(string name);
 
         Album CreateAlbum(string name, DateTimeOffset releaseDate);
+
+        IReadOnlyList<Album> GetAlbumsByYear(DateTimeOffset Year);
     }
 }

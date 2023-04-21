@@ -61,11 +61,12 @@ Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MusicDatab
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MusicDatabaseNEW\Sql\Procedures\Music.RetrieveBillboard.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MusicDatabaseNEW\Sql\Procedures\Music.FetchBillboard.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MusicDatabaseNEW\Sql\Procedures\Music.GetBillboard.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MusicDatabaseNEW\Sql\Procedures\Music.GetAlbumsByYear.sql"
 #Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PersonData\Sql\Procedures\Person.SavePersonAddress.sql"
 #Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PersonData\Sql\Procedures\Person.RetrieveAddressesForPerson.sql"
 
 Write-Host "Inserting data..."
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MusicDatabaseNEW\Sql\Data\Music.SpotifyTop200.sql"
+#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MusicDatabaseNEW\Sql\Data\Music.SpotifyTop200.sql"
 
 Write-Host "Rebuild completed."
 Write-Host ""

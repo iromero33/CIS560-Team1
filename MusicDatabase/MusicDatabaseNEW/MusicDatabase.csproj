@@ -56,6 +56,7 @@
     <Compile Include="DataDelegates\GetBillboardDataDelegate.cs" />
     <Compile Include="DataDelegates\GetGenreDataDelegate.cs" />
     <Compile Include="DataDelegates\GetSongDataDelegate.cs" />
+    <Compile Include="DataDelegates\GetAlbumsByYearDataDelegate.cs" />
     <Compile Include="DataDelegates\RetrieveAlbumDataDelegate.cs" />
     <Compile Include="DataDelegates\RetrieveArtistDataDelegate.cs" />
     <Compile Include="DataDelegates\RetrieveBillboardDataDelegate.cs" />
@@ -86,6 +87,7 @@
     <Content Include="Sql\Data\Music.Artist.sql" />
     <Content Include="Sql\Data\Music.Genre.sql" />
     <Content Include="Sql\Data\Music.Song.sql" />
+    <Content Include="Sql\Procedures\Music.GetAlbumsByYear.sql" />
     <Content Include="Sql\Procedures\Music.CreateAlbum.sql" />
     <Content Include="Sql\Procedures\Music.CreateArtist.sql" />
     <Content Include="Sql\Procedures\Music.CreateBillboard.sql" />
@@ -113,7 +115,6 @@
     <Content Include="Sql\Tables\Music.Billboard.sql" />
     <Content Include="Sql\Tables\Music.Genre.sql" />
     <Content Include="Sql\Tables\Music.Song.sql" />
-    <Content Include="Sql\Tables\Music.SongArtist.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Datasets\Album.csv.xlsx" />
