@@ -82,7 +82,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Datasets\billboard\billboard_script.py" />
-    <Content Include="Sql\Data\Music.SpotifyTop200.sql" />
+    <Content Include="Sql\Data\Music.Album.sql" />
+    <Content Include="Sql\Data\Music.Artist.sql" />
+    <Content Include="Sql\Data\Music.Genre.sql" />
+    <Content Include="Sql\Data\Music.Song.sql" />
     <Content Include="Sql\Procedures\Music.CreateAlbum.sql" />
     <Content Include="Sql\Procedures\Music.CreateArtist.sql" />
     <Content Include="Sql\Procedures\Music.CreateBillboard.sql" />
@@ -113,11 +116,12 @@
     <Content Include="Sql\Tables\Music.SongArtist.sql" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Datasets\Album.csv.xlsx" />
+    <None Include="Datasets\Artist.csv.xlsx" />
     <None Include="Datasets\billboard_dataset.csv" />
+    <None Include="Datasets\Genre.csv.xlsx" />
+    <None Include="Datasets\Song.csv.xlsx" />
     <None Include="Datasets\spotify_dataset.csv" />
-    <None Include="Sql\Data\Artist.csv.xlsx" />
-    <None Include="Sql\Data\Genre.csv.xlsx" />
-    <None Include="Sql\Data\Song.csv.xlsx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataAccess\DataAccess.csproj">
