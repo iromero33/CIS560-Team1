@@ -41,5 +41,10 @@ namespace MusicDatabase
         {
             return executor.ExecuteReader(new RetrieveAlbumDataDelegate());
         }
+
+        public IReadOnlyList<Album> GetAlbumsByYear(DateTimeOffset Year)
+        {
+            return executor.ExecuteReader(new GetAlbumsByYearDataDelegate(Year));
+        }
     }
 }
