@@ -1,4 +1,4 @@
-﻿CREATE OR ALTER PROCEDURE Music.CreateArtist
+﻿CREATE OR ALTER PROCEDURE Music.CreateSong
    @Title NVARCHAR(64),
    @ArtistID INT,
    @AlbumID INT,
@@ -7,7 +7,7 @@
    @SongID INT OUTPUT
 AS
 
-INSERT Music.Artist(Title, ArtistID, AlbumID, GenreID, SpotifyListens, SongID)
+INSERT Music.Song(Title, ArtistID, AlbumID, GenreID, SpotifyListens, SongID)
 VALUES(@Title, @ArtistID, @AlbumID, @GenreID, @SpotifyListens, @SongID);
 
 SET @SongID = SCOPE_IDENTITY();

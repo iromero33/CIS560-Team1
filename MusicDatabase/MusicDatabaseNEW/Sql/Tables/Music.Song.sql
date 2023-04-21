@@ -7,18 +7,19 @@ BEGIN
       ArtistID INT NOT NULL,
       AlbumID INT NOT NULL,
       GenreID INT NOT NULL,
-      SpotifyListens INT NOT NULL
+      SpotifyListens INT NOT NULL,
+      
 
       CONSTRAINT PK_Music_Song_SongID PRIMARY KEY CLUSTERED
       (
          SongID ASC
-      )
+      ),
 
       CONSTRAINT FK_Music_Song_Music_Artist FOREIGN KEY(ArtistID)
-      REFERENCES Music.Artsit(ArtistID)
+      REFERENCES Music.Artist(ArtistID),
 
       CONSTRAINT FK_Music_Song_Music_Album FOREIGN KEY(AlbumID)
-      REFERENCES Music.Album(AlbumID)
+      REFERENCES Music.Album(AlbumID),
 
       CONSTRAINT FK_Music_Song_Music_Genre FOREIGN KEY(GenreID)
       REFERENCES Music.Genre(GenreID)
@@ -50,6 +51,27 @@ END;
 /****************************
  * Foreign Keys Constraints
  ****************************/
+
+
+IF NOT EXISTS
+   (
+      SELECT *
+      FROM sys.foreign_keys fk
+      WHERE fk.parent_object_id = OBJECT_ID(N'Music.Song')
+         AND fk.referenced_object_id = OBJECT_ID(N'Music.Artist')
+         AND fk.[name] = N'FK_Music_Song_Music_Artist'
+   )
+BEGIN
+   ALTER TABLE Music.Song
+   ADD CONSTRAINT [FK_Music_Song_Music_Artist] FOREIGN KEY
+   (
+      ArtistID
+   )
+   REFERENCES Music.Artist
+   (
+      ArtistID
+   );
+END;
 
 IF NOT EXISTS
    (
@@ -85,7 +107,7 @@ BEGIN
    (
       GenreID
    )
-   REFERENCES Music.Artist
+   REFERENCES Music.Genre
    (
       GenreID
    );

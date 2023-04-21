@@ -22,7 +22,7 @@ namespace MusicDatabase.DataDelegates
             base.PrepareCommand(command);
 
             command.Parameters.AddWithValue("Name", name);
-            command.Parameters.AddWithValue("SongID", songId);
+            //command.Parameters.AddWithValue("SongID", songId);
 
             var p = command.Parameters.Add("ArtistID", SqlDbType.Int);
             p.Direction = ParameterDirection.Output;
@@ -30,7 +30,7 @@ namespace MusicDatabase.DataDelegates
 
         public override Artist Translate(SqlCommand command)
         {
-            return new Artist((int)command.Parameters["ArtistID"].Value, songId, name);
+            return new Artist((int)command.Parameters["ArtistID"].Value, /*songId,*/ name);
         }
     }
 }

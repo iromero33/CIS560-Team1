@@ -3,16 +3,16 @@ BEGIN
    CREATE TABLE Music.Artist
    (
       ArtistID INT NOT NULL IDENTITY(1, 1),
-      SongID INT NOT NULL,
+      /*SongID INT NOT NULL,*/
       [Name] NVARCHAR(64) NOT NULL,
 
       CONSTRAINT [PK_Music_Artist_ArtistID] PRIMARY KEY CLUSTERED
       (
          ArtistID ASC
-      ),
+      )
 
-      CONSTRAINT FK_Music_Artist_Music_Song FOREIGN KEY(SongID)
-      REFERENCES Music.Song(SongID)
+      /*CONSTRAINT FK_Music_Artist_Music_Song FOREIGN KEY(SongID)
+      REFERENCES Music.Song(SongID)*/
    );
 END;
 
@@ -38,7 +38,7 @@ END;
 /****************************
  * Foreign Keys Constraints
  ****************************/
-
+ /*
 IF NOT EXISTS
    (
       SELECT *
@@ -58,4 +58,5 @@ BEGIN
       SongID
    );
 END;
+*/
 

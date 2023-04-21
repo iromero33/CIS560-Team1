@@ -92,6 +92,7 @@
     <Content Include="Sql\Procedures\Music.FetchBillboard.sql" />
     <Content Include="Sql\Procedures\Music.FetchGenre.sql" />
     <Content Include="Sql\Procedures\Music.FetchSong.sql" />
+    <Content Include="Sql\Procedures\Music.FetchAlbum.sql" />
     <Content Include="Sql\Procedures\Music.GetAlbum.sql" />
     <Content Include="Sql\Procedures\Music.GetArtist.sql" />
     <Content Include="Sql\Procedures\Music.GetBillboard.sql" />

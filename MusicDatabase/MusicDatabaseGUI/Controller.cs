@@ -16,7 +16,7 @@ namespace MusicDatabaseGUI
         /// <summary>
         /// Connection String Example: @"Server=(localdb)\MSSQLLocalDb;Database=DATABASE;Integrated Security=SSPI;"
         /// </summary>
-        private const string connectionString = @"Server=(localdb)\MSSQLLocalDb;Database=master;Integrated Security=SSPI;";
+        private const string connectionString = @"Server=(localdb)\MSSQLLocalDb;Database=MusicDatabase;Integrated Security=SSPI;";
 
         private ISongRepository songRepository = new SqlSongRepository(connectionString);
         private IAlbumRepository albumRepository = new SqlAlbumRepository(connectionString);

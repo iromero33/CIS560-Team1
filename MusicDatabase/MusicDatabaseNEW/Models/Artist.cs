@@ -6,14 +6,14 @@ namespace MusicDatabase.Models
     {
         public int ArtistID { get; }
 
-        public int SongID { get; }
+        //public int SongID { get; }
 
         public string Name { get; }
 
-        internal Artist(int artistId, int songId, string name)
+        internal Artist(int artistId/*, int songId*/, string name)
         {
             ArtistID = artistId;
-            SongID = songId;
+            //SongID = songId;
             Name = name;
         }
     }

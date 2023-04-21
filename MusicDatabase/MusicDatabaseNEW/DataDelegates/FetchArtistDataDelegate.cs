@@ -30,7 +30,7 @@ namespace MusicDatabase
                 throw new RecordNotFoundException(artistID.ToString());
 
             return new Artist(artistID,
-               reader.GetInt32("SongID"),
+               //reader.GetInt32("SongID"),
                reader.GetString("Name"));
         }
     }

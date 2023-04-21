@@ -31,7 +31,7 @@ namespace MusicDatabase
 
             return new Artist(
                reader.GetInt32("ArtistID"),
-               reader.GetInt32("SongID"),
+               //reader.GetInt32("SongID"),
                name);
         }
     }
