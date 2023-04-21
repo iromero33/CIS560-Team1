@@ -268,6 +268,7 @@
             this.uxAlbumYearInput.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.uxAlbumYearInput.Location = new System.Drawing.Point(9, 190);
             this.uxAlbumYearInput.Name = "uxAlbumYearInput";
+            this.uxAlbumYearInput.ShowUpDown = true;
             this.uxAlbumYearInput.Size = new System.Drawing.Size(98, 22);
             this.uxAlbumYearInput.TabIndex = 11;
             this.uxAlbumYearInput.ValueChanged += new System.EventHandler(this.uxAlbumYearInput_ValueChanged);
