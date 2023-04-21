@@ -14,6 +14,6 @@ namespace MusicDatabase
 
         Album GetAlbum(string name);
 
-        Album CreateAlbum(string name, DateTime releaseDate);
+        Album CreateAlbum(string name, DateTimeOffset releaseDate);
     }
 }

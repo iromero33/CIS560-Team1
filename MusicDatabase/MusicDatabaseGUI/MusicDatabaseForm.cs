@@ -16,25 +16,46 @@ namespace MusicDatabaseGUI
     {
         private AddItemDel AddItemOfType;
 
-        private BindingList<Song> Songs;
-        
-        public MusicDatabaseForm()
+        private GetAlbumsDel GetAlbums;
+        private GetArtistsDel GetArtists;
+        private GetGenresDel GetGenres;
+        private GetSongsDel GetSongs;
+
+        private FetchSongDel FetchSong;
+        private FetchAlbumDel FetchAlbum;
+        private FetchArtistDel FetchArtist;
+        private FetchGenreDel FetchGenre;
+
+        private Song SelectedSong;
+
+        public MusicDatabaseForm(GetAlbumsDel albumsDel, GetArtistsDel artistsDel, GetGenresDel genresDel, GetSongsDel songsDel)
         {
             InitializeComponent();
 
             uxReleaseDateInput.CustomFormat = "MMMM yyyy";
 
-            Songs = new BindingList<Song>();
+            GetAlbums = albumsDel;
+            GetArtists = artistsDel;
+            GetGenres = genresDel;
+            GetSongs = songsDel;
 
-            uxSongsList.DataSource = Songs;
-            //uxAlbumList.DataSource;
-            //uxArtistList.DataSource;
-            //uxGenreList.DataSource;
+            uxSongsList.DataSource = GetSongs();
+            uxAlbumList.DataSource = GetAlbums();
+            uxArtistList.DataSource = GetArtists();
+            uxGenreList.DataSource = GetGenres();
         }
 
         public void SetAddItemDel(AddItemDel del)
         {
             AddItemOfType = del;
+        }
+
+        public void SetFetchDels(FetchSongDel songDel, FetchAlbumDel albumDel, FetchArtistDel artistDel, FetchGenreDel genreDel)
+        {
+            FetchSong = songDel;
+            FetchAlbum = albumDel;
+            FetchArtist = artistDel;
+            FetchGenre = genreDel;
         }
 
         private void AddItem(object sender, EventArgs e)
@@ -45,12 +66,15 @@ namespace MusicDatabaseGUI
                 {
                     case "uxAddArtistButton":
                         AddItemOfType(ItemType.Artist);
+                        updateListsOfType(ItemType.Artist);
                         break;
                     case "uxAddAlbumButton":
                         AddItemOfType(ItemType.Album);
+                        updateListsOfType(ItemType.Album);
                         break;
                     case "uxAddSongButton":
                         AddItemOfType(ItemType.Song);
+                        updateListsOfType(ItemType.Song);
                         break;
                     default:
                         break;
@@ -95,6 +119,46 @@ namespace MusicDatabaseGUI
         {
             DateTime searchDate = uxReleaseDateInput.Value;
 
+        }
+
+        private void updateListsOfType(ItemType type)
+        {
+            switch (type)
+            {
+                case ItemType.Album:
+                    uxAlbumList.DataSource = GetAlbums();
+                    break;
+                case ItemType.Artist:
+                    uxArtistList.DataSource = GetArtists();
+                    break;
+                case ItemType.Song:
+                    uxSongsList.DataSource = GetSongs();
+                    break;
+                case ItemType.Genre:
+                    uxGenreList.DataSource = GetGenres();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void uxSongsList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (FetchSong != null && uxSongsList.SelectedIndex >= 0 && uxSongsList.SelectedItem is Song song)
+            {
+                SelectedSong = FetchSong(song.SongID);
+
+                uxSpotifyListensOutput.Text = SelectedSong.SpotifyListens.ToString();
+
+                uxSongArtistOutput.Text = FetchArtist(SelectedSong.ArtistID).Name;
+                uxSongAlbumOutput.Text = FetchAlbum(SelectedSong.AlbumID).Name;
+                uxSongGenreOutput.Text = FetchGenre(SelectedSong.GenreID).Name;
+            } 
+            else
+            {
+                uxSongsList.SelectedIndex = -1;
+            }
+            
         }
     }
 }

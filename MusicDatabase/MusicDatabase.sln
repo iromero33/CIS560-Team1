@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "MusicDatabase", "MusicDatabase\MusicDatabase.sqlproj", "{2E06C33E-DCCE-4422-AF6B-67E8F92AFEBD}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{A5AC459D-6C0A-4D6E-AD65-ECB3E0FEC3A7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicDatabaseGUI", "MusicDatabaseGUI\MusicDatabaseGUI.csproj", "{DE8D5F36-C417-4978-8B78-2EEE2AB7BA05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MusicDatabase", "MusicDatabaseNEW\MusicDatabase.csproj", "{26A2B163-3EFC-483D-AC93-2B915F74CCF8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,12 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2E06C33E-DCCE-4422-AF6B-67E8F92AFEBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2E06C33E-DCCE-4422-AF6B-67E8F92AFEBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2E06C33E-DCCE-4422-AF6B-67E8F92AFEBD}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{2E06C33E-DCCE-4422-AF6B-67E8F92AFEBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2E06C33E-DCCE-4422-AF6B-67E8F92AFEBD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2E06C33E-DCCE-4422-AF6B-67E8F92AFEBD}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{A5AC459D-6C0A-4D6E-AD65-ECB3E0FEC3A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A5AC459D-6C0A-4D6E-AD65-ECB3E0FEC3A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5AC459D-6C0A-4D6E-AD65-ECB3E0FEC3A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -29,6 +23,10 @@ Global
 		{DE8D5F36-C417-4978-8B78-2EEE2AB7BA05}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE8D5F36-C417-4978-8B78-2EEE2AB7BA05}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE8D5F36-C417-4978-8B78-2EEE2AB7BA05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26A2B163-3EFC-483D-AC93-2B915F74CCF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26A2B163-3EFC-483D-AC93-2B915F74CCF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26A2B163-3EFC-483D-AC93-2B915F74CCF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26A2B163-3EFC-483D-AC93-2B915F74CCF8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

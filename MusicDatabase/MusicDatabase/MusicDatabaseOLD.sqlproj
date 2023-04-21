@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>MusicDatabase</Name>
+    <Name>MusicDatabaseOLD</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{2e06c33e-dcce-4422-af6b-67e8f92afebd}</ProjectGuid>
@@ -16,7 +16,7 @@
     <ModelCollation>1033, CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <TargetLanguage>CS</TargetLanguage>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <SqlServerVerification>False</SqlServerVerification>
@@ -83,6 +83,9 @@
     <None Include="SQL\Procedures\Music.FetchGenre.sql" />
     <None Include="SQL\Data\Music.SpotifyTop200.sql" />
     <None Include="Datasets\spotify_dataset.csv" />
+    <None Include="SQL\Data\Artist.csv.xlsx" />
+    <None Include="SQL\Data\Genre.csv.xlsx" />
+    <None Include="SQL\Data\Song.csv.xlsx" />
     <None Include="Datasets\billboard_dataset.csv" />
     <None Include="Datasets\billboard\billboard_script.py" />
   </ItemGroup>
