@@ -1,12 +1,7 @@
 ﻿DECLARE @GenreStaging TABLE
 (
-      GenreID INT NOT NULL IDENTITY(1, 1),
-      [Name] NVARCHAR(64) NOT NULL UNIQUE,
-
-      CONSTRAINT [PK_Music_Genre_GenreID] PRIMARY KEY CLUSTERED
-      (
-         GenreID ASC
-      )
+      GenreID INT NOT NULL PRIMARY KEY,
+      [Name] NVARCHAR(64) NOT NULL UNIQUE
 
 );
 

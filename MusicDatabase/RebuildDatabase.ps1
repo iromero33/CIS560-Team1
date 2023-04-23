@@ -64,11 +64,15 @@ Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MusicDatab
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MusicDatabaseNEW\Sql\Procedures\Music.GetAlbumsByYear.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MusicDatabaseNEW\Sql\Procedures\Music.GetSongsByTitle.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MusicDatabaseNEW\Sql\Procedures\Music.GetSongsByAlbum.sql"
-#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PersonData\Sql\Procedures\Person.SavePersonAddress.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MusicDatabaseNEW\Sql\Procedures\Music.GetSongBySpotifyListens.sql"
+#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PersonData\Sql\Procedures\Person.SavePersonAddress.sql" 
 #Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PersonData\Sql\Procedures\Person.RetrieveAddressesForPerson.sql"
 
 Write-Host "Inserting data..."
-#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MusicDatabaseNEW\Sql\Data\Music.SpotifyTop200.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MusicDatabaseNEW\Sql\Data\Music.Album.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MusicDatabaseNEW\Sql\Data\Music.Artist.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MusicDatabaseNEW\Sql\Data\Music.Genre.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MusicDatabaseNEW\Sql\Data\Music.Song.sql"
 
 Write-Host "Rebuild completed."
 Write-Host ""

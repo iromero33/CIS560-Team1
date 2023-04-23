@@ -1,13 +1,8 @@
 ﻿DECLARE @AlbumStaging TABLE
 (
-      AlbumID INT NOT NULL IDENTITY(1, 1),
+      AlbumID INT NOT NULL PRIMARY KEY,
       [Name] NVARCHAR(64) NOT NULL,
-      ReleaseDate DATETIMEOFFSET NOT NULL,
-
-      CONSTRAINT [PK_Music_Album_AlbumID] PRIMARY KEY CLUSTERED
-      (
-         AlbumID ASC
-      )
+      ReleaseDate DATETIMEOFFSET NOT NULL
 );
 
 /***************************** Modify values here *****************************/
