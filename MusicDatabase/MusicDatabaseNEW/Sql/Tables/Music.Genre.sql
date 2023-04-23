@@ -3,7 +3,7 @@ BEGIN
    CREATE TABLE Music.Genre
    (
       GenreID INT NOT NULL IDENTITY(1, 1),
-      [Name] NVARCHAR(64) NOT NULL UNIQUE,
+      [Name] NVARCHAR(256) NOT NULL UNIQUE,
 
       CONSTRAINT [PK_Music_Genre_GenreID] PRIMARY KEY CLUSTERED
       (
