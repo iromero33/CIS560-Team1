@@ -44,5 +44,9 @@ namespace MusicDatabase
         IReadOnlyList<Song> GetSongsByTitle(string title);
 
         IReadOnlyList<Song> GetSongsByAlbum(int albumID);
+
+        IReadOnlyList<Song> GetSongsByReleaseYear(DateTimeOffset date);
+
+        IReadOnlyList<Song> GetSongsBySpotifyListens(int listens);
     }
 }

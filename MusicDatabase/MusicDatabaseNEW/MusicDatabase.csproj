@@ -52,7 +52,7 @@
     <Compile Include="DataDelegates\FetchGenreDataDelegate.cs" />
     <Compile Include="DataDelegates\FetchSongDataDelegate.cs" />
     <Compile Include="DataDelegates\GetAlbumDataDelegate.cs" />
-    <Compile Include="DataDelegates\GetSongByReleaseYearDelegate.cs" />
+    <Compile Include="DataDelegates\GetSongByReleaseDateDelegate.cs" />
     <Compile Include="DataDelegates\GetSongBySpotifyListensDelegate.cs" />
     <Compile Include="DataDelegates\GetSongsByAlbumDataDelegate.cs" />
     <Compile Include="DataDelegates\GetSongsByTitleDataDelegate.cs" />
@@ -91,7 +91,7 @@
     <Content Include="Sql\Data\Music.Artist.sql" />
     <Content Include="Sql\Data\Music.Genre.sql" />
     <Content Include="Sql\Data\Music.Song.sql" />
-    <Content Include="Sql\Procedures\Music.GetSongByReleaseYear.sql" />
+    <Content Include="Sql\Procedures\Music.GetSongByReleaseDate.sql" />
     <Content Include="Sql\Procedures\Music.GetAlbumsByYear.sql" />
     <Content Include="Sql\Procedures\Music.CreateAlbum.sql" />
     <Content Include="Sql\Procedures\Music.CreateArtist.sql" />

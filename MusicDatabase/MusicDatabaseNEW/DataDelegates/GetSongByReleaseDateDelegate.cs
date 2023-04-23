@@ -8,21 +8,21 @@ using System.Xml.Linq;
 
 namespace MusicDatabase.DataDelegates
 {
-    internal class GetSongByReleaseYearDelegate : DataReaderDelegate<IReadOnlyList<Song>>
+    internal class GetSongByReleaseDateDelegate : DataReaderDelegate<IReadOnlyList<Song>>
     {
-        private readonly DateTimeOffset year;
+        private readonly DateTimeOffset date;
         
-        public GetSongByReleaseYearDelegate(DateTimeOffset year)
-            : base("Music.GetSongByReleaseYear")
+        public GetSongByReleaseDateDelegate(DateTimeOffset date)
+            : base("Music.GetSongByReleaseDate")
         {
-            this.year = year;
+            this.date = date;
         }
 
         public override void PrepareCommand(SqlCommand command)
         {
             base.PrepareCommand(command);
 
-            command.Parameters.AddWithValue("Year", year);
+            command.Parameters.AddWithValue("ReleaseDate", date);
         }
 
         public override IReadOnlyList<Song> Translate(SqlCommand command, IDataRowReader reader)
