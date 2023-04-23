@@ -129,4 +129,12 @@ VALUES
 
 
 
-/*****************************************************************/
+ /***************************************************************/
+ MERGE Music.Genre A
+USING @GenreStaging S ON S.GenreID = A.GenreID
+WHEN MATCHED AND S.[Name] <> A.[Name] THEN
+   UPDATE
+   SET [Name] = S.[Name]
+WHEN NOT MATCHED THEN
+   INSERT(GenreID, [Name])
+   VALUES(S.GenreID, S.[Name]);
