@@ -22,13 +22,16 @@ IF NOT EXISTS
       SELECT *
       FROM sys.check_constraints cc
       WHERE cc.parent_object_id = OBJECT_ID(N'Music.Album')
-         AND cc.[name] = N'CK_Music_Album_Name'
+         AND cc.[name] = N'CK_Music_Album_Name_ReleaseYear'
    )
 BEGIN
    ALTER TABLE Music.Album
-   ADD CONSTRAINT [CK_Music_Album_Name] CHECK
+   ADD CONSTRAINT [CK_Music_Album_Name_ReleaseYear] CHECK
    (
-      [Name] > N'' 
+      [Name] > N'' OR [ReleaseYear] > N'' 
    )
 END;
+
+
+
 
