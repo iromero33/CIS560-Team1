@@ -89,6 +89,7 @@
     <Content Include="Sql\Data\Music.Artist.sql" />
     <Content Include="Sql\Data\Music.Genre.sql" />
     <Content Include="Sql\Data\Music.Song.sql" />
+    <Content Include="Sql\Procedures\Music.GetSongByReleaseYear.sql" />
     <Content Include="Sql\Procedures\Music.GetAlbumsByYear.sql" />
     <Content Include="Sql\Procedures\Music.CreateAlbum.sql" />
     <Content Include="Sql\Procedures\Music.CreateArtist.sql" />
@@ -105,6 +106,7 @@
     <Content Include="Sql\Procedures\Music.GetBillboard.sql" />
     <Content Include="Sql\Procedures\Music.GetGenre.sql" />
     <Content Include="Sql\Procedures\Music.GetSong.sql" />
+    <Content Include="Sql\Procedures\Music.GetSongBySpotifyListens.sql" />
     <Content Include="Sql\Procedures\Music.GetSongsByAlbum.sql" />
     <Content Include="Sql\Procedures\Music.RetrieveAlbum.sql" />
     <Content Include="Sql\Procedures\Music.RetrieveArtist.sql" />
