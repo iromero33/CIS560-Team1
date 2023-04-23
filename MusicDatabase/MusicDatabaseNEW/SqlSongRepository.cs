@@ -52,7 +52,7 @@ namespace MusicDatabase
             return executor.ExecuteReader(new GetSongsByAlbumDataDelegate(albumID));
         }
 
-        public IReadOnlyList<Song> GetSongsByReleaseYear(DateTimeOffset date)
+        public IReadOnlyList<Song> GetSongsByReleaseDate(DateTimeOffset date)
         {
             return executor.ExecuteReader(new GetSongByReleaseDateDelegate(date));
         }

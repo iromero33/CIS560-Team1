@@ -23,6 +23,8 @@ namespace MusicDatabaseGUI
         private GetSongsByTitleDel GetSongsByTitle;
         private GetSongsByAlbumDel GetSongsByAlbum;
         private GetAlbumsByYearDel GetAlbumsByYear;
+        private GetSongsByReleaseDateDel GetSongsByReleaseDate;
+        private GetSongsBySpotifyListensDel GetSongsBySpotifyListens;
 
         private FetchSongDel FetchSong;
         private FetchAlbumDel FetchAlbum;
@@ -31,11 +33,11 @@ namespace MusicDatabaseGUI
 
         private Song SelectedSong;
 
-        public MusicDatabaseForm(GetAlbumsDel albumsDel, GetArtistsDel artistsDel, GetGenresDel genresDel, GetSongsDel songsDel, GetSongsByTitleDel songsByTitleDel, GetSongsByAlbumDel songsByAlbumDel, GetAlbumsByYearDel getAlbumsByYearDel)
+        public MusicDatabaseForm(GetAlbumsDel albumsDel, GetArtistsDel artistsDel, GetGenresDel genresDel, GetSongsDel songsDel, GetSongsByTitleDel songsByTitleDel, GetSongsByAlbumDel songsByAlbumDel, GetAlbumsByYearDel albumsByYearDel, GetSongsByReleaseDateDel songsByDateDel, GetSongsBySpotifyListensDel songsByListensDel)
         {
             InitializeComponent();
 
-            uxReleaseDateInput.CustomFormat = "MMMM yyyy";
+            uxReleaseDateInput.CustomFormat = "dd MMMM yyyy";
             uxAlbumYearInput.CustomFormat = "yyyy";
 
             GetAlbums = albumsDel;
@@ -44,7 +46,9 @@ namespace MusicDatabaseGUI
             GetSongs = songsDel;
             GetSongsByTitle = songsByTitleDel;
             GetSongsByAlbum = songsByAlbumDel;
-            GetAlbumsByYear = getAlbumsByYearDel;
+            GetAlbumsByYear = albumsByYearDel;
+            GetSongsBySpotifyListens = songsByListensDel;
+            GetSongsByReleaseDate = songsByDateDel;
 
             uxSongsList.DataSource = GetSongs();
             uxAlbumList.DataSource = GetAlbums();
@@ -90,7 +94,7 @@ namespace MusicDatabaseGUI
         private void uxSearchByButton_Click(object sender, EventArgs e)
         {
             int numSpotifyListens = (int)uxSpotifyListensInput.Value;
-            
+            uxSongsList.DataSource = GetSongsBySpotifyListens(numSpotifyListens);
         }
 
         private void uxSearchWeeksButton_Click(object sender, EventArgs e)
@@ -100,7 +104,8 @@ namespace MusicDatabaseGUI
 
         private void uxSearchDateButton_Click(object sender, EventArgs e)
         {
-            DateTime searchDate = uxReleaseDateInput.Value;
+            DateTimeOffset searchDate = uxReleaseDateInput.Value;
+            uxSongsList.DataSource = GetSongsByReleaseDate(searchDate);
 
         }
 
