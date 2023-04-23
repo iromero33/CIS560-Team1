@@ -108,9 +108,9 @@ namespace MusicDatabaseGUI
             return songRepository.GetSongsByReleaseDate(date);
         }
 
-        public IReadOnlyList<Song> GetSongsBySpotifyListens(int listens)
+        public IReadOnlyList<Song> GetSongsBySpotifyListens(int min, int max)
         {
-            return songRepository.GetSongsBySpotifyListens(listens);
+            return songRepository.GetSongsBySpotifyListens(min, max);
         }
     }
 }

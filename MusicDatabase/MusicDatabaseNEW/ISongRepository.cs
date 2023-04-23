@@ -47,6 +47,10 @@ namespace MusicDatabase
 
         IReadOnlyList<Song> GetSongsByReleaseDate(DateTimeOffset date);
 
-        IReadOnlyList<Song> GetSongsBySpotifyListens(int listens);
+        IReadOnlyList<Song> GetSongsBySpotifyListens(int min, int max);
+
+        IReadOnlyList<Song> GetSongsBySpotifyListensASC();
+
+        IReadOnlyList<Song> GetSongsBySpotifyListensDESC();
     }
 }

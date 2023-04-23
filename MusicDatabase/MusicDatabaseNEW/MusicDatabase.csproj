@@ -55,6 +55,7 @@
     <Compile Include="DataDelegates\GetSongByReleaseDateDelegate.cs" />
     <Compile Include="DataDelegates\GetSongBySpotifyListensDelegate.cs" />
     <Compile Include="DataDelegates\GetSongsByAlbumDataDelegate.cs" />
+    <Compile Include="DataDelegates\GetSongsBySpotifyListensDESCDataDelegate.cs" />
     <Compile Include="DataDelegates\GetSongsByTitleDataDelegate.cs" />
     <Compile Include="DataDelegates\GetArtistDataDelegate.cs" />
     <Compile Include="DataDelegates\GetBillboardDataDelegate.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="DataDelegates\RetrieveArtistDataDelegate.cs" />
     <Compile Include="DataDelegates\RetrieveBillboardDataDelegate.cs" />
     <Compile Include="DataDelegates\RetrieveGenreDataDelegate.cs" />
+    <Compile Include="DataDelegates\GetSongsBySpotifyListensASCDataDelegate.cs" />
     <Compile Include="DataDelegates\RetrieveSongDataDelegate.cs" />
     <Compile Include="IAlbumRepository.cs" />
     <Compile Include="IArtistRepository.cs" />

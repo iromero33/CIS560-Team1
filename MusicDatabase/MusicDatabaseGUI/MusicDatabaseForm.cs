@@ -94,7 +94,7 @@ namespace MusicDatabaseGUI
         private void uxSearchByButton_Click(object sender, EventArgs e)
         {
             int numSpotifyListens = (int)uxSpotifyListensInput.Value;
-            uxSongsList.DataSource = GetSongsBySpotifyListens(numSpotifyListens);
+            uxSongsList.DataSource = GetSongsBySpotifyListens(0, numSpotifyListens);
         }
 
         private void uxSearchWeeksButton_Click(object sender, EventArgs e)

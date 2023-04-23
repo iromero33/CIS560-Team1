@@ -16,7 +16,7 @@ namespace MusicDatabaseGUI
     public delegate IReadOnlyList<Song> GetSongsByTitleDel(string title);
     public delegate IReadOnlyList<Song> GetSongsByAlbumDel(int albumID);
     public delegate IReadOnlyList<Song> GetSongsByReleaseDateDel(DateTimeOffset date);
-    public delegate IReadOnlyList<Song> GetSongsBySpotifyListensDel(int listens);
+    public delegate IReadOnlyList<Song> GetSongsBySpotifyListensDel(int min, int max);
     public delegate IReadOnlyList<Album> GetAlbumsByYearDel(DateTimeOffset year);
 
     public delegate void CreateAlbumDel(string name, DateTimeOffset releaseDate);
