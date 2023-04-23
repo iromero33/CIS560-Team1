@@ -1,9 +1,9 @@
-CREATE OR ALTER PROCEDURE Music.GetSongByReleaseYear
-	@Year DATETIMEOFFSET
+CREATE OR ALTER PROCEDURE Music.GetSongByReleaseDate
+	@ReleaseDate DATETIMEOFFSET
 AS
 
 SELECT S.SongID, S.Title, S.ArtistID, S.AlbumID, S.GenreID, S.SpotifyListens
 FROM Music.Song S
   INNER JOIN Music.Album A ON A.AlbumID = S.AlbumID
-WHERE YEAR(A.ReleaseDate) = YEAR(@Year);
+WHERE A.ReleaseDate = @ReleaseDate
 GO

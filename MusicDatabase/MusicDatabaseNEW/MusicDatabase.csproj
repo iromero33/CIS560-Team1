@@ -89,7 +89,7 @@
     <Content Include="Sql\Data\Music.Artist.sql" />
     <Content Include="Sql\Data\Music.Genre.sql" />
     <Content Include="Sql\Data\Music.Song.sql" />
-    <Content Include="Sql\Procedures\Music.GetSongByReleaseYear.sql" />
+    <Content Include="Sql\Procedures\Music.GetSongByReleaseDate.sql" />
     <Content Include="Sql\Procedures\Music.GetAlbumsByYear.sql" />
     <Content Include="Sql\Procedures\Music.CreateAlbum.sql" />
     <Content Include="Sql\Procedures\Music.CreateArtist.sql" />
