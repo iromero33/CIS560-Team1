@@ -41,5 +41,25 @@ namespace MusicDatabase
         {
             return executor.ExecuteReader(new RetrieveSongDataDelegate());
         }
+
+        public IReadOnlyList<Song> GetSongsByTitle(string title)
+        {
+            return executor.ExecuteReader(new GetSongsByTitleDataDelegate(title));
+        }
+
+        public IReadOnlyList<Song> GetSongsByAlbum(int albumID)
+        {
+            return executor.ExecuteReader(new GetSongsByAlbumDataDelegate(albumID));
+        }
+
+        public IReadOnlyList<Song> GetSongsByReleaseYear(DateTimeOffset date)
+        {
+            return executor.ExecuteReader(new GetSongByReleaseDateDelegate(date));
+        }
+
+        public IReadOnlyList<Song> GetSongsBySpotifyListens(int listens)
+        {
+            return executor.ExecuteReader(new GetSongBySpotifyListensDelegate(listens));
+        }
     }
 }

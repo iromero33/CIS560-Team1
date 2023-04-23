@@ -37,14 +37,15 @@ IF NOT EXISTS
       SELECT *
       FROM sys.key_constraints kc
       WHERE kc.parent_object_id = OBJECT_ID(N'Music.Song')
-         AND kc.[name] = N'UK_Music_Song_Title'
+         AND kc.[name] = N'UK_Music_Song_Title_AlbumID'
 
    )
 BEGIN
    ALTER TABLE Music.Song
-   ADD CONSTRAINT [UK_Music_Song_Title] UNIQUE NONCLUSTERED
+   ADD CONSTRAINT [UK_Music_Song_Title_AlbumID] UNIQUE NONCLUSTERED
    (
-      Title ASC
+      Title ASC,
+      AlbumID ASC
    )
 END;
 
@@ -112,3 +113,24 @@ BEGIN
       GenreID
    );
 END;
+
+/****************************
+ * Check Constraints
+ ****************************/
+
+IF NOT EXISTS
+   (
+      SELECT *
+      FROM sys.check_constraints cc
+      WHERE cc.parent_object_id = OBJECT_ID(N'Music.Song')
+         AND cc.[name] = N'CK_Music_Song_Title_SpotifyListens'
+   )
+BEGIN
+   ALTER TABLE Music.Song
+   ADD CONSTRAINT [CK_Music_Song_Title_SpotifyListens] CHECK
+   (
+      [Title] > N'' OR [SpotifyListens] > N''
+   )
+END;
+
+

@@ -1,26 +1,11 @@
 ﻿DECLARE @SongStaging TABLE
 (
-      SongID INT NOT NULL IDENTITY(1, 1),
+      SongID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
       Title NVARCHAR(64) NOT NULL,
       ArtistID INT NOT NULL,
       AlbumID INT NOT NULL,
       GenreID INT NOT NULL,
-      SpotifyListens INT NOT NULL,
-      
-
-      CONSTRAINT PK_Music_Song_SongID PRIMARY KEY CLUSTERED
-      (
-         SongID ASC
-      ),
-
-      CONSTRAINT FK_Music_Song_Music_Artist FOREIGN KEY(ArtistID)
-      REFERENCES Music.Artist(ArtistID),
-
-      CONSTRAINT FK_Music_Song_Music_Album FOREIGN KEY(AlbumID)
-      REFERENCES Music.Album(AlbumID),
-
-      CONSTRAINT FK_Music_Song_Music_Genre FOREIGN KEY(GenreID)
-      REFERENCES Music.Genre(GenreID)
+      SpotifyListens INT NOT NULL
 
 );
 
@@ -173,8 +158,13 @@ WITH SourceCTE(Title, ArtistID, AlbumID, GenreID, SpotifyListens) AS
         INNER JOIN Music.Album AL ON AL.[Name] = S.AlbumName
         INNER JOIN Music.Genre G ON G.[Name] = S.Genre
 )
+INSERT @SongStaging(Title, ArtistID, AlbumID, GenreID, SpotifyListens)
+SELECT S.Title, S.ArtistID, S.AlbumID, S.GenreID, S.SpotifyListens
+FROM SourceCTE S;
+
+
 MERGE Music.Song S
-USING SourceCTE C ON C.SongID = S.SongID
+USING @SongStaging C ON C.SongID = S.SongID
 WHEN MATCHED THEN
     UPDATE
     SET

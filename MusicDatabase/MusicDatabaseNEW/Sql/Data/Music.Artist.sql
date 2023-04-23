@@ -1,13 +1,8 @@
 ﻿DECLARE @ArtistStaging TABLE
 (
-     ArtistID INT NOT NULL IDENTITY(1, 1),
+     ArtistID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
       /*SongID INT NOT NULL,*/
-      [Name] NVARCHAR(64) NOT NULL,
-
-      CONSTRAINT [PK_Music_Artist_ArtistID] PRIMARY KEY CLUSTERED
-      (
-         ArtistID ASC
-      )
+      [Name] NVARCHAR(128) NOT NULL
 
 );
 
@@ -120,3 +115,11 @@ VALUES
  (N'Hozier');
 
  /***************************************************************/
+ MERGE Music.Artist A
+USING @ArtistStaging S ON S.ArtistID = A.ArtistID
+WHEN MATCHED AND S.[Name] <> A.[Name] THEN
+   UPDATE
+   SET [Name] = S.[Name]
+WHEN NOT MATCHED THEN
+   INSERT([Name])
+   VALUES(S.[Name]);

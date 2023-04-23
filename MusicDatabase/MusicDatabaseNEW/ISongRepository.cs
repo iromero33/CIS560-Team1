@@ -40,5 +40,13 @@ namespace MusicDatabase
         Song GetSong(string title, int albumID);
 
         Song CreateSong(string title, int artistID, int albumID, int genreID, int spotifyListens);
+
+        IReadOnlyList<Song> GetSongsByTitle(string title);
+
+        IReadOnlyList<Song> GetSongsByAlbum(int albumID);
+
+        IReadOnlyList<Song> GetSongsByReleaseYear(DateTimeOffset date);
+
+        IReadOnlyList<Song> GetSongsBySpotifyListens(int listens);
     }
 }
