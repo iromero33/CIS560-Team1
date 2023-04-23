@@ -3,8 +3,8 @@ BEGIN
    CREATE TABLE Music.Billboard
    (
       BillboardID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
-      AlbumID INT NOT NULL,
-      StartDate DATETIMEOFFSET NOT NULL,
-      EndDate DATETIMEOFFSET NOT NULL
+      WeekPosted DATETIMEOFFSET NOT NULL,
+      WeekRanking INT NOT NULL,
+      AlbumID INT NOT NULL
    );
 END;
