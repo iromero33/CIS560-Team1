@@ -1,5 +1,5 @@
 ﻿CREATE OR ALTER PROCEDURE Music.GetArtist
-   @Name NVARCHAR(64)
+   @Name NVARCHAR(128)
 AS
 
 SELECT A.ArtistID

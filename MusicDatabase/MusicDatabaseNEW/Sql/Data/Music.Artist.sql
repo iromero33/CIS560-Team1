@@ -1,8 +1,8 @@
 ﻿DECLARE @ArtistStaging TABLE
 (
-     ArtistID INT NOT NULL PRIMARY KEY,
+     ArtistID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
       /*SongID INT NOT NULL,*/
-      [Name] NVARCHAR(64) NOT NULL
+      [Name] NVARCHAR(128) NOT NULL
 
 );
 
@@ -116,10 +116,10 @@ VALUES
 
  /***************************************************************/
  MERGE Music.Artist A
-USING @ArtistStaging S ON S.AristID = A.ArtistID
+USING @ArtistStaging S ON S.ArtistID = A.ArtistID
 WHEN MATCHED AND S.[Name] <> A.[Name] THEN
    UPDATE
    SET [Name] = S.[Name]
 WHEN NOT MATCHED THEN
-   INSERT(ArtistID, [Name])
-   VALUES(S.ArtistID, S.[Name]);
+   INSERT([Name])
+   VALUES(S.[Name]);

@@ -1,7 +1,7 @@
 ﻿DECLARE @GenreStaging TABLE
 (
-      GenreID INT NOT NULL PRIMARY KEY,
-      [Name] NVARCHAR(64) NOT NULL UNIQUE
+      GenreID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
+      [Name] NVARCHAR(64) NOT NULL UNIQUE DEFAULT('[N/A]')
 
 );
 
@@ -13,7 +13,6 @@ VALUES
  (N'[ australian hip hop ] '),
  (N'[ pop ] '),
  (N'[ pop ,  uk pop ] '),
- (N'[ lgbtq+ hip hop ,  pop rap ] '),
  (N'[ lgbtq+ hip hop ,  pop rap ] '),
  (N'[ dance pop ,  pop ] '),
  (N'[ puerto rican pop ,  trap latino ] '),
@@ -136,5 +135,5 @@ WHEN MATCHED AND S.[Name] <> A.[Name] THEN
    UPDATE
    SET [Name] = S.[Name]
 WHEN NOT MATCHED THEN
-   INSERT(GenreID, [Name])
-   VALUES(S.GenreID, S.[Name]);
+   INSERT([Name])
+   VALUES(S.[Name]);
