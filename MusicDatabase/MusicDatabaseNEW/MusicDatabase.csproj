@@ -108,6 +108,8 @@
     <Content Include="Sql\Procedures\Music.GetBillboard.sql" />
     <Content Include="Sql\Procedures\Music.GetGenre.sql" />
     <Content Include="Sql\Procedures\Music.GetSong.sql" />
+    <Content Include="Sql\Procedures\Music.GetSongsBySpotifyListensDESC.sql" />
+    <Content Include="Sql\Procedures\Music.GetSongsBySpotifyListensASC.sql" />
     <Content Include="Sql\Procedures\Music.GetSongBySpotifyListens.sql" />
     <Content Include="Sql\Procedures\Music.GetSongsByAlbum.sql" />
     <Content Include="Sql\Procedures\Music.RetrieveAlbum.sql" />
