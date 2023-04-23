@@ -129,12 +129,14 @@ namespace MusicDatabaseGUI
             if (FetchSong != null && uxSongsList.SelectedIndex >= 0 && uxSongsList.SelectedItem is Song song)
             {
                 SelectedSong = FetchSong(song.SongID);
+                Album selectedSongAlbum = FetchAlbum(SelectedSong.AlbumID);
 
                 uxSongTitleOutput.Text = SelectedSong.Title;
                 uxSpotifyListensOutput.Text = SelectedSong.SpotifyListens.ToString();
                 uxSongArtistOutput.Text = FetchArtist(SelectedSong.ArtistID).Name;
-                uxSongAlbumOutput.Text = FetchAlbum(SelectedSong.AlbumID).Name;
+                uxSongAlbumOutput.Text = selectedSongAlbum.Name;
                 uxSongGenreOutput.Text = FetchGenre(SelectedSong.GenreID).Name;
+                uxSongReleaseDateOutput.Text = selectedSongAlbum.ReleaseDate.Date.ToLongDateString();
             } 
             else
             {
@@ -145,6 +147,7 @@ namespace MusicDatabaseGUI
                 uxSongArtistOutput.Text = "";
                 uxSongAlbumOutput.Text = "";
                 uxSongGenreOutput.Text = "";
+                uxSongReleaseDateOutput.Text = "";
             }
             
         }

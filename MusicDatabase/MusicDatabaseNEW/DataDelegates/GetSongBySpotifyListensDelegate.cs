@@ -25,7 +25,7 @@ namespace MusicDatabase.DataDelegates
             base.PrepareCommand(command);
 
             command.Parameters.AddWithValue("SpotifyListensMin", min);
-            command.Parameters.AddWithValue("SpotifyListensMax", min);
+            command.Parameters.AddWithValue("SpotifyListensMax", max);
         }
 
         public override IReadOnlyList<Song> Translate(SqlCommand command, IDataRowReader reader)

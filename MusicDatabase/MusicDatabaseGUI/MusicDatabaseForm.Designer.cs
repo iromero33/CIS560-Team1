@@ -56,8 +56,7 @@
             this.uxSongInfo = new System.Windows.Forms.GroupBox();
             this.uxSongTitleOutputLabel = new System.Windows.Forms.Label();
             this.uxSongTitleOutput = new System.Windows.Forms.TextBox();
-            this.uxAlbumBillboardOutput = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.uxSongReleaseDateOutputLabel = new System.Windows.Forms.Label();
             this.uxSongGenreLabel = new System.Windows.Forms.Label();
             this.uxSongGenreOutput = new System.Windows.Forms.TextBox();
             this.uxSongAlbumLabel = new System.Windows.Forms.Label();
@@ -65,6 +64,9 @@
             this.uxSongArtistLabel = new System.Windows.Forms.Label();
             this.uxSongArtistOutput = new System.Windows.Forms.TextBox();
             this.uxSpotifyListensLabel = new System.Windows.Forms.Label();
+            this.uxAlbumBillboardOutputLabel = new System.Windows.Forms.Label();
+            this.uxAlbumBillboardOutput = new System.Windows.Forms.TextBox();
+            this.uxSongReleaseDateOutput = new System.Windows.Forms.TextBox();
             this.uxAddOptions.SuspendLayout();
             this.uxSearchOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uxBillboardWeeksInput)).BeginInit();
@@ -336,10 +338,12 @@
             // 
             // uxSongInfo
             // 
+            this.uxSongInfo.Controls.Add(this.uxAlbumBillboardOutputLabel);
+            this.uxSongInfo.Controls.Add(this.uxAlbumBillboardOutput);
             this.uxSongInfo.Controls.Add(this.uxSongTitleOutputLabel);
             this.uxSongInfo.Controls.Add(this.uxSongTitleOutput);
-            this.uxSongInfo.Controls.Add(this.uxAlbumBillboardOutput);
-            this.uxSongInfo.Controls.Add(this.textBox1);
+            this.uxSongInfo.Controls.Add(this.uxSongReleaseDateOutputLabel);
+            this.uxSongInfo.Controls.Add(this.uxSongReleaseDateOutput);
             this.uxSongInfo.Controls.Add(this.uxSongGenreLabel);
             this.uxSongInfo.Controls.Add(this.uxSongGenreOutput);
             this.uxSongInfo.Controls.Add(this.uxSongAlbumLabel);
@@ -372,23 +376,15 @@
             this.uxSongTitleOutput.Size = new System.Drawing.Size(225, 22);
             this.uxSongTitleOutput.TabIndex = 39;
             // 
-            // uxAlbumBillboardOutput
+            // uxSongReleaseDateOutputLabel
             // 
-            this.uxAlbumBillboardOutput.AutoSize = true;
-            this.uxAlbumBillboardOutput.Font = new System.Drawing.Font("Microsoft Tai Le", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uxAlbumBillboardOutput.Location = new System.Drawing.Point(3, 253);
-            this.uxAlbumBillboardOutput.Name = "uxAlbumBillboardOutput";
-            this.uxAlbumBillboardOutput.Size = new System.Drawing.Size(224, 16);
-            this.uxAlbumBillboardOutput.TabIndex = 38;
-            this.uxAlbumBillboardOutput.Text = "Billboard Longest Consecutive Weeks";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(6, 272);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(225, 22);
-            this.textBox1.TabIndex = 37;
+            this.uxSongReleaseDateOutputLabel.AutoSize = true;
+            this.uxSongReleaseDateOutputLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxSongReleaseDateOutputLabel.Location = new System.Drawing.Point(3, 253);
+            this.uxSongReleaseDateOutputLabel.Name = "uxSongReleaseDateOutputLabel";
+            this.uxSongReleaseDateOutputLabel.Size = new System.Drawing.Size(83, 16);
+            this.uxSongReleaseDateOutputLabel.TabIndex = 38;
+            this.uxSongReleaseDateOutputLabel.Text = "Release Date";
             // 
             // uxSongGenreLabel
             // 
@@ -450,6 +446,32 @@
             this.uxSpotifyListensLabel.TabIndex = 30;
             this.uxSpotifyListensLabel.Text = "Spotify Listens";
             // 
+            // uxAlbumBillboardOutputLabel
+            // 
+            this.uxAlbumBillboardOutputLabel.AutoSize = true;
+            this.uxAlbumBillboardOutputLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxAlbumBillboardOutputLabel.Location = new System.Drawing.Point(3, 299);
+            this.uxAlbumBillboardOutputLabel.Name = "uxAlbumBillboardOutputLabel";
+            this.uxAlbumBillboardOutputLabel.Size = new System.Drawing.Size(224, 16);
+            this.uxAlbumBillboardOutputLabel.TabIndex = 42;
+            this.uxAlbumBillboardOutputLabel.Text = "Billboard Longest Consecutive Weeks";
+            // 
+            // uxAlbumBillboardOutput
+            // 
+            this.uxAlbumBillboardOutput.Location = new System.Drawing.Point(6, 318);
+            this.uxAlbumBillboardOutput.Name = "uxAlbumBillboardOutput";
+            this.uxAlbumBillboardOutput.ReadOnly = true;
+            this.uxAlbumBillboardOutput.Size = new System.Drawing.Size(225, 22);
+            this.uxAlbumBillboardOutput.TabIndex = 41;
+            // 
+            // uxSongReleaseDateOutput
+            // 
+            this.uxSongReleaseDateOutput.Location = new System.Drawing.Point(6, 272);
+            this.uxSongReleaseDateOutput.Name = "uxSongReleaseDateOutput";
+            this.uxSongReleaseDateOutput.ReadOnly = true;
+            this.uxSongReleaseDateOutput.Size = new System.Drawing.Size(225, 22);
+            this.uxSongReleaseDateOutput.TabIndex = 37;
+            // 
             // MusicDatabaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -501,8 +523,7 @@
         private System.Windows.Forms.TextBox uxSongGenreOutput;
         private System.Windows.Forms.Label uxBillboardWeeksInputLabel;
         private System.Windows.Forms.Label uxSpotifyListensInputLabel;
-        private System.Windows.Forms.Label uxAlbumBillboardOutput;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label uxSongReleaseDateOutputLabel;
         private System.Windows.Forms.DateTimePicker uxReleaseDateInput;
         private System.Windows.Forms.Label uxReleaseDateInputLabel;
         private System.Windows.Forms.Button uxSearchListensButton;
@@ -516,6 +537,9 @@
         private System.Windows.Forms.Button uxAddSongButton2;
         private System.Windows.Forms.Label uxSongTitleOutputLabel;
         private System.Windows.Forms.TextBox uxSongTitleOutput;
+        private System.Windows.Forms.Label uxAlbumBillboardOutputLabel;
+        private System.Windows.Forms.TextBox uxAlbumBillboardOutput;
+        private System.Windows.Forms.TextBox uxSongReleaseDateOutput;
     }
 }
 
