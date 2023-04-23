@@ -89,6 +89,7 @@
     <Content Include="Datasets\billboard\billboard_script.py" />
     <Content Include="Sql\Data\Music.Album.sql" />
     <Content Include="Sql\Data\Music.Artist.sql" />
+    <Content Include="Sql\Data\Music.Billboard.sql" />
     <Content Include="Sql\Data\Music.Genre.sql" />
     <Content Include="Sql\Data\Music.Song.sql" />
     <Content Include="Sql\Procedures\Music.GetSongByReleaseDate.sql" />

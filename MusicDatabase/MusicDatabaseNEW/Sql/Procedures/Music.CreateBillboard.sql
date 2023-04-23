@@ -1,12 +1,12 @@
 ﻿CREATE OR ALTER PROCEDURE Music.CreateBillboard
    @AlbumID INT,
-   @StartDate DATETIMEOFFSET,
-   @EndDate DATETIMEOFFSET,
+   @WeekPosted	DATETIMEOFFSET,
+   @WeekRanking	INT OUTPUT,
    @BillboardID INT OUTPUT
 AS
 
-INSERT Music.Billboard(AlbumID, StartDate, EndDate)
-VALUES(@AlbumID, @StartDate, @EndDate);
+INSERT Music.Billboard(AlbumID, WeekPosted)
+VALUES(@AlbumID, @WeekPosted);
 
 SET @BillboardID = SCOPE_IDENTITY();
 GO
