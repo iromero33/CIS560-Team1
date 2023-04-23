@@ -2,5 +2,6 @@
 AS
 
 SELECT G.GenreID, G.[Name]
-FROM Music.Genre G;
+FROM Music.Genre G
+ORDER BY G.[Name] ASC;
 GO
