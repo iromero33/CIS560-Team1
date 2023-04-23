@@ -1,5 +1,5 @@
 ﻿CREATE OR ALTER PROCEDURE Music.CreateArtist
-   @Name NVARCHAR(32),
+   @Name NVARCHAR(64),
    @ArtistID INT OUTPUT
 AS
 

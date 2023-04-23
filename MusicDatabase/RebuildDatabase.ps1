@@ -65,6 +65,7 @@ Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MusicDatab
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MusicDatabaseNEW\Sql\Procedures\Music.GetSongsByTitle.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MusicDatabaseNEW\Sql\Procedures\Music.GetSongsByAlbum.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MusicDatabaseNEW\Sql\Procedures\Music.GetSongBySpotifyListens.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MusicDatabaseNEW\Sql\Procedures\Music.GetSongByReleaseYear.sql"
 #Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PersonData\Sql\Procedures\Person.SavePersonAddress.sql" 
 #Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PersonData\Sql\Procedures\Person.RetrieveAddressesForPerson.sql"
 

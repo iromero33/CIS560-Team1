@@ -1,5 +1,5 @@
 ﻿CREATE OR ALTER PROCEDURE Music.GetGenre
-   @Name NVARCHAR(64)
+   @Name NVARCHAR(256)
 AS
 
 SELECT G.GenreID

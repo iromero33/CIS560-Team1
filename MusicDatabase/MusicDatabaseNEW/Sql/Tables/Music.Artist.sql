@@ -3,7 +3,7 @@ BEGIN
    CREATE TABLE Music.Artist
    (
       ArtistID INT NOT NULL IDENTITY(1, 1),
-      [Name] NVARCHAR(64) NOT NULL,
+      [Name] NVARCHAR(128) NOT NULL,
 
       CONSTRAINT [PK_Music_Artist_ArtistID] PRIMARY KEY CLUSTERED
       (

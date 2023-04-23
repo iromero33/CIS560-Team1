@@ -52,6 +52,8 @@
     <Compile Include="DataDelegates\FetchGenreDataDelegate.cs" />
     <Compile Include="DataDelegates\FetchSongDataDelegate.cs" />
     <Compile Include="DataDelegates\GetAlbumDataDelegate.cs" />
+    <Compile Include="DataDelegates\GetSongByReleaseYearDelegate.cs" />
+    <Compile Include="DataDelegates\GetSongBySpotifyListensDelegate.cs" />
     <Compile Include="DataDelegates\GetSongsByAlbumDataDelegate.cs" />
     <Compile Include="DataDelegates\GetSongsByTitleDataDelegate.cs" />
     <Compile Include="DataDelegates\GetArtistDataDelegate.cs" />
