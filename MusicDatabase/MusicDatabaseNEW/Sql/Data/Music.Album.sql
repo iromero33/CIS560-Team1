@@ -133,3 +133,12 @@ VALUES
      (N'Hozier (Bonus Track Version)', '41901');
 
 /******************************************************************************/
+
+MERGE Music.Ablum A
+USING @AlbumStaging S ON S.AblumID = A.AlbumID
+WHEN MATCHED AND S.[Name] <> A.[Name] THEN
+   UPDATE
+   SET [Name] = S.[Name]
+WHEN NOT MATCHED THEN
+   INSERT([Name], ReleaseDate)
+   VALUES(S.[Name], S.ReleaseDate);
