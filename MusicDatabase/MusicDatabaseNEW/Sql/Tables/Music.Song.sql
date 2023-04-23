@@ -113,3 +113,24 @@ BEGIN
       GenreID
    );
 END;
+
+/****************************
+ * Check Constraints
+ ****************************/
+
+IF NOT EXISTS
+   (
+      SELECT *
+      FROM sys.check_constraints cc
+      WHERE cc.parent_object_id = OBJECT_ID(N'Music.Song')
+         AND cc.[name] = N'CK_Music_Song_Title_SpotifyListens'
+   )
+BEGIN
+   ALTER TABLE Music.Song
+   ADD CONSTRAINT [CK_Music_Song_Title_SpotifyListens] CHECK
+   (
+      [Title] > N'' OR [SpotifyListens] > N''
+   )
+END;
+
+

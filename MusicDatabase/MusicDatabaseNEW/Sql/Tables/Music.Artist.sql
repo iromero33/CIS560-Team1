@@ -30,3 +30,22 @@ BEGIN
       [Name] ASC
    )
 END;
+
+/****************************
+ * Check Constraints
+ ****************************/
+
+IF NOT EXISTS
+   (
+      SELECT *
+      FROM sys.check_constraints cc
+      WHERE cc.parent_object_id = OBJECT_ID(N'Music.Artist')
+         AND cc.[name] = N'CK_Music_Artist_Name'
+   )
+BEGIN
+   ALTER TABLE Music.Artist
+   ADD CONSTRAINT [CK_Music_Artist_Name] CHECK
+   (
+      [Name] > N'' 
+   )
+END;
