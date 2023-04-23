@@ -1,17 +1,11 @@
 ﻿DECLARE @SongStaging TABLE
 (
-      SongID INT NOT NULL IDENTITY(1, 1),
+      SongID INT NOT NULL PRIMARY KEY,
       Title NVARCHAR(64) NOT NULL,
       ArtistID INT NOT NULL,
       AlbumID INT NOT NULL,
       GenreID INT NOT NULL,
       SpotifyListens INT NOT NULL,
-      
-
-      CONSTRAINT PK_Music_Song_SongID PRIMARY KEY CLUSTERED
-      (
-         SongID ASC
-      ),
 
       CONSTRAINT FK_Music_Song_Music_Artist FOREIGN KEY(ArtistID)
       REFERENCES Music.Artist(ArtistID),
