@@ -1,6 +1,6 @@
 ﻿DECLARE @AlbumStaging TABLE
 (
-      AlbumID INT NOT NULL PRIMARY KEY,
+      AlbumID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
       [Name] NVARCHAR(64) NOT NULL,
       ReleaseDate DATETIMEOFFSET NOT NULL
 );
@@ -130,8 +130,8 @@ VALUES
 
 /******************************************************************************/
 
-MERGE Music.Ablum A
-USING @AlbumStaging S ON S.AblumID = A.AlbumID
+MERGE Music.Album A
+USING @AlbumStaging S ON S.AlbumID = A.AlbumID
 WHEN MATCHED AND S.[Name] <> A.[Name] THEN
    UPDATE
    SET [Name] = S.[Name]
