@@ -44,7 +44,8 @@ namespace MusicDatabase
 
         public IReadOnlyList<Song> GetSongsByTitle(string title)
         {
-            return executor.ExecuteReader(new GetSongsByTitleDataDelegate(title));
+            string titleAsSubstring = $"%{title}%";
+            return executor.ExecuteReader(new GetSongsByTitleDataDelegate(titleAsSubstring));
         }
 
         public IReadOnlyList<Song> GetSongsByAlbum(int albumID)
@@ -52,14 +53,24 @@ namespace MusicDatabase
             return executor.ExecuteReader(new GetSongsByAlbumDataDelegate(albumID));
         }
 
-        public IReadOnlyList<Song> GetSongsByReleaseYear(DateTimeOffset date)
+        public IReadOnlyList<Song> GetSongsByReleaseDate(DateTimeOffset date)
         {
             return executor.ExecuteReader(new GetSongByReleaseDateDelegate(date));
         }
 
-        public IReadOnlyList<Song> GetSongsBySpotifyListens(int listens)
+        public IReadOnlyList<Song> GetSongsBySpotifyListens(int min, int max)
         {
-            return executor.ExecuteReader(new GetSongBySpotifyListensDelegate(listens));
+            return executor.ExecuteReader(new GetSongBySpotifyListensDelegate(min, max));
+        }
+
+        public IReadOnlyList<Song> GetSongsBySpotifyListensASC()
+        {
+            return executor.ExecuteReader(new GetSongsBySpotifyListensASCDataDelegate());
+        }
+
+        public IReadOnlyList<Song> GetSongsBySpotifyListensDESC()
+        {
+            return executor.ExecuteReader(new GetSongsBySpotifyListensDESCDataDelegate());
         }
     }
 }

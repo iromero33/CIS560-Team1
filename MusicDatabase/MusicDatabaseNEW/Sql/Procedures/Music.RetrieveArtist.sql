@@ -2,7 +2,8 @@
 AS
 
 SELECT A.ArtistID, A.[Name]
-FROM Music.Artist A;
+FROM Music.Artist A
+ORDER BY A.[Name] ASC;
 GO
 
 /*
