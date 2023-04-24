@@ -18,6 +18,27 @@ BEGIN
 END;
 
 /****************************
+ * Unique Constraints
+ ****************************/
+
+IF NOT EXISTS
+   (
+      SELECT *
+      FROM sys.key_constraints kc
+      WHERE kc.parent_object_id = OBJECT_ID(N'Music.Billboard')
+         AND kc.[name] = N'UK_Music_Billboard_WeekPosted_WeekRankings'
+
+   )
+BEGIN
+   ALTER TABLE Music.Billboard
+   ADD CONSTRAINT [UK_Music_Billboard_WeekPosted_WeekRankings] UNIQUE NONCLUSTERED
+   (
+      WeekPosted ASC,
+      WeekRanking ASC
+   )
+END;
+
+/****************************
  * Foreign Keys Constraints
  ****************************/
 
