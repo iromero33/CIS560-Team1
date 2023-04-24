@@ -46,33 +46,37 @@
             // uxAlbumMenu
             // 
             this.uxAlbumMenu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.uxAlbumMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uxAlbumMenu.FormattingEnabled = true;
-            this.uxAlbumMenu.Location = new System.Drawing.Point(228, 97);
+            this.uxAlbumMenu.Location = new System.Drawing.Point(421, 194);
             this.uxAlbumMenu.Name = "uxAlbumMenu";
-            this.uxAlbumMenu.Size = new System.Drawing.Size(170, 24);
+            this.uxAlbumMenu.Size = new System.Drawing.Size(375, 39);
             this.uxAlbumMenu.TabIndex = 0;
             // 
             // uxItemNameInput
             // 
-            this.uxItemNameInput.Location = new System.Drawing.Point(12, 28);
+            this.uxItemNameInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxItemNameInput.Location = new System.Drawing.Point(24, 56);
             this.uxItemNameInput.Name = "uxItemNameInput";
-            this.uxItemNameInput.Size = new System.Drawing.Size(170, 22);
+            this.uxItemNameInput.Size = new System.Drawing.Size(375, 38);
             this.uxItemNameInput.TabIndex = 1;
             // 
             // uxNameLabel
             // 
             this.uxNameLabel.AutoSize = true;
-            this.uxNameLabel.Location = new System.Drawing.Point(12, 9);
+            this.uxNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxNameLabel.Location = new System.Drawing.Point(24, 19);
             this.uxNameLabel.Name = "uxNameLabel";
-            this.uxNameLabel.Size = new System.Drawing.Size(44, 16);
+            this.uxNameLabel.Size = new System.Drawing.Size(89, 32);
             this.uxNameLabel.TabIndex = 2;
             this.uxNameLabel.Text = "Name";
             // 
             // uxOkButton
             // 
-            this.uxOkButton.Location = new System.Drawing.Point(228, 166);
+            this.uxOkButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxOkButton.Location = new System.Drawing.Point(476, 333);
             this.uxOkButton.Name = "uxOkButton";
-            this.uxOkButton.Size = new System.Drawing.Size(75, 26);
+            this.uxOkButton.Size = new System.Drawing.Size(150, 41);
             this.uxOkButton.TabIndex = 3;
             this.uxOkButton.Text = "Ok";
             this.uxOkButton.UseVisualStyleBackColor = true;
@@ -81,35 +85,39 @@
             // uxAlbumLabel
             // 
             this.uxAlbumLabel.AutoSize = true;
-            this.uxAlbumLabel.Location = new System.Drawing.Point(225, 78);
+            this.uxAlbumLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxAlbumLabel.Location = new System.Drawing.Point(450, 156);
             this.uxAlbumLabel.Name = "uxAlbumLabel";
-            this.uxAlbumLabel.Size = new System.Drawing.Size(45, 16);
+            this.uxAlbumLabel.Size = new System.Drawing.Size(95, 32);
             this.uxAlbumLabel.TabIndex = 4;
             this.uxAlbumLabel.Text = "Album";
             // 
             // uxArtistLabel
             // 
             this.uxArtistLabel.AutoSize = true;
-            this.uxArtistLabel.Location = new System.Drawing.Point(12, 78);
+            this.uxArtistLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxArtistLabel.Location = new System.Drawing.Point(24, 156);
             this.uxArtistLabel.Name = "uxArtistLabel";
-            this.uxArtistLabel.Size = new System.Drawing.Size(36, 16);
+            this.uxArtistLabel.Size = new System.Drawing.Size(79, 32);
             this.uxArtistLabel.TabIndex = 5;
             this.uxArtistLabel.Text = "Artist";
             // 
             // uxArtistMenu
             // 
             this.uxArtistMenu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.uxArtistMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uxArtistMenu.FormattingEnabled = true;
-            this.uxArtistMenu.Location = new System.Drawing.Point(12, 97);
+            this.uxArtistMenu.Location = new System.Drawing.Point(24, 194);
             this.uxArtistMenu.Name = "uxArtistMenu";
-            this.uxArtistMenu.Size = new System.Drawing.Size(170, 24);
+            this.uxArtistMenu.Size = new System.Drawing.Size(380, 39);
             this.uxArtistMenu.TabIndex = 6;
             // 
             // uxCancelButton
             // 
-            this.uxCancelButton.Location = new System.Drawing.Point(323, 166);
+            this.uxCancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxCancelButton.Location = new System.Drawing.Point(646, 333);
             this.uxCancelButton.Name = "uxCancelButton";
-            this.uxCancelButton.Size = new System.Drawing.Size(75, 26);
+            this.uxCancelButton.Size = new System.Drawing.Size(150, 41);
             this.uxCancelButton.TabIndex = 7;
             this.uxCancelButton.Text = "Cancel";
             this.uxCancelButton.UseVisualStyleBackColor = true;
@@ -118,43 +126,48 @@
             // uxGenreLabel
             // 
             this.uxGenreLabel.AutoSize = true;
-            this.uxGenreLabel.Location = new System.Drawing.Point(9, 148);
+            this.uxGenreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxGenreLabel.Location = new System.Drawing.Point(18, 296);
             this.uxGenreLabel.Name = "uxGenreLabel";
-            this.uxGenreLabel.Size = new System.Drawing.Size(44, 16);
+            this.uxGenreLabel.Size = new System.Drawing.Size(93, 32);
             this.uxGenreLabel.TabIndex = 8;
             this.uxGenreLabel.Text = "Genre";
             // 
             // uxGenreMenu
             // 
             this.uxGenreMenu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.uxGenreMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uxGenreMenu.FormattingEnabled = true;
-            this.uxGenreMenu.Location = new System.Drawing.Point(12, 167);
+            this.uxGenreMenu.Location = new System.Drawing.Point(24, 334);
             this.uxGenreMenu.Name = "uxGenreMenu";
-            this.uxGenreMenu.Size = new System.Drawing.Size(170, 24);
+            this.uxGenreMenu.Size = new System.Drawing.Size(436, 39);
             this.uxGenreMenu.TabIndex = 9;
             // 
             // uxOtherLabel
             // 
             this.uxOtherLabel.AutoSize = true;
-            this.uxOtherLabel.Location = new System.Drawing.Point(225, 9);
+            this.uxOtherLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxOtherLabel.Location = new System.Drawing.Point(450, 18);
             this.uxOtherLabel.Name = "uxOtherLabel";
-            this.uxOtherLabel.Size = new System.Drawing.Size(91, 16);
+            this.uxOtherLabel.Size = new System.Drawing.Size(186, 32);
             this.uxOtherLabel.TabIndex = 10;
             this.uxOtherLabel.Text = "Release Date";
             // 
             // uxOtherInput
             // 
-            this.uxOtherInput.Location = new System.Drawing.Point(228, 28);
+            this.uxOtherInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxOtherInput.Location = new System.Drawing.Point(421, 56);
             this.uxOtherInput.Name = "uxOtherInput";
-            this.uxOtherInput.Size = new System.Drawing.Size(170, 22);
+            this.uxOtherInput.Size = new System.Drawing.Size(370, 38);
             this.uxOtherInput.TabIndex = 11;
             // 
             // uxReleaseDateInput
             // 
+            this.uxReleaseDateInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uxReleaseDateInput.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.uxReleaseDateInput.Location = new System.Drawing.Point(228, 28);
+            this.uxReleaseDateInput.Location = new System.Drawing.Point(421, 56);
             this.uxReleaseDateInput.Name = "uxReleaseDateInput";
-            this.uxReleaseDateInput.Size = new System.Drawing.Size(170, 22);
+            this.uxReleaseDateInput.Size = new System.Drawing.Size(375, 38);
             this.uxReleaseDateInput.TabIndex = 12;
             this.uxReleaseDateInput.Value = new System.DateTime(2023, 4, 18, 20, 41, 1, 0);
             // 
@@ -162,7 +175,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(410, 203);
+            this.ClientSize = new System.Drawing.Size(838, 453);
             this.Controls.Add(this.uxReleaseDateInput);
             this.Controls.Add(this.uxOtherInput);
             this.Controls.Add(this.uxOtherLabel);

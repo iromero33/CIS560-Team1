@@ -44,7 +44,8 @@ namespace MusicDatabase
 
         public IReadOnlyList<Song> GetSongsByTitle(string title)
         {
-            return executor.ExecuteReader(new GetSongsByTitleDataDelegate(title));
+            string titleAsSubstring = $"%{title}%";
+            return executor.ExecuteReader(new GetSongsByTitleDataDelegate(titleAsSubstring));
         }
 
         public IReadOnlyList<Song> GetSongsByAlbum(int albumID)
