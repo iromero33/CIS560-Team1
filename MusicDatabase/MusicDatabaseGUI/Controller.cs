@@ -23,18 +23,6 @@ namespace MusicDatabaseGUI
         private IArtistRepository artistRepository = new SqlArtistRepository(connectionString);
         private IGenreRepository genreRepository = new SqlGenreRepository(connectionString);
 
-        public Controller ()
-        {
-            /*
-            genreRepository.CreateGenre("Test Genre");
-            albumRepository.CreateAlbum("Test Album", DateTimeOffset.Now);
-            albumRepository.CreateAlbum("Test Album 2022", new DateTimeOffset(2022, 1, 1, 1, 1, 1, TimeSpan.Zero));
-            artistRepository.CreateArtist("Test Artist");
-            */
-        }
-
-
-
         public void SetAddNewItemDel(AddItemDel del)
         {
             AddNewItem = del;
@@ -113,6 +101,16 @@ namespace MusicDatabaseGUI
         public IReadOnlyList<Album> GetAlbumsByYear(DateTimeOffset year)
         {
             return albumRepository.GetAlbumsByYear(year);
+        }
+
+        public IReadOnlyList<Song> GetSongsByReleaseDate(DateTimeOffset date)
+        {
+            return songRepository.GetSongsByReleaseDate(date);
+        }
+
+        public IReadOnlyList<Song> GetSongsBySpotifyListens(int min, int max)
+        {
+            return songRepository.GetSongsBySpotifyListens(min, max);
         }
     }
 }
