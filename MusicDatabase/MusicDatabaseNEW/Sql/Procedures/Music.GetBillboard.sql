@@ -1,10 +1,9 @@
 ﻿CREATE OR ALTER PROCEDURE Music.GetBillboard
 	@AlbumID INT,
-	@StartDate DATETIMEOFFSET,
-	@EndDate DATETIMEOFFSET
+	@WeekPosted DATETIMEOFFSET
 AS
 
 SELECT B.BillboardID
 FROM Music.Billboard B
-WHERE B.AlbumID = @AlbumID AND B.StartDate = @StartDate AND B.EndDate = @EndDate;
+WHERE B.AlbumID = @AlbumID AND B.WeekPosted = @WeekPosted;
 GO
