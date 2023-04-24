@@ -38,7 +38,7 @@ WITH SourceCTE(Title, ArtistID, AlbumID, GenreID, SpotifyListens) AS
          (N'AM Remix', N'Nio Garcia, J Balvin, Bad Bunny', N'AM Remix - Single',  N'latin, reggaeton, trap latino', 17617965),
          (N'Need To Know', N'Doja Cat', N'Planet Her',  N'dance pop, pop', 16908917),
          (N'Volando - Remix', N'Mora, Bad Bunny, Sech', N'Volando - Remix - Single',  N'reggaeton, trap latino', 16606925),
-         (N'Ain t Shit', N'Doja Cat', N'Planet Her',  N'dance pop, pop', 16126897),
+         (N'Aint Shit', N'Doja Cat', N'Planet Her',  N'dance pop, pop', 16126897),
          (N'drivers license', N'Olivia Rodrigo', N'SOUR',  N'pop', 15684978),
          (N'Heat Waves', N'Glass Animals', N'Dreamland',  N'gauze pop, indietronica, shiver pop', 15089184),
          (N'Blinding Lights', N'The Weeknd', N'After Hours',  N'canadian contemporary r&b, canadian pop, pop', 15011809),

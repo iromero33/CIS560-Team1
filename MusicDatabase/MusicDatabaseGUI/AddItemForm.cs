@@ -105,11 +105,21 @@ namespace MusicDatabaseGUI
 
         private void uxOkButton_Click(object sender, EventArgs e)
         {
-            if (IsNewItem)
+            bool isValid = true;
+
+            string name = "";
+
+            if (uxItemNameInput.Text != "") name = uxItemNameInput.Text;
+            else
+            {
+                isValid = false;
+                MessageBox.Show("Error: No name / title input");
+            }
+
+            if (isValid)
             {
                 //Add new item to database
-
-                string name = uxItemNameInput.Text;
+                
 
                 switch(CurrItemType)
                 {
@@ -125,15 +135,22 @@ namespace MusicDatabaseGUI
                         int artistID = ((Artist)uxArtistMenu.SelectedValue).ArtistID;
                         int albumID = ((Album)uxAlbumMenu.SelectedValue).AlbumID;
                         int genreID = ((Genre)uxGenreMenu.SelectedValue).GenreID;
-                        int spotifyListens = Convert.ToInt32(uxOtherInput.Text);
-
-                        CreateSong(name, artistID, albumID, genreID, spotifyListens);
+                        if (isValid = Int32.TryParse(uxOtherInput.Text, out int spotifyListens))
+                        {
+                            CreateSong(name, artistID, albumID, genreID, spotifyListens);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error: Inputted spotify listens is not a number");
+                        }
+                        
+                        
                         break;
                     default:
                         break;
                 }
             }
-            this.Close();
+            if (isValid)this.Close();
         }
 
         private void HideAllOptions()
