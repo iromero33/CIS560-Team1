@@ -92,6 +92,9 @@
     <Content Include="Sql\Data\Music.Billboard.sql" />
     <Content Include="Sql\Data\Music.Genre.sql" />
     <Content Include="Sql\Data\Music.Song.sql" />
+    <Content Include="Sql\Procedures\Music.GetAlbumLongestBillboardAppearance.sql" />
+    <Content Include="Sql\Procedures\Music.GetAlbumPeakOnBillboard.sql" />
+    <Content Include="Sql\Procedures\Music.GetAlbumAppearancesOnBillboard.sql" />
     <Content Include="Sql\Procedures\Music.GetSongByReleaseDate.sql" />
     <Content Include="Sql\Procedures\Music.GetAlbumsByYear.sql" />
     <Content Include="Sql\Procedures\Music.CreateAlbum.sql" />
