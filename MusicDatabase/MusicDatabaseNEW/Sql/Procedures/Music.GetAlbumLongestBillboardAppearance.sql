@@ -1,20 +1,17 @@
 CREATE OR ALTER PROCEDURE Music.GetAlbumLongestBillboardAppearance
-	@AlbumID INT
+	@AlbumID INT,
+	@LongestRun INT OUTPUT
 AS
 
-WITH ConsecutiveWeeksCte(StartWeek, EndWeek, PeakRanking, LongestRun)
+WITH ConsecutiveWeeksCte(LongestRun)
 AS (
 	SELECT 
-		MIN(S.WeekPosted) AS StartWeek,
-		MAX(S.WeekPosted) AS EndWeek,
-		MAX(S.WeekRanking) AS PeakRanking,
 		SUM(S.WeekSegments) OVER(PARTITION BY S.WeekPosted, S.AlbumID ORDER BY S.WeekPosted, S.WeekRanking) AS LongestRun
 	FROM (
 		SELECT 
 			B.AlbumID,
 			B.WeekPosted, 
 			B.WeekRanking, 
-			B.AlbumID,
 			IIF(
 				DATEDIFF(
 					week, 
@@ -31,10 +28,8 @@ AS (
 		/*ORDER BY B.WeekPosted*/
 	) S
 	WHERE S.AlbumID = @AlbumID
-	GROUP BY S.WeekPosted
 )
 SELECT 
-	COUNT(LongestRun)
-FROM ConsecutiveWeeksCte C
-GROUP BY C.StartWeek, C.EndWeek, C.PeakRanking;
+	@LongestRun = COUNT(C.LongestRun)
+FROM ConsecutiveWeeksCte C;
 GO

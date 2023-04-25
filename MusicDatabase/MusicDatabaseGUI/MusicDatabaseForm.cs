@@ -162,9 +162,9 @@ namespace MusicDatabaseGUI
                 uxSongAlbumOutput.Text = selectedSongAlbum.Name;
                 uxSongGenreOutput.Text = FetchGenre(SelectedSong.GenreID).Name;
                 uxSongReleaseDateOutput.Text = selectedSongAlbum.ReleaseDate.Date.ToLongDateString();
-                uxAlbumBillboardOutput.Text = "";//GetConsecutiveWeeksOnBillboard(SelectedSong.AlbumID).ToString();
+                uxAlbumBillboardOutput.Text = GetConsecutiveWeeksOnBillboard(SelectedSong.AlbumID).ToString();
                 uxAlbumTotalWeeksChartedOutput.Text =  GetBillboardAppearances(SelectedSong.AlbumID).ToString();
-                uxAlbumPeakBillboardAppearanceOutput.Text = GetAlbumPeak(SelectedSong.AlbumID).ToString();
+                uxAlbumPeakBillboardAppearanceOutput.Text = "";//GetAlbumPeak(SelectedSong.AlbumID).ToString();
             } 
             else
             {
