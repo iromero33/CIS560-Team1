@@ -1,4 +1,4 @@
-CREATE OR ALTER PROCEDURE Music.GetBillboard
+CREATE OR ALTER PROCEDURE Music.GetAlbumAppearancesOnBillboard
 	@AlbumID INT
 AS
 
