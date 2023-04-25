@@ -78,10 +78,16 @@
             this.uxQueryMenuOption = new System.Windows.Forms.RadioButton();
             this.uxSearchMenuOption = new System.Windows.Forms.RadioButton();
             this.uxQueryGroupBox = new System.Windows.Forms.GroupBox();
-            this.uxSortListensDel = new System.Windows.Forms.Label();
-            this.uxSongsByHighestRankAlbumByWeekQueryButton = new System.Windows.Forms.Button();
-            this.uxBillboardWeekQueryInput = new System.Windows.Forms.DateTimePicker();
             this.uxWeekOfLabel = new System.Windows.Forms.Label();
+            this.uxBillboardWeekQueryInput = new System.Windows.Forms.DateTimePicker();
+            this.uxSongsByHighestRankAlbumByWeekQueryButton = new System.Windows.Forms.Button();
+            this.uxSortListensDel = new System.Windows.Forms.Label();
+            this.uxAlbumTotalWeeksChartedOutputLabel = new System.Windows.Forms.Label();
+            this.uxAlbumTotalWeeksChartedOutput = new System.Windows.Forms.TextBox();
+            this.uxAlbumPeakBillboardAppearanceOutputLabel = new System.Windows.Forms.Label();
+            this.uxAlbumPeakBillboardAppearanceOutput = new System.Windows.Forms.TextBox();
+            this.uxAddSongButton2 = new System.Windows.Forms.Button();
+            this.uxUpdateChartButton = new System.Windows.Forms.Button();
             this.uxAddOptions.SuspendLayout();
             this.uxSearchOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uxMaxListensInput)).BeginInit();
@@ -189,6 +195,8 @@
             // 
             // uxAddOptions
             // 
+            this.uxAddOptions.Controls.Add(this.uxUpdateChartButton);
+            this.uxAddOptions.Controls.Add(this.uxAddSongButton2);
             this.uxAddOptions.Controls.Add(this.uxAddAlbumButton);
             this.uxAddOptions.Controls.Add(this.uxAddArtistButton);
             this.uxAddOptions.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -219,9 +227,9 @@
             this.uxSearchOptions.Controls.Add(this.uxBillboardWeeksInputLabel);
             this.uxSearchOptions.Controls.Add(this.uxSpotifyListensInputLabel);
             this.uxSearchOptions.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uxSearchOptions.Location = new System.Drawing.Point(1136, 153);
+            this.uxSearchOptions.Location = new System.Drawing.Point(1136, 148);
             this.uxSearchOptions.Name = "uxSearchOptions";
-            this.uxSearchOptions.Size = new System.Drawing.Size(434, 736);
+            this.uxSearchOptions.Size = new System.Drawing.Size(434, 741);
             this.uxSearchOptions.TabIndex = 28;
             this.uxSearchOptions.TabStop = false;
             this.uxSearchOptions.Text = "Other Search Types";
@@ -417,6 +425,10 @@
             // 
             // uxSongInfo
             // 
+            this.uxSongInfo.Controls.Add(this.uxAlbumPeakBillboardAppearanceOutputLabel);
+            this.uxSongInfo.Controls.Add(this.uxAlbumPeakBillboardAppearanceOutput);
+            this.uxSongInfo.Controls.Add(this.uxAlbumTotalWeeksChartedOutputLabel);
+            this.uxSongInfo.Controls.Add(this.uxAlbumTotalWeeksChartedOutput);
             this.uxSongInfo.Controls.Add(this.uxAlbumBillboardOutputLabel);
             this.uxSongInfo.Controls.Add(this.uxAlbumBillboardOutput);
             this.uxSongInfo.Controls.Add(this.uxSongTitleOutputLabel);
@@ -445,9 +457,9 @@
             this.uxAlbumBillboardOutputLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uxAlbumBillboardOutputLabel.Location = new System.Drawing.Point(6, 598);
             this.uxAlbumBillboardOutputLabel.Name = "uxAlbumBillboardOutputLabel";
-            this.uxAlbumBillboardOutputLabel.Size = new System.Drawing.Size(441, 29);
+            this.uxAlbumBillboardOutputLabel.Size = new System.Drawing.Size(518, 29);
             this.uxAlbumBillboardOutputLabel.TabIndex = 42;
-            this.uxAlbumBillboardOutputLabel.Text = "Billboard Longest Consecutive Weeks";
+            this.uxAlbumBillboardOutputLabel.Text = "Album Longest Consecutive Weeks on Chart";
             // 
             // uxAlbumBillboardOutput
             // 
@@ -629,9 +641,9 @@
             this.uxMenusGroupBox.Controls.Add(this.uxSearchMenuOption);
             this.uxMenusGroupBox.Controls.Add(this.uxAddMenuOption);
             this.uxMenusGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uxMenusGroupBox.Location = new System.Drawing.Point(1136, 23);
+            this.uxMenusGroupBox.Location = new System.Drawing.Point(1136, 12);
             this.uxMenusGroupBox.Name = "uxMenusGroupBox";
-            this.uxMenusGroupBox.Size = new System.Drawing.Size(434, 124);
+            this.uxMenusGroupBox.Size = new System.Drawing.Size(434, 130);
             this.uxMenusGroupBox.TabIndex = 46;
             this.uxMenusGroupBox.TabStop = false;
             this.uxMenusGroupBox.Text = "Menus";
@@ -670,22 +682,30 @@
             this.uxQueryGroupBox.Controls.Add(this.uxListensPerMonthQueryButton);
             this.uxQueryGroupBox.Controls.Add(this.uxSpotifyListensASCQueryButton);
             this.uxQueryGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uxQueryGroupBox.Location = new System.Drawing.Point(1136, 153);
+            this.uxQueryGroupBox.Location = new System.Drawing.Point(1136, 148);
             this.uxQueryGroupBox.Name = "uxQueryGroupBox";
-            this.uxQueryGroupBox.Size = new System.Drawing.Size(434, 736);
+            this.uxQueryGroupBox.Size = new System.Drawing.Size(434, 741);
             this.uxQueryGroupBox.TabIndex = 45;
             this.uxQueryGroupBox.TabStop = false;
             this.uxQueryGroupBox.Text = "Queries";
             // 
-            // uxSortListensDel
+            // uxWeekOfLabel
             // 
-            this.uxSortListensDel.AutoSize = true;
-            this.uxSortListensDel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uxSortListensDel.Location = new System.Drawing.Point(73, 116);
-            this.uxSortListensDel.Name = "uxSortListensDel";
-            this.uxSortListensDel.Size = new System.Drawing.Size(296, 32);
-            this.uxSortListensDel.TabIndex = 43;
-            this.uxSortListensDel.Text = "Sort by Spotify Listens";
+            this.uxWeekOfLabel.AutoSize = true;
+            this.uxWeekOfLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxWeekOfLabel.Location = new System.Drawing.Point(6, 307);
+            this.uxWeekOfLabel.Name = "uxWeekOfLabel";
+            this.uxWeekOfLabel.Size = new System.Drawing.Size(117, 32);
+            this.uxWeekOfLabel.TabIndex = 47;
+            this.uxWeekOfLabel.Text = "Week of";
+            // 
+            // uxBillboardWeekQueryInput
+            // 
+            this.uxBillboardWeekQueryInput.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.uxBillboardWeekQueryInput.Location = new System.Drawing.Point(129, 304);
+            this.uxBillboardWeekQueryInput.Name = "uxBillboardWeekQueryInput";
+            this.uxBillboardWeekQueryInput.Size = new System.Drawing.Size(293, 38);
+            this.uxBillboardWeekQueryInput.TabIndex = 46;
             // 
             // uxSongsByHighestRankAlbumByWeekQueryButton
             // 
@@ -698,23 +718,75 @@
             this.uxSongsByHighestRankAlbumByWeekQueryButton.UseVisualStyleBackColor = true;
             this.uxSongsByHighestRankAlbumByWeekQueryButton.Click += new System.EventHandler(this.uxSongsByHighestRankAlbumByWeekQueryButton_Click);
             // 
-            // uxBillboardWeekQueryInput
+            // uxSortListensDel
             // 
-            this.uxBillboardWeekQueryInput.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.uxBillboardWeekQueryInput.Location = new System.Drawing.Point(129, 304);
-            this.uxBillboardWeekQueryInput.Name = "uxBillboardWeekQueryInput";
-            this.uxBillboardWeekQueryInput.Size = new System.Drawing.Size(293, 38);
-            this.uxBillboardWeekQueryInput.TabIndex = 46;
+            this.uxSortListensDel.AutoSize = true;
+            this.uxSortListensDel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxSortListensDel.Location = new System.Drawing.Point(73, 116);
+            this.uxSortListensDel.Name = "uxSortListensDel";
+            this.uxSortListensDel.Size = new System.Drawing.Size(296, 32);
+            this.uxSortListensDel.TabIndex = 43;
+            this.uxSortListensDel.Text = "Sort by Spotify Listens";
             // 
-            // uxWeekOfLabel
+            // uxAlbumTotalWeeksChartedOutputLabel
             // 
-            this.uxWeekOfLabel.AutoSize = true;
-            this.uxWeekOfLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uxWeekOfLabel.Location = new System.Drawing.Point(6, 307);
-            this.uxWeekOfLabel.Name = "uxWeekOfLabel";
-            this.uxWeekOfLabel.Size = new System.Drawing.Size(117, 32);
-            this.uxWeekOfLabel.TabIndex = 47;
-            this.uxWeekOfLabel.Text = "Week of";
+            this.uxAlbumTotalWeeksChartedOutputLabel.AutoSize = true;
+            this.uxAlbumTotalWeeksChartedOutputLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxAlbumTotalWeeksChartedOutputLabel.Location = new System.Drawing.Point(6, 694);
+            this.uxAlbumTotalWeeksChartedOutputLabel.Name = "uxAlbumTotalWeeksChartedOutputLabel";
+            this.uxAlbumTotalWeeksChartedOutputLabel.Size = new System.Drawing.Size(381, 32);
+            this.uxAlbumTotalWeeksChartedOutputLabel.TabIndex = 44;
+            this.uxAlbumTotalWeeksChartedOutputLabel.Text = "Album Totals Weeks Charted";
+            // 
+            // uxAlbumTotalWeeksChartedOutput
+            // 
+            this.uxAlbumTotalWeeksChartedOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxAlbumTotalWeeksChartedOutput.Location = new System.Drawing.Point(12, 732);
+            this.uxAlbumTotalWeeksChartedOutput.Name = "uxAlbumTotalWeeksChartedOutput";
+            this.uxAlbumTotalWeeksChartedOutput.ReadOnly = true;
+            this.uxAlbumTotalWeeksChartedOutput.Size = new System.Drawing.Size(557, 38);
+            this.uxAlbumTotalWeeksChartedOutput.TabIndex = 43;
+            // 
+            // uxAlbumPeakBillboardAppearanceOutputLabel
+            // 
+            this.uxAlbumPeakBillboardAppearanceOutputLabel.AutoSize = true;
+            this.uxAlbumPeakBillboardAppearanceOutputLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxAlbumPeakBillboardAppearanceOutputLabel.Location = new System.Drawing.Point(6, 793);
+            this.uxAlbumPeakBillboardAppearanceOutputLabel.Name = "uxAlbumPeakBillboardAppearanceOutputLabel";
+            this.uxAlbumPeakBillboardAppearanceOutputLabel.Size = new System.Drawing.Size(355, 32);
+            this.uxAlbumPeakBillboardAppearanceOutputLabel.TabIndex = 46;
+            this.uxAlbumPeakBillboardAppearanceOutputLabel.Text = "Album Peak Chart Ranking";
+            // 
+            // uxAlbumPeakBillboardAppearanceOutput
+            // 
+            this.uxAlbumPeakBillboardAppearanceOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxAlbumPeakBillboardAppearanceOutput.Location = new System.Drawing.Point(12, 831);
+            this.uxAlbumPeakBillboardAppearanceOutput.Name = "uxAlbumPeakBillboardAppearanceOutput";
+            this.uxAlbumPeakBillboardAppearanceOutput.ReadOnly = true;
+            this.uxAlbumPeakBillboardAppearanceOutput.Size = new System.Drawing.Size(557, 38);
+            this.uxAlbumPeakBillboardAppearanceOutput.TabIndex = 45;
+            // 
+            // uxAddSongButton2
+            // 
+            this.uxAddSongButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxAddSongButton2.Location = new System.Drawing.Point(6, 112);
+            this.uxAddSongButton2.Name = "uxAddSongButton2";
+            this.uxAddSongButton2.Size = new System.Drawing.Size(200, 52);
+            this.uxAddSongButton2.TabIndex = 17;
+            this.uxAddSongButton2.Text = "Add Song";
+            this.uxAddSongButton2.UseVisualStyleBackColor = true;
+            this.uxAddSongButton2.Click += new System.EventHandler(this.AddItem);
+            // 
+            // uxUpdateChartButton
+            // 
+            this.uxUpdateChartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxUpdateChartButton.Location = new System.Drawing.Point(228, 112);
+            this.uxUpdateChartButton.Name = "uxUpdateChartButton";
+            this.uxUpdateChartButton.Size = new System.Drawing.Size(200, 52);
+            this.uxUpdateChartButton.TabIndex = 26;
+            this.uxUpdateChartButton.Text = "Update Chart";
+            this.uxUpdateChartButton.UseVisualStyleBackColor = true;
+            this.uxUpdateChartButton.Click += new System.EventHandler(this.AddItem);
             // 
             // MusicDatabaseForm
             // 
@@ -724,9 +796,9 @@
             this.ClientSize = new System.Drawing.Size(1582, 913);
             this.Controls.Add(this.uxQueryGroupBox);
             this.Controls.Add(this.uxMenusGroupBox);
+            this.Controls.Add(this.uxSearchOptions);
             this.Controls.Add(this.uxSongsBox);
             this.Controls.Add(this.uxSongInfo);
-            this.Controls.Add(this.uxSearchOptions);
             this.Controls.Add(this.uxAddOptions);
             this.Name = "MusicDatabaseForm";
             this.Text = "Music Database";
@@ -804,6 +876,12 @@
         private System.Windows.Forms.Label uxWeekOfLabel;
         private System.Windows.Forms.DateTimePicker uxBillboardWeekQueryInput;
         private System.Windows.Forms.Button uxSongsByHighestRankAlbumByWeekQueryButton;
+        private System.Windows.Forms.Label uxAlbumPeakBillboardAppearanceOutputLabel;
+        private System.Windows.Forms.TextBox uxAlbumPeakBillboardAppearanceOutput;
+        private System.Windows.Forms.Label uxAlbumTotalWeeksChartedOutputLabel;
+        private System.Windows.Forms.TextBox uxAlbumTotalWeeksChartedOutput;
+        private System.Windows.Forms.Button uxAddSongButton2;
+        private System.Windows.Forms.Button uxUpdateChartButton;
     }
 }
 

@@ -28,15 +28,20 @@ namespace MusicDatabase
             return executor.ExecuteReader(d);
         }
 
-        public Billboard GetBillboard(int albumID, DateTimeOffset date, int rank)
+        public Billboard GetBillboard(int albumID, DateTimeOffset date)
         {
-            var d = new GetBillboardDataDelegate(albumID, date, rank);
+            var d = new GetBillboardDataDelegate(albumID, date);
             return executor.ExecuteReader(d);
         }
 
         public IReadOnlyList<Billboard> RetrieveBillboards()
         {
             return executor.ExecuteReader(new RetrieveBillboardDataDelegate());
+        }
+
+        public void SaveBillboard(int billboardID, int albumID, DateTimeOffset date, int rank)
+        {
+            executor.ExecuteNonQuery(new SaveBillboardDataDelegate(billboardID, albumID, date, rank));
         }
     }
 }

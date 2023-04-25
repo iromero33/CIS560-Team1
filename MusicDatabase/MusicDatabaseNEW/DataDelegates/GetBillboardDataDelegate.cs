@@ -13,12 +13,11 @@ namespace MusicDatabase
         private readonly DateTimeOffset date;
         private readonly int rank;
 
-        public GetBillboardDataDelegate(int albumID, DateTimeOffset date, int rank)
+        public GetBillboardDataDelegate(int albumID, DateTimeOffset date)
            : base("Music.GetBillboard")
         {
             this.albumID = albumID;
             this.date = date;
-            this.rank = rank;
         }
 
         public override void PrepareCommand(SqlCommand command)
@@ -26,8 +25,7 @@ namespace MusicDatabase
             base.PrepareCommand(command);
 
             command.Parameters.AddWithValue("AlbumID", albumID);
-            command.Parameters.AddWithValue("Date", date);
-            command.Parameters.AddWithValue("Rank", rank);
+            command.Parameters.AddWithValue("WeekPosted", date);
         }
 
         public override Billboard Translate(SqlCommand command, IDataRowReader reader)
@@ -39,7 +37,7 @@ namespace MusicDatabase
                reader.GetInt32("BillboardID"),
                albumID,
                date,
-               rank);
+               reader.GetInt32("WeekRanking"));
         }
     }
 }

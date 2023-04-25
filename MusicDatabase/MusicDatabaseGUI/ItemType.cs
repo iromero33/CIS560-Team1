@@ -10,6 +10,7 @@ namespace MusicDatabaseGUI
     {
         Album,
         Artist,
+        Billboard,
         Song,
         Genre
     }

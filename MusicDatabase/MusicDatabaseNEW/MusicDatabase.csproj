@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="DataDelegates\CreateAlbumDataDelegate.cs" />
     <Compile Include="DataDelegates\CreateArtistDataDelegate.cs" />
+    <Compile Include="DataDelegates\SaveBillboardDataDelegate.cs" />
     <Compile Include="DataDelegates\CreateBillboardDataDelegate.cs" />
     <Compile Include="DataDelegates\CreateGenreDataDelegate.cs" />
     <Compile Include="DataDelegates\CreateSongDataDelegate.cs" />
@@ -99,6 +100,7 @@
     <Content Include="Sql\Data\Music.Billboard.sql" />
     <Content Include="Sql\Data\Music.Genre.sql" />
     <Content Include="Sql\Data\Music.Song.sql" />
+    <Content Include="Sql\Procedures\Music.SaveBillboard.sql" />
     <Content Include="Sql\Procedures\Music.GetAlbumLongestBillboardAppearance.sql" />
     <Content Include="Sql\Procedures\Music.GetAlbumPeakOnBillboard.sql" />
     <Content Include="Sql\Procedures\Music.GetAlbumAppearancesOnBillboard.sql" />
@@ -119,7 +121,7 @@
     <Content Include="Sql\Procedures\Music.GetBillboard.sql" />
     <Content Include="Sql\Procedures\Music.GetGenre.sql" />
     <Content Include="Sql\Procedures\Music.GetSong.sql" />
-    <Content Include="Sql\Procedures\Music.GetSongsWithHighestRankEachWeek.sql" />
+    <Content Include="Sql\Procedures\Music.GetSongsWithHighestRankAlbumForWeek.sql" />
     <Content Include="Sql\Procedures\Music.GetSongsWithMostSpotifyListensPerMonth.sql" />
     <Content Include="Sql\Procedures\Music.GetSongsBySpotifyListensDESC.sql" />
     <Content Include="Sql\Procedures\Music.GetSongsBySpotifyListensASC.sql" />

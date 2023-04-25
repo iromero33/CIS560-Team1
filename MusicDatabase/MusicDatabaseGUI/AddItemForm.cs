@@ -27,24 +27,30 @@ namespace MusicDatabaseGUI
 
         private CreateArtistDel CreateArtist;
 
-        public AddItemForm(GetAlbumsDel albumsDel, GetArtistsDel artistsDel, GetGenresDel genresDel)
+        private UpdateBillboardWeekDel UpdateBillboardWeek;
+
+        private GetBillboardDel GetBillboard;
+
+        public AddItemForm(GetAlbumsDel albumsDel, GetArtistsDel artistsDel, GetGenresDel genresDel, GetBillboardDel billboardDel)
         {
             InitializeComponent();
 
             GetAlbums = albumsDel;
             GetArtists = artistsDel;
             GetGenres = genresDel;
+            GetBillboard = billboardDel;
 
             uxAlbumMenu.DataSource = GetAlbums();
             uxArtistMenu.DataSource = GetArtists();
             uxGenreMenu.DataSource = GetGenres();
         }
 
-        public void SetCreateItemDels(CreateAlbumDel createAlbum, CreateSongDel createSong, CreateArtistDel createArtist)
+        public void SetCreateItemDels(CreateAlbumDel createAlbum, CreateSongDel createSong, CreateArtistDel createArtist, UpdateBillboardWeekDel updateBillboard)
         {
             CreateAlbum = createAlbum;
             CreateSong = createSong;
             CreateArtist = createArtist;
+            UpdateBillboardWeek = updateBillboard;
         }
 
         public void InitializeForm (ItemType type)
@@ -64,6 +70,7 @@ namespace MusicDatabaseGUI
                     uxNameLabel.Text = "Album Name";
                     uxOtherLabel.Text = "Release Date";
                     uxReleaseDateInput.Visible = true;
+                    uxReleaseDateInput.Value = DateTime.Today;
                     break;
                 case ItemType.Artist:
                     Text = "Add Artist";
@@ -83,6 +90,18 @@ namespace MusicDatabaseGUI
                     uxOtherLabel.Text = "Spotify Listens";
                     uxOtherInput.Visible = true;
                     break;
+                case ItemType.Billboard:
+                    Text = "Update Chart Week";
+                    uxNameLabel.Text = "Rank";
+
+                    uxRankInput.Visible = true;
+                    uxRankInput.Value = 1;
+                    uxAlbumLabel.Visible = true;
+                    uxAlbumMenu.Visible = true;
+                    uxOtherLabel.Text = "Week of:";
+                    uxReleaseDateInput.Visible = true;
+
+                    break;
                 default:
                     return;
             }
@@ -97,7 +116,7 @@ namespace MusicDatabaseGUI
             string name = "";
 
             if (uxItemNameInput.Text != "") name = uxItemNameInput.Text;
-            else
+            else if (CurrItemType != ItemType.Billboard)
             {
                 isValid = false;
                 MessageBox.Show("Error: No name / title input");
@@ -133,6 +152,14 @@ namespace MusicDatabaseGUI
                         
                         
                         break;
+                    case ItemType.Billboard:
+                        DateTime weekOf = uxReleaseDateInput.Value;
+                        albumID = ((Album)uxAlbumMenu.SelectedValue).AlbumID;
+                        int rank = (int)uxRankInput.Value;
+
+                        Billboard billboard = GetBillboard(albumID, weekOf);
+                        if (billboard != null) UpdateBillboardWeek(billboard.BillboardID, albumID, weekOf, rank);
+                        break;
                     default:
                         break;
                 }
@@ -153,6 +180,7 @@ namespace MusicDatabaseGUI
             uxOtherInput.Visible = false;
             uxOtherInput.Text = "";
             uxReleaseDateInput.Visible = false;
+            uxRankInput.Visible = false;
         }
 
         private void uxCancelButton_Click(object sender, EventArgs e)

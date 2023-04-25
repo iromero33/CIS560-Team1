@@ -99,9 +99,13 @@ namespace MusicDatabaseGUI
                         AddItemOfType(ItemType.Album);
                         updateListsOfType(ItemType.Album);
                         break;
+                    case "uxAddSongButton2":
                     case "uxAddSongButton":
                         AddItemOfType(ItemType.Song);
                         updateListsOfType(ItemType.Song);
+                        break;
+                    case "uxUpdateChartButton":
+                        AddItemOfType(ItemType.Billboard);
                         break;
                     default:
                         break;
@@ -158,7 +162,9 @@ namespace MusicDatabaseGUI
                 uxSongAlbumOutput.Text = selectedSongAlbum.Name;
                 uxSongGenreOutput.Text = FetchGenre(SelectedSong.GenreID).Name;
                 uxSongReleaseDateOutput.Text = selectedSongAlbum.ReleaseDate.Date.ToLongDateString();
-                uxAlbumBillboardOutput.Text = GetConsecutiveWeeksOnBillboard(SelectedSong.AlbumID).ToString();
+                uxAlbumBillboardOutput.Text = "";//GetConsecutiveWeeksOnBillboard(SelectedSong.AlbumID).ToString();
+                uxAlbumTotalWeeksChartedOutput.Text = "";//GetBillboardAppearances(SelectedSong.AlbumID).ToString();
+                uxAlbumPeakBillboardAppearanceOutput.Text = "";//GetAlbumPeak(SelectedSong.AlbumID).ToString();
             } 
             else
             {
@@ -171,6 +177,8 @@ namespace MusicDatabaseGUI
                 uxSongGenreOutput.Text = "";
                 uxSongReleaseDateOutput.Text = "";
                 uxAlbumBillboardOutput.Text = "";
+                uxAlbumTotalWeeksChartedOutput.Text = "";
+                uxAlbumPeakBillboardAppearanceOutput.Text = "";
             }
             
         }
@@ -259,7 +267,7 @@ namespace MusicDatabaseGUI
         {
             DateTimeOffset week = uxBillboardWeekQueryInput.Value;
 
-            uxSongsList.DataSource = GetBySpotifyListensDESC();
+            uxSongsList.DataSource = GetSongsByAlbumRankForWeek(week);
         }
     }
 }

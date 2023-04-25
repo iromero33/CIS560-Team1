@@ -22,6 +22,7 @@ namespace MusicDatabaseGUI
         private IAlbumRepository albumRepository = new SqlAlbumRepository(connectionString);
         private IArtistRepository artistRepository = new SqlArtistRepository(connectionString);
         private IGenreRepository genreRepository = new SqlGenreRepository(connectionString);
+        private IBillboardRepository billboardRepository = new SqlBillboardRepository(connectionString);
 
         public void SetAddNewItemDel(AddItemDel del)
         {
@@ -120,5 +121,12 @@ namespace MusicDatabaseGUI
         public int GetAlbumAppearancesOnBillboard(int albumID) => albumRepository.GetAlbumAppearancesOnBillboard(albumID);
 
         public IReadOnlyList<Song> GetSongsWithHighestRankAlbumForWeek(DateTimeOffset week) => songRepository.GetSongsWithHighestRankAlbumForWeek(week);
+
+        public void UpdateBillboard (int billboardID, int albumID, DateTimeOffset date, int rank)
+        {
+            billboardRepository.SaveBillboard(billboardID, albumID, date, rank);
+        }
+
+        public Billboard GetBillboard(int albumID, DateTimeOffset date) => billboardRepository.GetBillboard(albumID, date);
     }
 }
