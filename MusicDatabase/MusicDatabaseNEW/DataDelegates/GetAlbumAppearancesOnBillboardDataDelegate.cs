@@ -4,6 +4,7 @@ using System.Text;
 using DataAccess;
 using MusicDatabase.Models;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace MusicDatabase
 {
@@ -22,11 +23,21 @@ namespace MusicDatabase
             base.PrepareCommand(command);
 
             command.Parameters.AddWithValue("AlbumID", albumID);
+
+            var p = command.Parameters.Add("AlbumAppearances", SqlDbType.Int);
+            p.Direction = ParameterDirection.Output;
         }
 
         public override int Translate(SqlCommand command, IDataRowReader reader)
         {
-            return reader.GetInt32("AlbumAppearances");
+            if (command.Parameters["AlbumAppearances"].Value is int answer)
+            {
+                return answer;
+            } else
+            {
+                return 0;
+            }
+            
         }
     }
 }
