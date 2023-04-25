@@ -163,7 +163,7 @@ namespace MusicDatabaseGUI
                 uxSongGenreOutput.Text = FetchGenre(SelectedSong.GenreID).Name;
                 uxSongReleaseDateOutput.Text = selectedSongAlbum.ReleaseDate.Date.ToLongDateString();
                 uxAlbumBillboardOutput.Text = "";//GetConsecutiveWeeksOnBillboard(SelectedSong.AlbumID).ToString();
-                uxAlbumTotalWeeksChartedOutput.Text = "";//GetBillboardAppearances(SelectedSong.AlbumID).ToString();
+                uxAlbumTotalWeeksChartedOutput.Text = GetBillboardAppearances(SelectedSong.AlbumID).ToString();
                 uxAlbumPeakBillboardAppearanceOutput.Text = "";//GetAlbumPeak(SelectedSong.AlbumID).ToString();
             } 
             else

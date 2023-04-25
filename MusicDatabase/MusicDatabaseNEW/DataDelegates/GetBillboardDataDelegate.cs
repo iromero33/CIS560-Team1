@@ -11,7 +11,6 @@ namespace MusicDatabase
     {
         private readonly int albumID;
         private readonly DateTimeOffset date;
-        private readonly int rank;
 
         public GetBillboardDataDelegate(int albumID, DateTimeOffset date)
            : base("Music.GetBillboard")

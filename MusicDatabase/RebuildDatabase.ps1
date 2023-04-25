@@ -80,7 +80,7 @@ Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MusicDatab
 Write-Host "Inserting data..."
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MusicDatabaseNEW\Sql\Data\Music.Album.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MusicDatabaseNEW\Sql\Data\Music.Artist.sql"
-#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MusicDatabaseNEW\Sql\Data\Music.Billboard.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MusicDatabaseNEW\Sql\Data\Music.Billboard.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MusicDatabaseNEW\Sql\Data\Music.Genre.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "MusicDatabaseNEW\Sql\Data\Music.Song.sql"
 

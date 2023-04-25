@@ -33,8 +33,8 @@ BEGIN
    ALTER TABLE Music.Billboard
    ADD CONSTRAINT [UK_Music_Billboard_WeekPosted_WeekRankings] UNIQUE NONCLUSTERED
    (
-      WeekPosted ASC,
-      WeekRanking ASC
+      WeekRanking ASC,
+      WeekPosted ASC
    )
 END;
 

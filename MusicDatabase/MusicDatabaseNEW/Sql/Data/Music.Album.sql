@@ -1,7 +1,7 @@
 ﻿DECLARE @AlbumStaging TABLE
 (
       AlbumID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
-      [Name] NVARCHAR(128) NOT NULL,
+      [Name] NVARCHAR(256) NOT NULL,
       ReleaseDate DATETIMEOFFSET NOT NULL
 );
 

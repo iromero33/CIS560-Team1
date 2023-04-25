@@ -3,7 +3,7 @@ DECLARE @BillboardStaging TABLE
 	BillboardID		INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
 	[WeekPosted]	DATETIMEOFFSET NOT NULL,
 	[WeekRanking]	INT NOT NULL,
-	[AlbumName]		NVARCHAR(128) NOT NULL,
+	[AlbumName]		NVARCHAR(256) NOT NULL,
 	[ArtistName]	NVARCHAR(64) NOT NULL,
 	[ReleaseYear]	DATETIMEOFFSET NOT NULL
 );
@@ -94,7 +94,7 @@ INSERT @BillboardStaging([WeekPosted], [WeekRanking], [AlbumName], [ArtistName],
 	('2020-01-04',94,N'A Pentatonix Christmas Deluxe',N'Pentatonix','2017-01-01'),
 	('2020-01-04',96,N'Bohemian Rhapsody (The Original Soundtrack)',N'Queen','2018-01-01'),
 	('2020-01-04',97,N'k bye for now (swt live)',N'Ariana Grande','2019-01-01'),
-	('2020-01-04',98,N'÷ (Deluxe)',N'Ed Sheeran','2017-01-01'),
+	('2020-01-04',98,N'Divide',N'Ed Sheeran','2017-01-01'),
 	('2020-01-04',99,N'IGOR',N'Tyler, The Creator','2019-01-01'),
 	('2020-01-04',100,N'Happiness Begins',N'Jonas Brothers','2019-01-01'),
 	('2020-01-04',101,N'Ultimate Sinatra',N'Frank Sinatra','2015-01-01'),
@@ -229,7 +229,7 @@ INSERT @BillboardStaging([WeekPosted], [WeekRanking], [AlbumName], [ArtistName],
 	('2020-01-11',43,N'The Search',N'NF','2019-01-01'),
 	('2020-01-11',44,N'Happiness Begins',N'Jonas Brothers','2019-01-01'),
 	('2020-01-11',45,N'17',N'XXXTENTACION','2017-01-01'),
-	('2020-01-11',46,N'÷ (Deluxe)',N'Ed Sheeran','2017-01-01'),
+	('2020-01-11',46,N'Divide',N'Ed Sheeran','2017-01-01'),
 	('2020-01-11',47,N'Chixtape 5',N'Tory Lanez','2019-01-01'),
 	('2020-01-11',48,N'American Teen',N'Khalid','2017-01-01'),
 	('2020-01-11',49,N'Hot Pink',N'Doja Cat','2019-01-01'),
@@ -363,18 +363,35 @@ INSERT @BillboardStaging([WeekPosted], [WeekRanking], [AlbumName], [ArtistName],
 	('2020-01-11',197,N'KIDZ BOP 40',N'Kidz Bop Kids','2019-01-01'),
 	('2020-01-11',198,N'25',N'Adele','2015-01-01'),
 	('2020-01-11',199,N'Purpose (Deluxe)',N'Justin Bieber','2015-01-01'),
-	('2020-01-11',200,N'The Very Best of Daryl Hall / John Oates',N'Daryl Hall & John Oates','2001-01-01')
+	('2020-01-11',200,N'The Very Best of Daryl Hall / John Oates',N'Daryl Hall & John Oates','2001-01-01');
 
-MERGE [MusicDatabase].Music.Album T
-USING @BillboardStaging S ON S.[AlbumName] = T.[Name]
+WITH AlbumSourceCTE AS 
+(
+	SELECT S.BillboardID, S.[WeekPosted], S.[WeekRanking], S.[AlbumName], S.[ArtistName], S.[ReleaseYear], A.AlbumID
+	FROM @BillboardStaging S
+		INNER JOIN Music.Album A ON A.[Name] = S.[AlbumName]
+)
+MERGE Music.Album T
+USING AlbumSourceCTE S ON S.AlbumID = T.AlbumID
+WHEN MATCHED AND S.AlbumName <> T.[Name] THEN
+	UPDATE
+	SET [Name] = S.AlbumName
 WHEN NOT MATCHED THEN
    INSERT([Name], [ReleaseDate])
    VALUES(S.[AlbumName], S.[ReleaseYear]);
 
-INSERT INTO [MusicDatabase].Music.Billboard
-SELECT
-	S.[WeekPosted],
-	S.[WeekRanking],
-	A.AlbumID
-FROM @BillboardStaging S
-	INNER JOIN [MusicDatabase].Music.Album A ON A.[Name] = S.[AlbumName]
+WITH BillboardSourceCTE AS 
+(
+	SELECT S.BillboardID, S.[WeekPosted], S.[WeekRanking], S.[AlbumName], S.[ArtistName], S.[ReleaseYear], A.AlbumID
+	FROM @BillboardStaging S
+		INNER JOIN Music.Album A ON A.[Name] = S.[AlbumName]
+)
+MERGE Music.Billboard B
+USING BillboardSourceCTE S ON S.BillboardID = B.BillboardID AND (S.WeekRanking <> B.WeekRanking OR S.WeekPosted <> B.WeekPosted)
+WHEN NOT MATCHED THEN
+	INSERT([WeekPosted], [WeekRanking], AlbumID)
+	VALUES(S.[WeekPosted], S.[WeekRanking], S.AlbumID);
+
+SELECT B.BillboardID, B.WeekPosted, B.WeekRanking, B.AlbumID, A.[Name]
+FROM Music.Billboard B
+	INNER JOIN Music.Album A ON A.AlbumID = B.AlbumID;

@@ -3,7 +3,7 @@ BEGIN
    CREATE TABLE Music.Album
    (
       AlbumID INT NOT NULL IDENTITY(1, 1),
-      [Name] NVARCHAR(64) NOT NULL,
+      [Name] NVARCHAR(256) NOT NULL,
       ReleaseDate DATETIMEOFFSET NOT NULL,
 
       CONSTRAINT [PK_Music_Album_AlbumID] PRIMARY KEY CLUSTERED
