@@ -391,7 +391,3 @@ USING BillboardSourceCTE S ON S.BillboardID = B.BillboardID AND (S.WeekRanking <
 WHEN NOT MATCHED THEN
 	INSERT([WeekPosted], [WeekRanking], AlbumID)
 	VALUES(S.[WeekPosted], S.[WeekRanking], S.AlbumID);
-
-SELECT B.BillboardID, B.WeekPosted, B.WeekRanking, B.AlbumID, A.[Name]
-FROM Music.Billboard B
-	INNER JOIN Music.Album A ON A.AlbumID = B.AlbumID;
