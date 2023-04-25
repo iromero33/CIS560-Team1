@@ -30,7 +30,7 @@ AS (
 		/*ORDER BY B.WeekPosted*/
 	) S
 	WHERE S.AlbumID = @AlbumID
-	GROUP BY S.WeekPosted
+	GROUP BY S.WeekPosted, S.AlbumID, S.WeekRanking, S.WeekSegments
 )
 SELECT 
 	COUNT(LongestRun)
