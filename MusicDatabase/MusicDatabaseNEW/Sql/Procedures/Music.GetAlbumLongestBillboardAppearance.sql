@@ -8,9 +8,10 @@ AS (
 		MIN(S.WeekPosted) AS StartWeek,
 		MAX(S.WeekPosted) AS EndWeek,
 		MAX(S.WeekRanking) AS PeakRanking,
-		SUM(S.WeekSegments) OVER(PARTITION BY S.WeekPosted ORDER BY S.WeekPosted, S.WeekRanking) AS LongestRun
+		SUM(S.WeekSegments) OVER(PARTITION BY S.WeekPosted, S.AlbumID ORDER BY S.WeekPosted, S.WeekRanking) AS LongestRun
 	FROM (
 		SELECT 
+			B.AlbumID,
 			B.WeekPosted, 
 			B.WeekRanking, 
 			B.AlbumID,
@@ -30,9 +31,10 @@ AS (
 		/*ORDER BY B.WeekPosted*/
 	) S
 	WHERE S.AlbumID = @AlbumID
-	GROUP BY S.WeekPosted, S.WeekRanking
+	GROUP BY S.WeekPosted
 )
-SELECT MAX(LongestRun) AS LongestRun
+SELECT 
+	COUNT(LongestRun)
 FROM ConsecutiveWeeksCte C
 GROUP BY C.StartWeek, C.EndWeek, C.PeakRanking;
 GO
