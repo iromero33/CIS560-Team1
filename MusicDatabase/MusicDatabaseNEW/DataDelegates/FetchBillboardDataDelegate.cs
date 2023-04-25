@@ -31,8 +31,8 @@ namespace MusicDatabase
 
             return new Billboard(billboardID,
                reader.GetInt32("AlbumID"),
-               reader.GetDateTimeOffset("StartDate"),
-               reader.GetDateTimeOffset("EndDate"));
+               reader.GetDateTimeOffset("Date"),
+               reader.GetInt32("Rank"));
         }
     }
 }

@@ -9,15 +9,15 @@ namespace MusicDatabase.DataDelegates
     internal class CreateBillboardDataDelegate : NonQueryDataDelegate<Billboard>
     {
         public readonly int albumId;
-        public readonly DateTimeOffset start;
-        public readonly DateTimeOffset end;
+        public readonly DateTimeOffset date;
+        public readonly int rank;
 
-        public CreateBillboardDataDelegate(int albumId, DateTimeOffset start, DateTimeOffset end)
+        public CreateBillboardDataDelegate(int albumId, DateTimeOffset date, int rank)
            : base("Music.CreateBillboard")
         {
             this.albumId = albumId;
-            this.start = start;
-            this.end = end;
+            this.date = date;
+            this.rank = rank;
         }
 
         public override void PrepareCommand(SqlCommand command)
@@ -25,8 +25,8 @@ namespace MusicDatabase.DataDelegates
             base.PrepareCommand(command);
 
             command.Parameters.AddWithValue("AlbumID", albumId);
-            command.Parameters.AddWithValue("StartDate", start);
-            command.Parameters.AddWithValue("EndDate", end);
+            command.Parameters.AddWithValue("Date", date);
+            command.Parameters.AddWithValue("Rank", rank);
 
             var p = command.Parameters.Add("BillboardID", SqlDbType.Int);
             p.Direction = ParameterDirection.Output;
@@ -34,7 +34,7 @@ namespace MusicDatabase.DataDelegates
 
         public override Billboard Translate(SqlCommand command)
         {
-            return new Billboard((int)command.Parameters["AlbumID"].Value, albumId, start, end);
+            return new Billboard((int)command.Parameters["AlbumID"].Value, albumId, date, rank);
         }
     }
 }

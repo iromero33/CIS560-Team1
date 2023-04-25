@@ -16,9 +16,9 @@ namespace MusicDatabase
             executor = new SqlCommandExecutor(connectionString);
         }
 
-        public Billboard CreateBillboard(int albumId, DateTimeOffset start, DateTimeOffset end)
+        public Billboard CreateBillboard(int albumId, DateTimeOffset date, int rank)
         {
-            var d = new CreateBillboardDataDelegate(albumId, start, end);
+            var d = new CreateBillboardDataDelegate(albumId, date, rank);
             return executor.ExecuteNonQuery(d);
         }
 
@@ -28,9 +28,9 @@ namespace MusicDatabase
             return executor.ExecuteReader(d);
         }
 
-        public Billboard GetBillboard(int albumID, DateTimeOffset startDate, DateTimeOffset endDate)
+        public Billboard GetBillboard(int albumID, DateTimeOffset date, int rank)
         {
-            var d = new GetBillboardDataDelegate(albumID, startDate, endDate);
+            var d = new GetBillboardDataDelegate(albumID, date, rank);
             return executor.ExecuteReader(d);
         }
 
