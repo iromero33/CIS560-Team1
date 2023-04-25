@@ -56,9 +56,6 @@
             this.uxSpotifyListensInputLabel = new System.Windows.Forms.Label();
             this.uxSpotifyListensOutput = new System.Windows.Forms.TextBox();
             this.uxSongInfo = new System.Windows.Forms.GroupBox();
-            this.uxWeeksOnBillboardQuery = new System.Windows.Forms.Button();
-            this.uxHighestRankQueryButton = new System.Windows.Forms.Button();
-            this.uxListensPerMonthQueryButton = new System.Windows.Forms.Button();
             this.uxAlbumBillboardOutputLabel = new System.Windows.Forms.Label();
             this.uxAlbumBillboardOutput = new System.Windows.Forms.TextBox();
             this.uxSongTitleOutputLabel = new System.Windows.Forms.Label();
@@ -72,12 +69,19 @@
             this.uxSongArtistLabel = new System.Windows.Forms.Label();
             this.uxSongArtistOutput = new System.Windows.Forms.TextBox();
             this.uxSpotifyListensLabel = new System.Windows.Forms.Label();
+            this.uxSpotifyListensDESCQueryButton = new System.Windows.Forms.Button();
+            this.uxSpotifyListensASCQueryButton = new System.Windows.Forms.Button();
+            this.uxListensPerMonthQueryButton = new System.Windows.Forms.Button();
             this.uxSongsBox = new System.Windows.Forms.GroupBox();
             this.uxAddMenuOption = new System.Windows.Forms.RadioButton();
             this.uxMenusGroupBox = new System.Windows.Forms.GroupBox();
-            this.uxSearchMenuOption = new System.Windows.Forms.RadioButton();
             this.uxQueryMenuOption = new System.Windows.Forms.RadioButton();
+            this.uxSearchMenuOption = new System.Windows.Forms.RadioButton();
             this.uxQueryGroupBox = new System.Windows.Forms.GroupBox();
+            this.uxSortListensDel = new System.Windows.Forms.Label();
+            this.uxSongsByHighestRankAlbumByWeekQueryButton = new System.Windows.Forms.Button();
+            this.uxBillboardWeekQueryInput = new System.Windows.Forms.DateTimePicker();
+            this.uxWeekOfLabel = new System.Windows.Forms.Label();
             this.uxAddOptions.SuspendLayout();
             this.uxSearchOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uxMaxListensInput)).BeginInit();
@@ -435,37 +439,6 @@
             this.uxSongInfo.TabStop = false;
             this.uxSongInfo.Text = "Song Info";
             // 
-            // uxWeeksOnBillboardQuery
-            // 
-            this.uxWeeksOnBillboardQuery.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uxWeeksOnBillboardQuery.Location = new System.Drawing.Point(6, 183);
-            this.uxWeeksOnBillboardQuery.Name = "uxWeeksOnBillboardQuery";
-            this.uxWeeksOnBillboardQuery.Size = new System.Drawing.Size(422, 52);
-            this.uxWeeksOnBillboardQuery.TabIndex = 44;
-            this.uxWeeksOnBillboardQuery.Text = "Albums by Weeks on Billboard";
-            this.uxWeeksOnBillboardQuery.UseVisualStyleBackColor = true;
-            // 
-            // uxHighestRankQueryButton
-            // 
-            this.uxHighestRankQueryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uxHighestRankQueryButton.Location = new System.Drawing.Point(6, 111);
-            this.uxHighestRankQueryButton.Name = "uxHighestRankQueryButton";
-            this.uxHighestRankQueryButton.Size = new System.Drawing.Size(422, 52);
-            this.uxHighestRankQueryButton.TabIndex = 43;
-            this.uxHighestRankQueryButton.Text = "Albums By Highest Rank";
-            this.uxHighestRankQueryButton.UseVisualStyleBackColor = true;
-            // 
-            // uxListensPerMonthQueryButton
-            // 
-            this.uxListensPerMonthQueryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uxListensPerMonthQueryButton.Location = new System.Drawing.Point(6, 37);
-            this.uxListensPerMonthQueryButton.Name = "uxListensPerMonthQueryButton";
-            this.uxListensPerMonthQueryButton.Size = new System.Drawing.Size(422, 52);
-            this.uxListensPerMonthQueryButton.TabIndex = 26;
-            this.uxListensPerMonthQueryButton.Text = "Spotify Listens By Month";
-            this.uxListensPerMonthQueryButton.UseVisualStyleBackColor = true;
-            this.uxListensPerMonthQueryButton.Click += new System.EventHandler(this.uxSortBySpotifyListensPerMonthButton_Click);
-            // 
             // uxAlbumBillboardOutputLabel
             // 
             this.uxAlbumBillboardOutputLabel.AutoSize = true;
@@ -590,6 +563,39 @@
             this.uxSpotifyListensLabel.TabIndex = 30;
             this.uxSpotifyListensLabel.Text = "Spotify Listens";
             // 
+            // uxSpotifyListensDESCQueryButton
+            // 
+            this.uxSpotifyListensDESCQueryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxSpotifyListensDESCQueryButton.Location = new System.Drawing.Point(223, 151);
+            this.uxSpotifyListensDESCQueryButton.Name = "uxSpotifyListensDESCQueryButton";
+            this.uxSpotifyListensDESCQueryButton.Size = new System.Drawing.Size(205, 52);
+            this.uxSpotifyListensDESCQueryButton.TabIndex = 44;
+            this.uxSpotifyListensDESCQueryButton.Text = "Descending";
+            this.uxSpotifyListensDESCQueryButton.UseVisualStyleBackColor = true;
+            this.uxSpotifyListensDESCQueryButton.Click += new System.EventHandler(this.uxSpotifyListensDESCQueryButton_Click);
+            // 
+            // uxSpotifyListensASCQueryButton
+            // 
+            this.uxSpotifyListensASCQueryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxSpotifyListensASCQueryButton.Location = new System.Drawing.Point(1, 151);
+            this.uxSpotifyListensASCQueryButton.Name = "uxSpotifyListensASCQueryButton";
+            this.uxSpotifyListensASCQueryButton.Size = new System.Drawing.Size(205, 52);
+            this.uxSpotifyListensASCQueryButton.TabIndex = 43;
+            this.uxSpotifyListensASCQueryButton.Text = "Ascending";
+            this.uxSpotifyListensASCQueryButton.UseVisualStyleBackColor = true;
+            this.uxSpotifyListensASCQueryButton.Click += new System.EventHandler(this.uxSpotifyListensASCQueryButton_Click);
+            // 
+            // uxListensPerMonthQueryButton
+            // 
+            this.uxListensPerMonthQueryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxListensPerMonthQueryButton.Location = new System.Drawing.Point(6, 37);
+            this.uxListensPerMonthQueryButton.Name = "uxListensPerMonthQueryButton";
+            this.uxListensPerMonthQueryButton.Size = new System.Drawing.Size(422, 52);
+            this.uxListensPerMonthQueryButton.TabIndex = 26;
+            this.uxListensPerMonthQueryButton.Text = "Spotify Listens By Month";
+            this.uxListensPerMonthQueryButton.UseVisualStyleBackColor = true;
+            this.uxListensPerMonthQueryButton.Click += new System.EventHandler(this.uxSortBySpotifyListensPerMonthButton_Click);
+            // 
             // uxSongsBox
             // 
             this.uxSongsBox.Controls.Add(this.uxClearSearchSongButton);
@@ -630,18 +636,6 @@
             this.uxMenusGroupBox.TabStop = false;
             this.uxMenusGroupBox.Text = "Menus";
             // 
-            // uxSearchMenuOption
-            // 
-            this.uxSearchMenuOption.AutoSize = true;
-            this.uxSearchMenuOption.Location = new System.Drawing.Point(178, 37);
-            this.uxSearchMenuOption.Name = "uxSearchMenuOption";
-            this.uxSearchMenuOption.Size = new System.Drawing.Size(231, 36);
-            this.uxSearchMenuOption.TabIndex = 46;
-            this.uxSearchMenuOption.TabStop = true;
-            this.uxSearchMenuOption.Text = "Search Options";
-            this.uxSearchMenuOption.UseVisualStyleBackColor = true;
-            this.uxSearchMenuOption.CheckedChanged += new System.EventHandler(this.uxSearchMenuOption_CheckedChanged);
-            // 
             // uxQueryMenuOption
             // 
             this.uxQueryMenuOption.AutoSize = true;
@@ -654,11 +648,27 @@
             this.uxQueryMenuOption.UseVisualStyleBackColor = true;
             this.uxQueryMenuOption.CheckedChanged += new System.EventHandler(this.uxQueryMenuOption_CheckedChanged);
             // 
+            // uxSearchMenuOption
+            // 
+            this.uxSearchMenuOption.AutoSize = true;
+            this.uxSearchMenuOption.Location = new System.Drawing.Point(178, 37);
+            this.uxSearchMenuOption.Name = "uxSearchMenuOption";
+            this.uxSearchMenuOption.Size = new System.Drawing.Size(231, 36);
+            this.uxSearchMenuOption.TabIndex = 46;
+            this.uxSearchMenuOption.TabStop = true;
+            this.uxSearchMenuOption.Text = "Search Options";
+            this.uxSearchMenuOption.UseVisualStyleBackColor = true;
+            this.uxSearchMenuOption.CheckedChanged += new System.EventHandler(this.uxSearchMenuOption_CheckedChanged);
+            // 
             // uxQueryGroupBox
             // 
-            this.uxQueryGroupBox.Controls.Add(this.uxWeeksOnBillboardQuery);
+            this.uxQueryGroupBox.Controls.Add(this.uxWeekOfLabel);
+            this.uxQueryGroupBox.Controls.Add(this.uxBillboardWeekQueryInput);
+            this.uxQueryGroupBox.Controls.Add(this.uxSongsByHighestRankAlbumByWeekQueryButton);
+            this.uxQueryGroupBox.Controls.Add(this.uxSortListensDel);
+            this.uxQueryGroupBox.Controls.Add(this.uxSpotifyListensDESCQueryButton);
             this.uxQueryGroupBox.Controls.Add(this.uxListensPerMonthQueryButton);
-            this.uxQueryGroupBox.Controls.Add(this.uxHighestRankQueryButton);
+            this.uxQueryGroupBox.Controls.Add(this.uxSpotifyListensASCQueryButton);
             this.uxQueryGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uxQueryGroupBox.Location = new System.Drawing.Point(1136, 153);
             this.uxQueryGroupBox.Name = "uxQueryGroupBox";
@@ -666,6 +676,45 @@
             this.uxQueryGroupBox.TabIndex = 45;
             this.uxQueryGroupBox.TabStop = false;
             this.uxQueryGroupBox.Text = "Queries";
+            // 
+            // uxSortListensDel
+            // 
+            this.uxSortListensDel.AutoSize = true;
+            this.uxSortListensDel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxSortListensDel.Location = new System.Drawing.Point(73, 116);
+            this.uxSortListensDel.Name = "uxSortListensDel";
+            this.uxSortListensDel.Size = new System.Drawing.Size(296, 32);
+            this.uxSortListensDel.TabIndex = 43;
+            this.uxSortListensDel.Text = "Sort by Spotify Listens";
+            // 
+            // uxSongsByHighestRankAlbumByWeekQueryButton
+            // 
+            this.uxSongsByHighestRankAlbumByWeekQueryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxSongsByHighestRankAlbumByWeekQueryButton.Location = new System.Drawing.Point(2, 218);
+            this.uxSongsByHighestRankAlbumByWeekQueryButton.Name = "uxSongsByHighestRankAlbumByWeekQueryButton";
+            this.uxSongsByHighestRankAlbumByWeekQueryButton.Size = new System.Drawing.Size(426, 80);
+            this.uxSongsByHighestRankAlbumByWeekQueryButton.TabIndex = 45;
+            this.uxSongsByHighestRankAlbumByWeekQueryButton.Text = "Songs by Highest Rank Album in Week:";
+            this.uxSongsByHighestRankAlbumByWeekQueryButton.UseVisualStyleBackColor = true;
+            this.uxSongsByHighestRankAlbumByWeekQueryButton.Click += new System.EventHandler(this.uxSongsByHighestRankAlbumByWeekQueryButton_Click);
+            // 
+            // uxBillboardWeekQueryInput
+            // 
+            this.uxBillboardWeekQueryInput.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.uxBillboardWeekQueryInput.Location = new System.Drawing.Point(129, 304);
+            this.uxBillboardWeekQueryInput.Name = "uxBillboardWeekQueryInput";
+            this.uxBillboardWeekQueryInput.Size = new System.Drawing.Size(293, 38);
+            this.uxBillboardWeekQueryInput.TabIndex = 46;
+            // 
+            // uxWeekOfLabel
+            // 
+            this.uxWeekOfLabel.AutoSize = true;
+            this.uxWeekOfLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxWeekOfLabel.Location = new System.Drawing.Point(6, 307);
+            this.uxWeekOfLabel.Name = "uxWeekOfLabel";
+            this.uxWeekOfLabel.Size = new System.Drawing.Size(117, 32);
+            this.uxWeekOfLabel.TabIndex = 47;
+            this.uxWeekOfLabel.Text = "Week of";
             // 
             // MusicDatabaseForm
             // 
@@ -694,6 +743,7 @@
             this.uxMenusGroupBox.ResumeLayout(false);
             this.uxMenusGroupBox.PerformLayout();
             this.uxQueryGroupBox.ResumeLayout(false);
+            this.uxQueryGroupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -743,13 +793,17 @@
         private System.Windows.Forms.NumericUpDown uxMaxListensInput;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button uxListensPerMonthQueryButton;
-        private System.Windows.Forms.Button uxWeeksOnBillboardQuery;
-        private System.Windows.Forms.Button uxHighestRankQueryButton;
+        private System.Windows.Forms.Button uxSpotifyListensDESCQueryButton;
+        private System.Windows.Forms.Button uxSpotifyListensASCQueryButton;
         private System.Windows.Forms.RadioButton uxAddMenuOption;
         private System.Windows.Forms.GroupBox uxMenusGroupBox;
         private System.Windows.Forms.RadioButton uxSearchMenuOption;
         private System.Windows.Forms.RadioButton uxQueryMenuOption;
         private System.Windows.Forms.GroupBox uxQueryGroupBox;
+        private System.Windows.Forms.Label uxSortListensDel;
+        private System.Windows.Forms.Label uxWeekOfLabel;
+        private System.Windows.Forms.DateTimePicker uxBillboardWeekQueryInput;
+        private System.Windows.Forms.Button uxSongsByHighestRankAlbumByWeekQueryButton;
     }
 }
 

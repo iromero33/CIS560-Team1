@@ -54,5 +54,7 @@ namespace MusicDatabase
         IReadOnlyList<Song> GetSongsBySpotifyListensDESC();
 
         IReadOnlyList<Song> GetSongsWithMostSpotifyListensPerMonth();
+
+        IReadOnlyList<Song> GetSongsWithHighestRankAlbumForWeek(DateTimeOffset week);
     }
 }

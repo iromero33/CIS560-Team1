@@ -20,7 +20,7 @@ AS (
 					week, 
 					B.WeekPosted, 
 					LAG(B.WeekPosted) OVER(
-						PARTITION BY B.WeekPosted, B.AlbumID 
+						PARTITION BY B.WeekPosted, A.AlbumID 
 						ORDER BY B.WeekPosted, B.WeekRanking
 					)
 				) = 1,
