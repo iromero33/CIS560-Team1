@@ -89,6 +89,7 @@
     <Compile Include="SqlSongRepository.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Datasets\billboard.txt" />
     <Content Include="Datasets\billboard\billboard_script.py" />
     <Content Include="Sql\Data\Music.Album.sql" />
     <Content Include="Sql\Data\Music.Artist.sql" />
@@ -137,6 +138,7 @@
   <ItemGroup>
     <None Include="Datasets\Album.csv.xlsx" />
     <None Include="Datasets\Artist.csv.xlsx" />
+    <None Include="Datasets\Billboard.csv.xlsx" />
     <None Include="Datasets\billboard_dataset.csv" />
     <None Include="Datasets\Genre.csv.xlsx" />
     <None Include="Datasets\Song.csv.xlsx" />
