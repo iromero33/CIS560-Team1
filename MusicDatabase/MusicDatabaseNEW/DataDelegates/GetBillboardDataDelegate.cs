@@ -10,15 +10,15 @@ namespace MusicDatabase
     internal class GetBillboardDataDelegate : DataReaderDelegate<Billboard>
     {
         private readonly int albumID;
-        private readonly DateTimeOffset startDate;
-        private readonly DateTimeOffset endDate;
+        private readonly DateTimeOffset date;
+        private readonly int rank;
 
-        public GetBillboardDataDelegate(int albumID, DateTimeOffset startDate, DateTimeOffset endDate)
+        public GetBillboardDataDelegate(int albumID, DateTimeOffset date, int rank)
            : base("Music.GetBillboard")
         {
             this.albumID = albumID;
-            this.startDate = startDate;
-            this.endDate = endDate;
+            this.date = date;
+            this.rank = rank;
         }
 
         public override void PrepareCommand(SqlCommand command)
@@ -26,8 +26,8 @@ namespace MusicDatabase
             base.PrepareCommand(command);
 
             command.Parameters.AddWithValue("AlbumID", albumID);
-            command.Parameters.AddWithValue("StartDate", startDate);
-            command.Parameters.AddWithValue("EndDate", endDate);
+            command.Parameters.AddWithValue("Date", date);
+            command.Parameters.AddWithValue("Rank", rank);
         }
 
         public override Billboard Translate(SqlCommand command, IDataRowReader reader)
@@ -38,8 +38,8 @@ namespace MusicDatabase
             return new Billboard(
                reader.GetInt32("BillboardID"),
                albumID,
-               startDate,
-               endDate);
+               date,
+               rank);
         }
     }
 }
