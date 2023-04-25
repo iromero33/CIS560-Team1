@@ -5,7 +5,7 @@ DECLARE @BillboardStaging TABLE
 	[WeekRanking]	INT NOT NULL,
 	[AlbumName]		NVARCHAR(128) NOT NULL,
 	[ArtistName]	NVARCHAR(64) NOT NULL,
-	[ReleaseYear]	INT,
+	[ReleaseYear]	INT
 );
 
 WITH BillboardStagingTest([WeekPosted], [WeekRanking], [AlbumName], [ArtistName], [ReleaseYear])
