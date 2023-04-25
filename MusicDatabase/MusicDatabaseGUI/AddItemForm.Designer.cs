@@ -41,6 +41,8 @@
             this.uxOtherLabel = new System.Windows.Forms.Label();
             this.uxOtherInput = new System.Windows.Forms.TextBox();
             this.uxReleaseDateInput = new System.Windows.Forms.DateTimePicker();
+            this.uxRankInput = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.uxRankInput)).BeginInit();
             this.SuspendLayout();
             // 
             // uxAlbumMenu
@@ -58,7 +60,7 @@
             this.uxItemNameInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uxItemNameInput.Location = new System.Drawing.Point(24, 56);
             this.uxItemNameInput.Name = "uxItemNameInput";
-            this.uxItemNameInput.Size = new System.Drawing.Size(375, 38);
+            this.uxItemNameInput.Size = new System.Drawing.Size(380, 38);
             this.uxItemNameInput.TabIndex = 1;
             // 
             // uxNameLabel
@@ -171,11 +173,35 @@
             this.uxReleaseDateInput.TabIndex = 12;
             this.uxReleaseDateInput.Value = new System.DateTime(2023, 4, 18, 20, 41, 1, 0);
             // 
+            // uxRankInput
+            // 
+            this.uxRankInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uxRankInput.Location = new System.Drawing.Point(24, 56);
+            this.uxRankInput.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this.uxRankInput.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.uxRankInput.Name = "uxRankInput";
+            this.uxRankInput.Size = new System.Drawing.Size(380, 38);
+            this.uxRankInput.TabIndex = 13;
+            this.uxRankInput.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // AddItemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 453);
+            this.Controls.Add(this.uxRankInput);
             this.Controls.Add(this.uxReleaseDateInput);
             this.Controls.Add(this.uxOtherInput);
             this.Controls.Add(this.uxOtherLabel);
@@ -191,6 +217,7 @@
             this.Controls.Add(this.uxAlbumMenu);
             this.Name = "AddItemForm";
             this.Text = "Add Item";
+            ((System.ComponentModel.ISupportInitialize)(this.uxRankInput)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -211,5 +238,6 @@
         private System.Windows.Forms.Label uxOtherLabel;
         private System.Windows.Forms.TextBox uxOtherInput;
         private System.Windows.Forms.DateTimePicker uxReleaseDateInput;
+        private System.Windows.Forms.NumericUpDown uxRankInput;
     }
 }

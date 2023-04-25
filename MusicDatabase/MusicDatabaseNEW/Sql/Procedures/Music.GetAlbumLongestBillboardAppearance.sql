@@ -14,6 +14,7 @@ AS (
 			B.AlbumID,
 			B.WeekPosted, 
 			B.WeekRanking, 
+			B.AlbumID,
 			IIF(
 				DATEDIFF(
 					week, 

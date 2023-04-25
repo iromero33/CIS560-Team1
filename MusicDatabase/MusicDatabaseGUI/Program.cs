@@ -19,6 +19,11 @@ namespace MusicDatabaseGUI
     public delegate IReadOnlyList<Song> GetSongsBySpotifyListensDel(int min, int max);
     public delegate IReadOnlyList<Song> GetSongsWithMostSpotifyListensPerMonthDel();
     public delegate IReadOnlyList<Album> GetAlbumsByYearDel(DateTimeOffset year);
+    public delegate int GetAlbumBillboardDataDel(int albumID);
+    public delegate IReadOnlyList<Song> GetSongsBySpotifyListensOrderedDel();
+    public delegate IReadOnlyList<Song> GetSongsWithHighestRankAlbumForWeekDel(DateTimeOffset week);
+    public delegate void UpdateBillboardWeekDel(int billboardID, int albumID, DateTimeOffset date, int rank);
+    public delegate Billboard GetBillboardDel(int albumID, DateTimeOffset date);
 
     public delegate void CreateAlbumDel(string name, DateTimeOffset releaseDate);
     public delegate void CreateSongDel(string title, int artistID, int albumID, int genreID, int spotifyListens);
@@ -41,17 +46,21 @@ namespace MusicDatabaseGUI
             Application.SetCompatibleTextRenderingDefault(false);
 
             Controller controller = new Controller();
+
             MusicDatabaseForm form = new MusicDatabaseForm(controller.GetAlbums, controller.GetArtists, controller.GetGenres, controller.GetSongs, 
                 controller.GetSongsByTitle, controller.GetSongsByAlbum, controller.GetAlbumsByYear, 
-                controller.GetSongsByReleaseDate, controller.GetSongsBySpotifyListens, controller.GetSongsWithMostSpotifyListensPerMonth);
-            AddItemForm addForm = new AddItemForm(controller.GetAlbums, controller.GetArtists, controller.GetGenres);
+                controller.GetSongsByReleaseDate, controller.GetSongsBySpotifyListens, controller.GetSongsWithMostSpotifyListensPerMonth,
+                controller.GetAlbumAppearancesOnBillboard, controller.GetAlbumLongestBillboardAppearance, controller.GetAlbumPeakOnBillboard, 
+                controller.GetSongsBySpotifyListensASC, controller.GetSongsBySpotifyListensDESC, controller.GetSongsWithHighestRankAlbumForWeek);
+
+            AddItemForm addForm = new AddItemForm(controller.GetAlbums, controller.GetArtists, controller.GetGenres, controller.GetBillboard);
 
             //Should eventually populate lists in forms using BindingLists of songs, albums, etc. stored in Controller
 
             form.SetAddItemDel(controller.AddItemOfType);
             form.SetFetchDels(controller.FetchSong, controller.FetchAlbum, controller.FetchArtist, controller.FetchGenre);
             controller.SetAddNewItemDel(addForm.InitializeForm);
-            addForm.SetCreateItemDels(controller.CreateAlbum, controller.CreateSong, controller.CreateArtist);
+            addForm.SetCreateItemDels(controller.CreateAlbum, controller.CreateSong, controller.CreateArtist, controller.UpdateBillboard);
 
 
             Application.Run(form);

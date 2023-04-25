@@ -12,8 +12,10 @@ namespace MusicDatabase
 
         Billboard FetchBillboard(int billboardID);
 
-        Billboard GetBillboard(int albumID, DateTimeOffset date, int rank);
+        Billboard GetBillboard(int albumID, DateTimeOffset date);
 
         Billboard CreateBillboard(int albumId, DateTimeOffset date, int rank);
+
+        void SaveBillboard(int billboardID, int albumID, DateTimeOffset date, int rank);
     }
 }

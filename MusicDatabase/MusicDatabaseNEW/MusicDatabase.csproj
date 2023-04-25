@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="DataDelegates\CreateAlbumDataDelegate.cs" />
     <Compile Include="DataDelegates\CreateArtistDataDelegate.cs" />
+    <Compile Include="DataDelegates\SaveBillboardDataDelegate.cs" />
     <Compile Include="DataDelegates\CreateBillboardDataDelegate.cs" />
     <Compile Include="DataDelegates\CreateGenreDataDelegate.cs" />
     <Compile Include="DataDelegates\CreateSongDataDelegate.cs" />
@@ -51,9 +52,13 @@
     <Compile Include="DataDelegates\FetchBillboardDataDelegate.cs" />
     <Compile Include="DataDelegates\FetchGenreDataDelegate.cs" />
     <Compile Include="DataDelegates\FetchSongDataDelegate.cs" />
+    <Compile Include="DataDelegates\GetAlbumPeakOnBillboardDataDelegate.cs" />
+    <Compile Include="DataDelegates\GetAlbumLongestBillboardAppearanceDataDelegate.cs" />
+    <Compile Include="DataDelegates\GetAlbumAppearancesOnBillboardDataDelegate.cs" />
     <Compile Include="DataDelegates\GetAlbumDataDelegate.cs" />
     <Compile Include="DataDelegates\GetSongByReleaseDateDelegate.cs" />
     <Compile Include="DataDelegates\GetSongBySpotifyListensDelegate.cs" />
+    <Compile Include="DataDelegates\GetSongsWithHighestRankAlbumForWeekDataDelegate.cs" />
     <Compile Include="DataDelegates\GetSongsByAlbumDataDelegate.cs" />
     <Compile Include="DataDelegates\GetSongsBySpotifyListensDESCDataDelegate.cs" />
     <Compile Include="DataDelegates\GetSongsByTitleDataDelegate.cs" />
@@ -96,6 +101,7 @@
     <Content Include="Sql\Data\Music.Billboard.sql" />
     <Content Include="Sql\Data\Music.Genre.sql" />
     <Content Include="Sql\Data\Music.Song.sql" />
+    <Content Include="Sql\Procedures\Music.SaveBillboard.sql" />
     <Content Include="Sql\Procedures\Music.GetAlbumLongestBillboardAppearance.sql" />
     <Content Include="Sql\Procedures\Music.GetAlbumPeakOnBillboard.sql" />
     <Content Include="Sql\Procedures\Music.GetAlbumAppearancesOnBillboard.sql" />
@@ -116,6 +122,7 @@
     <Content Include="Sql\Procedures\Music.GetBillboard.sql" />
     <Content Include="Sql\Procedures\Music.GetGenre.sql" />
     <Content Include="Sql\Procedures\Music.GetSong.sql" />
+    <Content Include="Sql\Procedures\Music.GetSongsWithHighestRankAlbumForWeek.sql" />
     <Content Include="Sql\Procedures\Music.GetSongsWithMostSpotifyListensPerMonth.sql" />
     <Content Include="Sql\Procedures\Music.GetSongsBySpotifyListensDESC.sql" />
     <Content Include="Sql\Procedures\Music.GetSongsBySpotifyListensASC.sql" />

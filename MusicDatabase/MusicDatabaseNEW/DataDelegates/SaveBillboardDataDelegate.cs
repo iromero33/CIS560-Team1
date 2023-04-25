@@ -6,15 +6,17 @@ using System;
 
 namespace MusicDatabase.DataDelegates
 {
-    internal class CreateBillboardDataDelegate : NonQueryDataDelegate<Billboard>
+    internal class SaveBillboardDataDelegate : DataDelegate
     {
+        public readonly int billboardID;
         public readonly int albumId;
         public readonly DateTimeOffset date;
         public readonly int rank;
 
-        public CreateBillboardDataDelegate(int albumId, DateTimeOffset date, int rank)
-           : base("Music.CreateBillboard")
+        public SaveBillboardDataDelegate(int billboardID, int albumId, DateTimeOffset date, int rank)
+           : base("Music.SaveBillboard")
         {
+            this.billboardID = billboardID;
             this.albumId = albumId;
             this.date = date;
             this.rank = rank;
@@ -24,17 +26,10 @@ namespace MusicDatabase.DataDelegates
         {
             base.PrepareCommand(command);
 
+            command.Parameters.AddWithValue("BillboardID", billboardID);
             command.Parameters.AddWithValue("AlbumID", albumId);
             command.Parameters.AddWithValue("WeekPosted", date);
             command.Parameters.AddWithValue("WeekRanking", rank);
-
-            var p = command.Parameters.Add("BillboardID", SqlDbType.Int);
-            p.Direction = ParameterDirection.Output;
-        }
-
-        public override Billboard Translate(SqlCommand command)
-        {
-            return new Billboard((int)command.Parameters["AlbumID"].Value, albumId, date, rank);
         }
     }
 }

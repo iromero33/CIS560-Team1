@@ -77,5 +77,10 @@ namespace MusicDatabase
         {
             return executor.ExecuteReader(new GetSongsWithMostSpotifyListensPerMonthDataDelegate());
         }
+
+        public IReadOnlyList<Song> GetSongsWithHighestRankAlbumForWeek(DateTimeOffset week)
+        {
+            return executor.ExecuteReader(new GetSongsWithHighestRankAlbumForWeekDataDelegate(week));
+        }
     }
 }

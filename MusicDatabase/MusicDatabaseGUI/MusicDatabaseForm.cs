@@ -26,6 +26,12 @@ namespace MusicDatabaseGUI
         private GetSongsByReleaseDateDel GetSongsByReleaseDate;
         private GetSongsBySpotifyListensDel GetSongsBySpotifyListens;
         private GetSongsWithMostSpotifyListensPerMonthDel GetSongsWithMostSpotifyListensPerMonth;
+        private GetAlbumBillboardDataDel GetBillboardAppearances;
+        private GetAlbumBillboardDataDel GetConsecutiveWeeksOnBillboard;
+        private GetAlbumBillboardDataDel GetAlbumPeak;
+        private GetSongsBySpotifyListensOrderedDel GetBySpotifyListensASC;
+        private GetSongsBySpotifyListensOrderedDel GetBySpotifyListensDESC;
+        private GetSongsWithHighestRankAlbumForWeekDel GetSongsByAlbumRankForWeek;
 
         private FetchSongDel FetchSong;
         private FetchAlbumDel FetchAlbum;
@@ -34,7 +40,11 @@ namespace MusicDatabaseGUI
 
         private Song SelectedSong;
 
-        public MusicDatabaseForm(GetAlbumsDel albumsDel, GetArtistsDel artistsDel, GetGenresDel genresDel, GetSongsDel songsDel, GetSongsByTitleDel songsByTitleDel, GetSongsByAlbumDel songsByAlbumDel, GetAlbumsByYearDel albumsByYearDel, GetSongsByReleaseDateDel songsByDateDel, GetSongsBySpotifyListensDel songsByListensDel, GetSongsWithMostSpotifyListensPerMonthDel songsByListensMonthDel)
+        public MusicDatabaseForm(GetAlbumsDel albumsDel, GetArtistsDel artistsDel, GetGenresDel genresDel, GetSongsDel songsDel, 
+            GetSongsByTitleDel songsByTitleDel, GetSongsByAlbumDel songsByAlbumDel, GetAlbumsByYearDel albumsByYearDel, 
+            GetSongsByReleaseDateDel songsByDateDel, GetSongsBySpotifyListensDel songsByListensDel, GetSongsWithMostSpotifyListensPerMonthDel songsByListensMonthDel,
+            GetAlbumBillboardDataDel billboardAppearancesDel, GetAlbumBillboardDataDel consecutiveWeeksOnBillboardDel, GetAlbumBillboardDataDel albumPeakDel,
+            GetSongsBySpotifyListensOrderedDel byListensASCDel, GetSongsBySpotifyListensOrderedDel byListensDESCDel, GetSongsWithHighestRankAlbumForWeekDel songsbyAlbumRank)
         {
             InitializeComponent();
 
@@ -51,6 +61,12 @@ namespace MusicDatabaseGUI
             GetSongsBySpotifyListens = songsByListensDel;
             GetSongsByReleaseDate = songsByDateDel;
             GetSongsWithMostSpotifyListensPerMonth = songsByListensMonthDel;
+            GetBillboardAppearances = billboardAppearancesDel;
+            GetConsecutiveWeeksOnBillboard = consecutiveWeeksOnBillboardDel;
+            GetAlbumPeak = albumPeakDel;
+            GetBySpotifyListensASC = byListensASCDel;
+            GetBySpotifyListensDESC = byListensDESCDel;
+            GetSongsByAlbumRankForWeek = songsbyAlbumRank;
 
             uxSongsList.DataSource = GetSongs();
             uxAlbumList.DataSource = GetAlbums();
@@ -83,9 +99,13 @@ namespace MusicDatabaseGUI
                         AddItemOfType(ItemType.Album);
                         updateListsOfType(ItemType.Album);
                         break;
+                    case "uxAddSongButton2":
                     case "uxAddSongButton":
                         AddItemOfType(ItemType.Song);
                         updateListsOfType(ItemType.Song);
+                        break;
+                    case "uxUpdateChartButton":
+                        AddItemOfType(ItemType.Billboard);
                         break;
                     default:
                         break;
@@ -142,6 +162,9 @@ namespace MusicDatabaseGUI
                 uxSongAlbumOutput.Text = selectedSongAlbum.Name;
                 uxSongGenreOutput.Text = FetchGenre(SelectedSong.GenreID).Name;
                 uxSongReleaseDateOutput.Text = selectedSongAlbum.ReleaseDate.Date.ToLongDateString();
+                uxAlbumBillboardOutput.Text = "";//GetConsecutiveWeeksOnBillboard(SelectedSong.AlbumID).ToString();
+                uxAlbumTotalWeeksChartedOutput.Text = "";//GetBillboardAppearances(SelectedSong.AlbumID).ToString();
+                uxAlbumPeakBillboardAppearanceOutput.Text = "";//GetAlbumPeak(SelectedSong.AlbumID).ToString();
             } 
             else
             {
@@ -153,6 +176,9 @@ namespace MusicDatabaseGUI
                 uxSongAlbumOutput.Text = "";
                 uxSongGenreOutput.Text = "";
                 uxSongReleaseDateOutput.Text = "";
+                uxAlbumBillboardOutput.Text = "";
+                uxAlbumTotalWeeksChartedOutput.Text = "";
+                uxAlbumPeakBillboardAppearanceOutput.Text = "";
             }
             
         }
@@ -225,6 +251,23 @@ namespace MusicDatabaseGUI
             uxSearchOptions.Visible = false;
             uxAddOptions.Visible = false;
             uxQueryGroupBox.Visible = true;
+        }
+
+        private void uxSpotifyListensASCQueryButton_Click(object sender, EventArgs e)
+        {
+            uxSongsList.DataSource = GetBySpotifyListensASC();
+        }
+
+        private void uxSpotifyListensDESCQueryButton_Click(object sender, EventArgs e)
+        {
+            uxSongsList.DataSource = GetBySpotifyListensDESC();
+        }
+
+        private void uxSongsByHighestRankAlbumByWeekQueryButton_Click(object sender, EventArgs e)
+        {
+            DateTimeOffset week = uxBillboardWeekQueryInput.Value;
+
+            uxSongsList.DataSource = GetSongsByAlbumRankForWeek(week);
         }
     }
 }
