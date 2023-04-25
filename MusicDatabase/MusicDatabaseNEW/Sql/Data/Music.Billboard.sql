@@ -5,7 +5,7 @@ DECLARE @BillboardStaging TABLE
 	[WeekRanking]	INT NOT NULL,
 	[AlbumName]		NVARCHAR(128) NOT NULL,
 	[ArtistName]	NVARCHAR(64) NOT NULL,
-	[ReleaseYear]	NVARCHAR(64)
+	[ReleaseYear]	INT,
 );
 
 WITH BillboardStagingTest([WeekPosted], [WeekRanking], [AlbumName], [ArtistName], [ReleaseYear])
@@ -430,3 +430,11 @@ USING @BillboardStaging S ON S.[AlbumName] = T.[Name]
 WHEN NOT MATCHED THEN
    INSERT([Name], [ReleaseDate])
    VALUES(S.[AlbumName], S.[ReleaseYear]);
+
+INSERT INTO [MusicDatabase].Music.Billboard
+SELECT
+	S.[WeekPosted],
+	S.[WeekRanking],
+	A.AlbumID
+FROM @BillboardStaging S
+	INNER JOIN [MusicDatabase].Music.Album A ON A.[Name] = S.[AlbumName]
