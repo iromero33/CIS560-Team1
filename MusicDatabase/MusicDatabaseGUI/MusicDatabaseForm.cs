@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.Design;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -156,15 +157,18 @@ namespace MusicDatabaseGUI
                 SelectedSong = FetchSong(song.SongID);
                 Album selectedSongAlbum = FetchAlbum(SelectedSong.AlbumID);
 
+                int albumPeak = GetAlbumPeak(SelectedSong.AlbumID);
+
                 uxSongTitleOutput.Text = SelectedSong.Title;
                 uxSpotifyListensOutput.Text = SelectedSong.SpotifyListens.ToString();
                 uxSongArtistOutput.Text = FetchArtist(SelectedSong.ArtistID).Name;
                 uxSongAlbumOutput.Text = selectedSongAlbum.Name;
                 uxSongGenreOutput.Text = FetchGenre(SelectedSong.GenreID).Name;
                 uxSongReleaseDateOutput.Text = selectedSongAlbum.ReleaseDate.Date.ToLongDateString();
-                uxAlbumBillboardOutput.Text = GetConsecutiveWeeksOnBillboard(SelectedSong.AlbumID).ToString();
+                uxAlbumBillboardOutput.Text = "";//GetConsecutiveWeeksOnBillboard(SelectedSong.AlbumID).ToString();
                 uxAlbumTotalWeeksChartedOutput.Text =  GetBillboardAppearances(SelectedSong.AlbumID).ToString();
-                uxAlbumPeakBillboardAppearanceOutput.Text = "";//GetAlbumPeak(SelectedSong.AlbumID).ToString();
+                if (albumPeak > 0) uxAlbumPeakBillboardAppearanceOutput.Text = albumPeak.ToString();
+                else uxAlbumPeakBillboardAppearanceOutput.Text = "Not on charts";
             } 
             else
             {
@@ -212,7 +216,15 @@ namespace MusicDatabaseGUI
         {
             Album album = (Album)uxAlbumList.SelectedValue;
 
-            uxSongsList.DataSource = GetSongsByAlbum(album.AlbumID);
+            if (album != null) 
+            {
+                uxSongsList.DataSource = GetSongsByAlbum(album.AlbumID);
+            } 
+            else 
+            {
+                MessageBox.Show("Error: Must select an album");
+            }
+            
         }
 
         private void uxAlbumYearInput_ValueChanged(object sender, EventArgs e)
