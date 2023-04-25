@@ -26,6 +26,9 @@ namespace MusicDatabaseGUI
         private GetSongsByReleaseDateDel GetSongsByReleaseDate;
         private GetSongsBySpotifyListensDel GetSongsBySpotifyListens;
         private GetSongsWithMostSpotifyListensPerMonthDel GetSongsWithMostSpotifyListensPerMonth;
+        private GetAlbumBillboardDataDel GetBillboardAppearances;
+        private GetAlbumBillboardDataDel GetConsecutiveWeeksOnBillboard;
+        private GetAlbumBillboardDataDel GetAlbumPeak;
 
         private FetchSongDel FetchSong;
         private FetchAlbumDel FetchAlbum;
@@ -34,7 +37,10 @@ namespace MusicDatabaseGUI
 
         private Song SelectedSong;
 
-        public MusicDatabaseForm(GetAlbumsDel albumsDel, GetArtistsDel artistsDel, GetGenresDel genresDel, GetSongsDel songsDel, GetSongsByTitleDel songsByTitleDel, GetSongsByAlbumDel songsByAlbumDel, GetAlbumsByYearDel albumsByYearDel, GetSongsByReleaseDateDel songsByDateDel, GetSongsBySpotifyListensDel songsByListensDel, GetSongsWithMostSpotifyListensPerMonthDel songsByListensMonthDel)
+        public MusicDatabaseForm(GetAlbumsDel albumsDel, GetArtistsDel artistsDel, GetGenresDel genresDel, GetSongsDel songsDel, 
+            GetSongsByTitleDel songsByTitleDel, GetSongsByAlbumDel songsByAlbumDel, GetAlbumsByYearDel albumsByYearDel, 
+            GetSongsByReleaseDateDel songsByDateDel, GetSongsBySpotifyListensDel songsByListensDel, GetSongsWithMostSpotifyListensPerMonthDel songsByListensMonthDel,
+            GetAlbumBillboardDataDel billboardAppearancesDel, GetAlbumBillboardDataDel consecutiveWeeksOnBillboardDel, GetAlbumBillboardDataDel albumPeakDel)
         {
             InitializeComponent();
 
@@ -51,6 +57,9 @@ namespace MusicDatabaseGUI
             GetSongsBySpotifyListens = songsByListensDel;
             GetSongsByReleaseDate = songsByDateDel;
             GetSongsWithMostSpotifyListensPerMonth = songsByListensMonthDel;
+            GetBillboardAppearances = billboardAppearancesDel;
+            GetConsecutiveWeeksOnBillboard = consecutiveWeeksOnBillboardDel;
+            GetAlbumPeak = albumPeakDel;
 
             uxSongsList.DataSource = GetSongs();
             uxAlbumList.DataSource = GetAlbums();
@@ -142,6 +151,7 @@ namespace MusicDatabaseGUI
                 uxSongAlbumOutput.Text = selectedSongAlbum.Name;
                 uxSongGenreOutput.Text = FetchGenre(SelectedSong.GenreID).Name;
                 uxSongReleaseDateOutput.Text = selectedSongAlbum.ReleaseDate.Date.ToLongDateString();
+                uxAlbumBillboardOutput.Text = GetConsecutiveWeeksOnBillboard(SelectedSong.AlbumID).ToString();
             } 
             else
             {
@@ -153,6 +163,7 @@ namespace MusicDatabaseGUI
                 uxSongAlbumOutput.Text = "";
                 uxSongGenreOutput.Text = "";
                 uxSongReleaseDateOutput.Text = "";
+                uxAlbumBillboardOutput.Text = "";
             }
             
         }

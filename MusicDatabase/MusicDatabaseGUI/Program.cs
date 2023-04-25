@@ -19,6 +19,7 @@ namespace MusicDatabaseGUI
     public delegate IReadOnlyList<Song> GetSongsBySpotifyListensDel(int min, int max);
     public delegate IReadOnlyList<Song> GetSongsWithMostSpotifyListensPerMonthDel();
     public delegate IReadOnlyList<Album> GetAlbumsByYearDel(DateTimeOffset year);
+    public delegate int GetAlbumBillboardDataDel(int albumID);
 
     public delegate void CreateAlbumDel(string name, DateTimeOffset releaseDate);
     public delegate void CreateSongDel(string title, int artistID, int albumID, int genreID, int spotifyListens);
@@ -43,7 +44,8 @@ namespace MusicDatabaseGUI
             Controller controller = new Controller();
             MusicDatabaseForm form = new MusicDatabaseForm(controller.GetAlbums, controller.GetArtists, controller.GetGenres, controller.GetSongs, 
                 controller.GetSongsByTitle, controller.GetSongsByAlbum, controller.GetAlbumsByYear, 
-                controller.GetSongsByReleaseDate, controller.GetSongsBySpotifyListens, controller.GetSongsWithMostSpotifyListensPerMonth);
+                controller.GetSongsByReleaseDate, controller.GetSongsBySpotifyListens, controller.GetSongsWithMostSpotifyListensPerMonth,
+                controller.GetAlbumAppearancesOnBillboard, controller.GetAlbumLongestBillboardAppearance, controller.GetAlbumPeakOnBillboard);
             AddItemForm addForm = new AddItemForm(controller.GetAlbums, controller.GetArtists, controller.GetGenres);
 
             //Should eventually populate lists in forms using BindingLists of songs, albums, etc. stored in Controller

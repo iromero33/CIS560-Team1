@@ -17,5 +17,11 @@ namespace MusicDatabase
         Album CreateAlbum(string name, DateTimeOffset releaseDate);
 
         IReadOnlyList<Album> GetAlbumsByYear(DateTimeOffset Year);
+
+        int GetAlbumPeakOnBillboard(int albumID);
+
+        int GetAlbumLongestBillboardAppearance(int albumID);
+
+        int GetAlbumAppearancesOnBillboard(int albumID);
     }
 }

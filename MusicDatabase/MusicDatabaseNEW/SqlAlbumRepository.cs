@@ -46,5 +46,20 @@ namespace MusicDatabase
         {
             return executor.ExecuteReader(new GetAlbumsByYearDataDelegate(Year));
         }
+
+        public int GetAlbumPeakOnBillboard(int albumID)
+        {
+            return executor.ExecuteReader(new GetAlbumPeakOnBillboardDataDelegate(albumID));
+        }
+
+        public int GetAlbumLongestBillboardAppearance(int albumID)
+        {
+            return executor.ExecuteReader(new GetAlbumLongestBillboardAppearanceDataDelegate(albumID));
+        }
+
+        public int GetAlbumAppearancesOnBillboard(int albumID)
+        {
+            return executor.ExecuteReader(new GetAlbumAppearancesOnBillboardDataDelegate(albumID));
+        }
     }
 }

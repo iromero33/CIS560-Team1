@@ -108,5 +108,11 @@ namespace MusicDatabaseGUI
         public IReadOnlyList<Song> GetSongsBySpotifyListens(int min, int max) => songRepository.GetSongsBySpotifyListens(min, max);
 
         public IReadOnlyList<Song> GetSongsWithMostSpotifyListensPerMonth() => songRepository.GetSongsWithMostSpotifyListensPerMonth();
+
+        public int GetAlbumPeakOnBillboard(int albumID) => albumRepository.GetAlbumPeakOnBillboard(albumID);
+
+        public int GetAlbumLongestBillboardAppearance(int albumID) => albumRepository.GetAlbumLongestBillboardAppearance(albumID);
+
+        public int GetAlbumAppearancesOnBillboard(int albumID) => albumRepository.GetAlbumAppearancesOnBillboard(albumID);
     }
 }

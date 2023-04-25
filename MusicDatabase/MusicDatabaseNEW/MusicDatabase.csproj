@@ -51,6 +51,9 @@
     <Compile Include="DataDelegates\FetchBillboardDataDelegate.cs" />
     <Compile Include="DataDelegates\FetchGenreDataDelegate.cs" />
     <Compile Include="DataDelegates\FetchSongDataDelegate.cs" />
+    <Compile Include="DataDelegates\GetAlbumPeakOnBillboardDataDelegate.cs" />
+    <Compile Include="DataDelegates\GetAlbumLongestBillboardAppearanceDataDelegate.cs" />
+    <Compile Include="DataDelegates\GetAlbumAppearancesOnBillboardDataDelegate.cs" />
     <Compile Include="DataDelegates\GetAlbumDataDelegate.cs" />
     <Compile Include="DataDelegates\GetSongByReleaseDateDelegate.cs" />
     <Compile Include="DataDelegates\GetSongBySpotifyListensDelegate.cs" />

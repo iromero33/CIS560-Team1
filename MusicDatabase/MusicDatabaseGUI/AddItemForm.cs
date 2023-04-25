@@ -13,8 +13,6 @@ namespace MusicDatabaseGUI
 {
     public partial class AddItemForm : Form
     {
-        private bool IsNewItem;
-
         private ItemType CurrItemType;
 
         private GetAlbumsDel GetAlbums;
@@ -52,7 +50,6 @@ namespace MusicDatabaseGUI
         public void InitializeForm (ItemType type)
         {
             HideAllOptions();
-            IsNewItem = true;
             CurrItemType = type;
             uxItemNameInput.Text = "";
 
@@ -91,16 +88,6 @@ namespace MusicDatabaseGUI
             }
 
             ShowDialog();
-        }
-
-        /// <summary>
-        /// Not necessary anymore?
-        /// </summary>
-        public void EditArtist()
-        {
-            InitializeForm(ItemType.Artist);
-            IsNewItem = false;
-            //Should eventually hook up to edit artist button in main form using delegates
         }
 
         private void uxOkButton_Click(object sender, EventArgs e)
