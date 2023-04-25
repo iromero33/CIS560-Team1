@@ -72,5 +72,10 @@ namespace MusicDatabase
         {
             return executor.ExecuteReader(new GetSongsBySpotifyListensDESCDataDelegate());
         }
+
+        public IReadOnlyList<Song> GetSongsWithMostSpotifyListensPerMonth()
+        {
+            return executor.ExecuteReader(new GetSongsWithMostSpotifyListensPerMonthDataDelegate());
+        }
     }
 }

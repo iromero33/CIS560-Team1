@@ -25,6 +25,7 @@ namespace MusicDatabaseGUI
         private GetAlbumsByYearDel GetAlbumsByYear;
         private GetSongsByReleaseDateDel GetSongsByReleaseDate;
         private GetSongsBySpotifyListensDel GetSongsBySpotifyListens;
+        private GetSongsWithMostSpotifyListensPerMonthDel GetSongsWithMostSpotifyListensPerMonth;
 
         private FetchSongDel FetchSong;
         private FetchAlbumDel FetchAlbum;
@@ -33,7 +34,7 @@ namespace MusicDatabaseGUI
 
         private Song SelectedSong;
 
-        public MusicDatabaseForm(GetAlbumsDel albumsDel, GetArtistsDel artistsDel, GetGenresDel genresDel, GetSongsDel songsDel, GetSongsByTitleDel songsByTitleDel, GetSongsByAlbumDel songsByAlbumDel, GetAlbumsByYearDel albumsByYearDel, GetSongsByReleaseDateDel songsByDateDel, GetSongsBySpotifyListensDel songsByListensDel)
+        public MusicDatabaseForm(GetAlbumsDel albumsDel, GetArtistsDel artistsDel, GetGenresDel genresDel, GetSongsDel songsDel, GetSongsByTitleDel songsByTitleDel, GetSongsByAlbumDel songsByAlbumDel, GetAlbumsByYearDel albumsByYearDel, GetSongsByReleaseDateDel songsByDateDel, GetSongsBySpotifyListensDel songsByListensDel, GetSongsWithMostSpotifyListensPerMonthDel songsByListensMonthDel)
         {
             InitializeComponent();
 
@@ -49,9 +50,11 @@ namespace MusicDatabaseGUI
             GetAlbumsByYear = albumsByYearDel;
             GetSongsBySpotifyListens = songsByListensDel;
             GetSongsByReleaseDate = songsByDateDel;
+            GetSongsWithMostSpotifyListensPerMonth = songsByListensMonthDel;
 
             uxSongsList.DataSource = GetSongs();
             uxAlbumList.DataSource = GetAlbums();
+            uxSearchMenuOption.Checked = true;
         }
 
         public void SetAddItemDel(AddItemDel del)
@@ -93,8 +96,10 @@ namespace MusicDatabaseGUI
 
         private void uxSearchByButton_Click(object sender, EventArgs e)
         {
-            int numSpotifyListens = (int)uxSpotifyListensInput.Value;
-            uxSongsList.DataSource = GetSongsBySpotifyListens(0, numSpotifyListens);
+            int minSpotifyListens = (int)uxMinListensInput.Value;
+            int maxSpotifyListens = (int)uxMaxListensInput.Value;
+
+            uxSongsList.DataSource = GetSongsBySpotifyListens(minSpotifyListens, maxSpotifyListens);
         }
 
         private void uxSearchWeeksButton_Click(object sender, EventArgs e)
@@ -194,6 +199,32 @@ namespace MusicDatabaseGUI
             uxSongsList.DataSource = GetSongs();
             uxSongTextBox.Text = "";
             uxSongsList.SelectedIndex = -1;
+        }
+
+        private void uxSortBySpotifyListensPerMonthButton_Click(object sender, EventArgs e)
+        {
+            uxSongsList.DataSource = GetSongsWithMostSpotifyListensPerMonth();
+        }
+
+        private void uxSearchMenuOption_CheckedChanged(object sender, EventArgs e)
+        {
+            uxSearchOptions.Visible = true;
+            uxAddOptions.Visible = false;
+            uxQueryGroupBox.Visible = false;
+        }
+
+        private void uxAddMenuOption_CheckedChanged(object sender, EventArgs e)
+        {
+            uxSearchOptions.Visible = false;
+            uxAddOptions.Visible = true;
+            uxQueryGroupBox.Visible = false;
+        }
+
+        private void uxQueryMenuOption_CheckedChanged(object sender, EventArgs e)
+        {
+            uxSearchOptions.Visible = false;
+            uxAddOptions.Visible = false;
+            uxQueryGroupBox.Visible = true;
         }
     }
 }

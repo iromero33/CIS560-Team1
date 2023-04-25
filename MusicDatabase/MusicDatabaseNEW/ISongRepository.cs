@@ -52,5 +52,7 @@ namespace MusicDatabase
         IReadOnlyList<Song> GetSongsBySpotifyListensASC();
 
         IReadOnlyList<Song> GetSongsBySpotifyListensDESC();
+
+        IReadOnlyList<Song> GetSongsWithMostSpotifyListensPerMonth();
     }
 }

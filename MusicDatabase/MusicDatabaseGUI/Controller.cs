@@ -103,14 +103,10 @@ namespace MusicDatabaseGUI
             return albumRepository.GetAlbumsByYear(year);
         }
 
-        public IReadOnlyList<Song> GetSongsByReleaseDate(DateTimeOffset date)
-        {
-            return songRepository.GetSongsByReleaseDate(date);
-        }
+        public IReadOnlyList<Song> GetSongsByReleaseDate(DateTimeOffset date) => songRepository.GetSongsByReleaseDate(date);
 
-        public IReadOnlyList<Song> GetSongsBySpotifyListens(int min, int max)
-        {
-            return songRepository.GetSongsBySpotifyListens(min, max);
-        }
+        public IReadOnlyList<Song> GetSongsBySpotifyListens(int min, int max) => songRepository.GetSongsBySpotifyListens(min, max);
+
+        public IReadOnlyList<Song> GetSongsWithMostSpotifyListensPerMonth() => songRepository.GetSongsWithMostSpotifyListensPerMonth();
     }
 }

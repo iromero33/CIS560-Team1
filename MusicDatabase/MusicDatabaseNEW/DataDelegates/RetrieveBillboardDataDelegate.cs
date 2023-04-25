@@ -23,8 +23,8 @@ namespace MusicDatabase.DataDelegates
                 billboards.Add(new Billboard(
                     reader.GetInt32("BillboardID"),
                     reader.GetInt32("AlbumID"),
-                    reader.GetDateTimeOffset("StartDate"),
-                    reader.GetDateTimeOffset("EndDate")));
+                    reader.GetDateTimeOffset("Date"),
+                    reader.GetInt32("Rank")));
             }
 
             return billboards;

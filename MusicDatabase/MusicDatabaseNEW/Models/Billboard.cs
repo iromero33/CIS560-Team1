@@ -8,16 +8,16 @@ namespace MusicDatabase.Models
 
         public int AlbumID { get; }
 
-        public DateTimeOffset StartDate { get; }
+        public DateTimeOffset Date { get; }
 
-        public DateTimeOffset EndDate { get; }
+        public int Rank { get; }
 
-        internal Billboard(int billboardId, int albumId, DateTimeOffset start, DateTimeOffset end)
+        internal Billboard(int billboardId, int albumId, DateTimeOffset date, int rank)
         {
             BillboardID = billboardId;
             AlbumID = albumId;
-            StartDate = start;
-            EndDate = end;
+            Date = date;
+            Rank = rank;
         }
     }
 }
