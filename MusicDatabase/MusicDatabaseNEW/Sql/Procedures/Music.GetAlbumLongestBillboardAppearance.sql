@@ -6,7 +6,7 @@ AS
 WITH ConsecutiveWeeksCte(LongestRun)
 AS (
 	SELECT 
-		SUM(S.WeekSegments) OVER(PARTITION BY S.WeekPosted, S.AlbumID ORDER BY S.WeekPosted, S.WeekRanking) AS LongestRun
+		SUM(S.WeekSegments) OVER(PARTITION BY S.AlbumID ORDER BY S.WeekPosted ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS LongestRun
 	FROM (
 		SELECT 
 			B.AlbumID,
@@ -17,10 +17,10 @@ AS (
 					week, 
 					B.WeekPosted, 
 					LAG(B.WeekPosted) OVER(
-						PARTITION BY B.WeekPosted, B.AlbumID 
-						ORDER BY B.WeekPosted, B.WeekRanking
+						PARTITION BY B.AlbumID 
+						ORDER BY B.WeekPosted
 					)
-				) = 1,
+				) = -1,
 				0,
 				1
 			) AS WeekSegments
@@ -29,7 +29,9 @@ AS (
 	) S
 	WHERE S.AlbumID = @AlbumID
 )
-SELECT 
+SELECT TOP(1)
 	@LongestRun = COUNT(C.LongestRun)
-FROM ConsecutiveWeeksCte C;
+FROM ConsecutiveWeeksCte C
+GROUP BY C.LongestRun
+ORDER BY C.LongestRun DESC;
 GO
