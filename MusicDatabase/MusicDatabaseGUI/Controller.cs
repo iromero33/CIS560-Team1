@@ -122,11 +122,10 @@ namespace MusicDatabaseGUI
 
         public IReadOnlyList<Song> GetSongsWithHighestRankAlbumForWeek(DateTimeOffset week) => songRepository.GetSongsWithHighestRankAlbumForWeek(week);
 
-        public void UpdateBillboard (int billboardID, int albumID, DateTimeOffset date, int rank)
-        {
-            billboardRepository.SaveBillboard(billboardID, albumID, date, rank);
-        }
+        public void UpdateBillboard (int albumID, DateTimeOffset date, int rank) => billboardRepository.SaveBillboard(albumID, date, rank);
 
         public Billboard GetBillboard(int albumID, DateTimeOffset date) => billboardRepository.GetBillboard(albumID, date);
+
+        public IReadOnlyList<Song> GetSongsByBillboardNumWeeks(int numWeeks) => songRepository.GetSongsByBillboardNumWeeks(numWeeks);
     }
 }

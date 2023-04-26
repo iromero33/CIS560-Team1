@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="DataDelegates\CreateAlbumDataDelegate.cs" />
     <Compile Include="DataDelegates\CreateArtistDataDelegate.cs" />
+    <Compile Include="DataDelegates\GetSongsByBillboardNumWeeksDataDelegate.cs" />
     <Compile Include="DataDelegates\SaveBillboardDataDelegate.cs" />
     <Compile Include="DataDelegates\CreateBillboardDataDelegate.cs" />
     <Compile Include="DataDelegates\CreateGenreDataDelegate.cs" />
@@ -101,6 +102,7 @@
     <Content Include="Sql\Data\Music.Billboard.sql" />
     <Content Include="Sql\Data\Music.Genre.sql" />
     <Content Include="Sql\Data\Music.Song.sql" />
+    <Content Include="Sql\Procedures\Music.GetSongsByBillboardNumWeeks.sql" />
     <Content Include="Sql\Procedures\Music.SaveBillboard.sql" />
     <Content Include="Sql\Procedures\Music.GetAlbumLongestBillboardAppearance.sql" />
     <Content Include="Sql\Procedures\Music.GetAlbumPeakOnBillboard.sql" />

@@ -33,6 +33,7 @@ namespace MusicDatabaseGUI
         private GetSongsBySpotifyListensOrderedDel GetBySpotifyListensASC;
         private GetSongsBySpotifyListensOrderedDel GetBySpotifyListensDESC;
         private GetSongsWithHighestRankAlbumForWeekDel GetSongsByAlbumRankForWeek;
+        private GetSongsByBillboardNumWeeksDel GetSongsByBillboardNumWeeks;
 
         private FetchSongDel FetchSong;
         private FetchAlbumDel FetchAlbum;
@@ -45,7 +46,7 @@ namespace MusicDatabaseGUI
             GetSongsByTitleDel songsByTitleDel, GetSongsByAlbumDel songsByAlbumDel, GetAlbumsByYearDel albumsByYearDel, 
             GetSongsByReleaseDateDel songsByDateDel, GetSongsBySpotifyListensDel songsByListensDel, GetSongsWithMostSpotifyListensPerMonthDel songsByListensMonthDel,
             GetAlbumBillboardDataDel billboardAppearancesDel, GetAlbumBillboardDataDel consecutiveWeeksOnBillboardDel, GetAlbumBillboardDataDel albumPeakDel,
-            GetSongsBySpotifyListensOrderedDel byListensASCDel, GetSongsBySpotifyListensOrderedDel byListensDESCDel, GetSongsWithHighestRankAlbumForWeekDel songsbyAlbumRank)
+            GetSongsBySpotifyListensOrderedDel byListensASCDel, GetSongsBySpotifyListensOrderedDel byListensDESCDel, GetSongsWithHighestRankAlbumForWeekDel songsbyAlbumRank, GetSongsByBillboardNumWeeksDel songsByBillboardNumWeeks)
         {
             InitializeComponent();
 
@@ -68,6 +69,7 @@ namespace MusicDatabaseGUI
             GetBySpotifyListensASC = byListensASCDel;
             GetBySpotifyListensDESC = byListensDESCDel;
             GetSongsByAlbumRankForWeek = songsbyAlbumRank;
+            GetSongsByBillboardNumWeeks = songsByBillboardNumWeeks;
 
             uxSongsList.DataSource = GetSongs();
             uxAlbumList.DataSource = GetAlbums();
@@ -126,6 +128,8 @@ namespace MusicDatabaseGUI
         private void uxSearchWeeksButton_Click(object sender, EventArgs e)
         {
             int numWeeks = (int)uxBillboardWeeksInput.Value;
+
+            uxSongsList.DataSource = GetSongsByBillboardNumWeeks(numWeeks);
         }
 
         private void uxSearchDateButton_Click(object sender, EventArgs e)

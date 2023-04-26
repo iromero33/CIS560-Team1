@@ -82,5 +82,11 @@ namespace MusicDatabase
         {
             return executor.ExecuteReader(new GetSongsWithHighestRankAlbumForWeekDataDelegate(week));
         }
+
+        public IReadOnlyList<Song> GetSongsByBillboardNumWeeks(int numWeeks)
+        {
+            return executor.ExecuteReader(new GetSongsByBillboardNumWeeksDataDelegate(numWeeks));
+        }
+
     }
 }

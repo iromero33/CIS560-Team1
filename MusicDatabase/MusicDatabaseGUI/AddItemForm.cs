@@ -29,16 +29,13 @@ namespace MusicDatabaseGUI
 
         private UpdateBillboardWeekDel UpdateBillboardWeek;
 
-        private GetBillboardDel GetBillboard;
-
-        public AddItemForm(GetAlbumsDel albumsDel, GetArtistsDel artistsDel, GetGenresDel genresDel, GetBillboardDel billboardDel)
+        public AddItemForm(GetAlbumsDel albumsDel, GetArtistsDel artistsDel, GetGenresDel genresDel)
         {
             InitializeComponent();
 
             GetAlbums = albumsDel;
             GetArtists = artistsDel;
             GetGenres = genresDel;
-            GetBillboard = billboardDel;
 
             uxAlbumMenu.DataSource = GetAlbums();
             uxArtistMenu.DataSource = GetArtists();
@@ -157,8 +154,7 @@ namespace MusicDatabaseGUI
                         albumID = ((Album)uxAlbumMenu.SelectedValue).AlbumID;
                         int rank = (int)uxRankInput.Value;
 
-                        Billboard billboard = GetBillboard(albumID, weekOf);
-                        if (billboard != null) UpdateBillboardWeek(billboard.BillboardID, albumID, weekOf, rank);
+                        UpdateBillboardWeek(albumID, weekOf, rank);
                         break;
                     default:
                         break;

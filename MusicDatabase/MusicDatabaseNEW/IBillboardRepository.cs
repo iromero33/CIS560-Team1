@@ -16,6 +16,6 @@ namespace MusicDatabase
 
         Billboard CreateBillboard(int albumId, DateTimeOffset date, int rank);
 
-        void SaveBillboard(int billboardID, int albumID, DateTimeOffset date, int rank);
+        void SaveBillboard(int albumID, DateTimeOffset date, int rank);
     }
 }

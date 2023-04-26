@@ -22,8 +22,8 @@ namespace MusicDatabaseGUI
     public delegate int GetAlbumBillboardDataDel(int albumID);
     public delegate IReadOnlyList<Song> GetSongsBySpotifyListensOrderedDel();
     public delegate IReadOnlyList<Song> GetSongsWithHighestRankAlbumForWeekDel(DateTimeOffset week);
-    public delegate void UpdateBillboardWeekDel(int billboardID, int albumID, DateTimeOffset date, int rank);
-    public delegate Billboard GetBillboardDel(int albumID, DateTimeOffset date);
+    public delegate void UpdateBillboardWeekDel(int albumID, DateTimeOffset date, int rank);
+    public delegate IReadOnlyList<Song> GetSongsByBillboardNumWeeksDel(int numWeeks);
 
     public delegate void CreateAlbumDel(string name, DateTimeOffset releaseDate);
     public delegate void CreateSongDel(string title, int artistID, int albumID, int genreID, int spotifyListens);
@@ -51,9 +51,9 @@ namespace MusicDatabaseGUI
                 controller.GetSongsByTitle, controller.GetSongsByAlbum, controller.GetAlbumsByYear, 
                 controller.GetSongsByReleaseDate, controller.GetSongsBySpotifyListens, controller.GetSongsWithMostSpotifyListensPerMonth,
                 controller.GetAlbumAppearancesOnBillboard, controller.GetAlbumLongestBillboardAppearance, controller.GetAlbumPeakOnBillboard, 
-                controller.GetSongsBySpotifyListensASC, controller.GetSongsBySpotifyListensDESC, controller.GetSongsWithHighestRankAlbumForWeek);
+                controller.GetSongsBySpotifyListensASC, controller.GetSongsBySpotifyListensDESC, controller.GetSongsWithHighestRankAlbumForWeek, controller.GetSongsByBillboardNumWeeks);
 
-            AddItemForm addForm = new AddItemForm(controller.GetAlbums, controller.GetArtists, controller.GetGenres, controller.GetBillboard);
+            AddItemForm addForm = new AddItemForm(controller.GetAlbums, controller.GetArtists, controller.GetGenres);
 
             //Should eventually populate lists in forms using BindingLists of songs, albums, etc. stored in Controller
 

@@ -12,5 +12,6 @@ SELECT S.SongID, S.Title, S.ArtistID, S.AlbumID, S.GenreID, S.SpotifyListens
 FROM Music.Song S
 	INNER JOIN (Music.Billboard B 
 		INNER JOIN RankingCTE C ON C.WeekPosted = B.WeekPosted AND C.MaxWeekRanking = B.WeekRanking)
-	ON B.AlbumID = S.AlbumID;
+	ON B.AlbumID = S.AlbumID
+ORDER BY S.Title ASC;
 GO

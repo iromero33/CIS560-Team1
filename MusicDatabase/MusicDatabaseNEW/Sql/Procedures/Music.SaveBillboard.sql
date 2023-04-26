@@ -1,29 +1,21 @@
 ﻿CREATE OR ALTER PROCEDURE Music.SaveBillboard
-   @BillboardID INT,
    @AlbumID INT,
    @WeekPosted DateTimeOffset,
    @WeekRanking INT
-   
 AS
 
 MERGE Music.Billboard B
 USING
       (
-         VALUES(@BillboardID, @WeekPosted, @WeekRanking, @AlbumID)
-      ) S(BillboardID, WeekPosted, WeekRanking, AlbumID)
-   ON S.BillboardID = B.BillboardID
-      AND S.AlbumID = B.AlbumID
-      AND S.WeekPosted = B.WeekPosted
-WHEN MATCHED AND NOT EXISTS
-      (
-         SELECT S.WeekPosted
-         INTERSECT
-         SELECT  B.WeekPosted
-      ) THEN
+         VALUES(@WeekPosted, @WeekRanking, @AlbumID)
+      ) S(WeekPosted, WeekRanking, AlbumID)
+   ON S.WeekPosted = B.WeekPosted
+      AND S.WeekRanking = B.WeekRanking
+WHEN MATCHED AND S.AlbumID <> B.AlbumID THEN
    UPDATE
    SET
-      WeekPosted = S.WeekPosted
+      WeekRanking = S.WeekRanking
 WHEN NOT MATCHED THEN
-   INSERT(BillboardID, WeekPosted, WeekRanking, AlbumID)
-   VALUES(S.BillboardID, S.WeekPosted, S.WeekRanking, S.AlbumID);
+   INSERT(WeekPosted, WeekRanking, AlbumID)
+   VALUES(S.WeekPosted, S.WeekRanking, S.AlbumID);
 GO

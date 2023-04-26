@@ -39,9 +39,9 @@ namespace MusicDatabase
             return executor.ExecuteReader(new RetrieveBillboardDataDelegate());
         }
 
-        public void SaveBillboard(int billboardID, int albumID, DateTimeOffset date, int rank)
+        public void SaveBillboard(int albumID, DateTimeOffset date, int rank)
         {
-            executor.ExecuteNonQuery(new SaveBillboardDataDelegate(billboardID, albumID, date, rank));
+            executor.ExecuteNonQuery(new SaveBillboardDataDelegate(albumID, date, rank));
         }
     }
 }
