@@ -799,6 +799,7 @@
             this.Controls.Add(this.uxSongsBox);
             this.Controls.Add(this.uxSongInfo);
             this.Controls.Add(this.uxAddOptions);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "MusicDatabaseForm";
             this.Text = "Music Database";
             this.uxAddOptions.ResumeLayout(false);

@@ -3,8 +3,8 @@ CREATE OR ALTER PROCEDURE Music.GetAlbumPeakOnBillboard
 	@BillboardPeak INT OUTPUT
 AS
 
-SELECT @BillboardPeak = MAX(B.WeekRanking)
+SELECT @BillboardPeak = MIN(B.WeekRanking)
 FROM Music.Billboard B
 WHERE B.AlbumID = @AlbumID
-GROUP BY B.WeekPosted, B.AlbumID
+GROUP BY B.AlbumID
 GO
