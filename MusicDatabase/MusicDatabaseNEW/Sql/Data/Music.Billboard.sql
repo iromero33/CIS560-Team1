@@ -120,7 +120,7 @@ INSERT @BillboardStaging([WeekPosted], [WeekRanking], [AlbumName], [ArtistName],
 	('2020-01-04',125,N'You Make It Feel Like Christmas',N'Gwen Stefani','2017-01-01'),
 	('2020-01-04',126,N'Sgt. Pepper''s Lonely Hearts Club Band (Remastered)',N'The Beatles','1967-01-01'),
 	('2020-01-04',129,N'Dan + Shay',N'Dan + Shay','2018-01-01'),
-	('2020-01-04',130,N'Nevermind (Remastered)',N'Nirvana','1991-01-01'),
+	('2020-01-04',130,N'Nevermind',N'Nirvana','1991-01-01'),
 	('2020-01-04',131,N'Luv Is Rage 2',N'Lil Uzi Vert','2017-01-01'),
 	('2020-01-04',132,N'That''s Christmas To Me (Deluxe Edition)',N'Pentatonix','2015-01-01'),
 	('2020-01-04',133,N'A Star Is Born Soundtrack',N'Lady Gaga','2018-01-01'),
@@ -300,7 +300,7 @@ INSERT @BillboardStaging([WeekPosted], [WeekRanking], [AlbumName], [ArtistName],
 	('2020-01-11',126,N'Ctrl',N'SZA','2017-01-01'),
 	('2020-01-11',127,N'Certified Hitmaker',N'Lil Mosey','2020-01-01'),
 	('2020-01-11',128,N'Ella Mai',N'Ella Mai','2018-01-01'),
-	('2020-01-11',129,N'Nevermind (Remastered)',N'Nirvana','1991-01-01'),
+	('2020-01-11',129,N'Nevermind',N'Nirvana','1991-01-01'),
 	('2020-01-11',131,N'Kane Brown (Deluxe Edition)',N'Kane Brown','2017-01-01'),
 	('2020-01-11',132,N'reputation',N'Taylor Swift','2017-01-01'),
 	('2020-01-11',133,N'Victory Lap',N'Nipsey Hussle','2018-01-01'),
@@ -391,3 +391,6 @@ USING BillboardSourceCTE S ON S.BillboardID = B.BillboardID AND (S.WeekRanking <
 WHEN NOT MATCHED THEN
 	INSERT([WeekPosted], [WeekRanking], AlbumID)
 	VALUES(S.[WeekPosted], S.[WeekRanking], S.AlbumID);
+
+SELECT *
+FROM Music.Billboard;
