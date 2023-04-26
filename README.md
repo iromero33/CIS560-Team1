@@ -11,10 +11,10 @@ The general layout for the project is divided into four main folders: DataAccess
   - DataAccess contains all of the C# classes for communicating between the SQL scripts and the C# classes used by the user interface. 
   - MusicDatabaseGUI is the Windows Form application that the user sees and uses to interact with the database. 
   - MusicDatacaseNEW contains the majority of the classes and scripts. Within this folder is the C# interfaces for each table in the database along with the subfolders       DataDelegates, Datasets, Models, and SQL.
-    -- DataDelegates contains a delegate for each action that can be implemented on the database.
-    -- Datasets contains the csv files and API code used for collecting the data.
-    -- Models contains the base C# classes for each table in the database.
-    -- SQL contains all of the scripts for inserting, updating, and querying the database. It has four folders: Data, Procedures, Schemas, and Tables.
+    --- DataDelegates contains a delegate for each action that can be implemented on the database.
+    --- Datasets contains the csv files and API code used for collecting the data.
+    --- Models contains the base C# classes for each table in the database.
+    --- SQL contains all of the scripts for inserting, updating, and querying the database. It has four folders: Data, Procedures, Schemas, and Tables.
       * Data contains the SQL scripts for the initial insertion of data into the database.
       * Procedures contains the SQL scripts for each action that can be performed on the database (create, fetch, update, etc.)
       * Schemas contains a single SQL file that creates the database schema 'Music'.
