@@ -1,8 +1,0 @@
-﻿IF OBJECT_ID(N'Music.SongArtist') IS NULL
-BEGIN
-   CREATE TABLE Music.SongArtist
-   (
-      ArtistID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
-      SongID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY
-   );
-END;

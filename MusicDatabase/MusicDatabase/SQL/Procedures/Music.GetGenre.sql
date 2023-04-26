@@ -1,8 +1,0 @@
-﻿CREATE OR ALTER PROCEDURE Music.GetGenre
-   @Name NVARCHAR(64)
-AS
-
-SELECT G.GenreID
-FROM Music.Genre G
-WHERE G.Name = @Name;
-GO
