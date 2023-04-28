@@ -109,6 +109,7 @@ namespace MusicDatabaseGUI
                         break;
                     case "uxUpdateChartButton":
                         AddItemOfType(ItemType.Billboard);
+                        UpdateSongInfo();
                         break;
                     default:
                         break;
@@ -156,39 +157,7 @@ namespace MusicDatabaseGUI
 
         private void uxSongsList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (FetchSong != null && uxSongsList.SelectedIndex >= 0 && uxSongsList.SelectedItem is Song song)
-            {
-                SelectedSong = FetchSong(song.SongID);
-                Album selectedSongAlbum = FetchAlbum(SelectedSong.AlbumID);
-
-                int albumPeak = GetAlbumPeak(SelectedSong.AlbumID);
-
-                uxSongTitleOutput.Text = SelectedSong.Title;
-                uxSpotifyListensOutput.Text = SelectedSong.SpotifyListens.ToString();
-                uxSongArtistOutput.Text = FetchArtist(SelectedSong.ArtistID).Name;
-                uxSongAlbumOutput.Text = selectedSongAlbum.Name;
-                uxSongGenreOutput.Text = FetchGenre(SelectedSong.GenreID).Name;
-                uxSongReleaseDateOutput.Text = selectedSongAlbum.ReleaseDate.Date.ToLongDateString();
-                uxAlbumBillboardOutput.Text = GetConsecutiveWeeksOnBillboard(SelectedSong.AlbumID).ToString();
-                uxAlbumTotalWeeksChartedOutput.Text = GetBillboardAppearances(SelectedSong.AlbumID).ToString();
-                if (albumPeak > 0) uxAlbumPeakBillboardAppearanceOutput.Text = albumPeak.ToString();
-                else uxAlbumPeakBillboardAppearanceOutput.Text = "Not on charts";
-            } 
-            else
-            {
-                uxSongsList.SelectedIndex = -1;
-
-                uxSongTitleOutput.Text = "";
-                uxSpotifyListensOutput.Text = "";
-                uxSongArtistOutput.Text = "";
-                uxSongAlbumOutput.Text = "";
-                uxSongGenreOutput.Text = "";
-                uxSongReleaseDateOutput.Text = "";
-                uxAlbumBillboardOutput.Text = "";
-                uxAlbumTotalWeeksChartedOutput.Text = "";
-                uxAlbumPeakBillboardAppearanceOutput.Text = "";
-            }
-            
+            UpdateSongInfo();
         }
 
         private void uxSongTextBox_TextChanged(object sender, EventArgs e)
@@ -284,6 +253,42 @@ namespace MusicDatabaseGUI
             DateTimeOffset week = uxBillboardWeekQueryInput.Value;
 
             uxSongsList.DataSource = GetSongsByAlbumRankForWeek(week);
+        }
+
+        private void UpdateSongInfo()
+        {
+            if (FetchSong != null && uxSongsList.SelectedIndex >= 0 && uxSongsList.SelectedItem is Song song)
+            {
+                SelectedSong = FetchSong(song.SongID);
+                Album selectedSongAlbum = FetchAlbum(SelectedSong.AlbumID);
+
+                int albumPeak = GetAlbumPeak(SelectedSong.AlbumID);
+
+                uxSongTitleOutput.Text = SelectedSong.Title;
+                uxSpotifyListensOutput.Text = SelectedSong.SpotifyListens.ToString();
+                uxSongArtistOutput.Text = FetchArtist(SelectedSong.ArtistID).Name;
+                uxSongAlbumOutput.Text = selectedSongAlbum.Name;
+                uxSongGenreOutput.Text = FetchGenre(SelectedSong.GenreID).Name;
+                uxSongReleaseDateOutput.Text = selectedSongAlbum.ReleaseDate.Date.ToLongDateString();
+                uxAlbumBillboardOutput.Text = GetConsecutiveWeeksOnBillboard(SelectedSong.AlbumID).ToString();
+                uxAlbumTotalWeeksChartedOutput.Text = GetBillboardAppearances(SelectedSong.AlbumID).ToString();
+                if (albumPeak > 0) uxAlbumPeakBillboardAppearanceOutput.Text = albumPeak.ToString();
+                else uxAlbumPeakBillboardAppearanceOutput.Text = "Not on charts";
+            }
+            else
+            {
+                uxSongsList.SelectedIndex = -1;
+
+                uxSongTitleOutput.Text = "";
+                uxSpotifyListensOutput.Text = "";
+                uxSongArtistOutput.Text = "";
+                uxSongAlbumOutput.Text = "";
+                uxSongGenreOutput.Text = "";
+                uxSongReleaseDateOutput.Text = "";
+                uxAlbumBillboardOutput.Text = "";
+                uxAlbumTotalWeeksChartedOutput.Text = "";
+                uxAlbumPeakBillboardAppearanceOutput.Text = "";
+            }
         }
     }
 }

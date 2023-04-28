@@ -33,5 +33,5 @@ SELECT TOP(1)
 	@LongestRun = COUNT(C.LongestRun)
 FROM ConsecutiveWeeksCte C
 GROUP BY C.LongestRun
-ORDER BY C.LongestRun DESC;
+ORDER BY COUNT(C.LongestRun) DESC;
 GO
